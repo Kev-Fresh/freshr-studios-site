@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(pnpm --version)",
+      "Bash(yarn --version)",
+      "Bash(npm --version)",
+      "Bash(python3 -c ' *)",
+      "Bash(npx *)",
+      "Bash(npm run *)",
+      "Bash(python3 *)",
+      "Bash(open *)",
+      "Bash(git init *)",
+      "Bash(git *)"
+    ]
+  }
+}
