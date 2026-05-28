@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useRef, useState, useEffect } from 'react'
 import ServiceCard from '../components/ServiceCard'
 import WorkItem from '../components/WorkItem'
 
@@ -34,6 +35,21 @@ const WORK_PREVIEW = [
 ]
 
 export default function Home() {
+  const introRef = useRef(null)
+  const [glowY, setGlowY] = useState(0)
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!introRef.current) return
+      const rect = introRef.current.getBoundingClientRect()
+      const distFromCenter = rect.top + rect.height / 2 - window.innerHeight / 2
+      setGlowY(distFromCenter * 0.15)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
@@ -61,13 +77,39 @@ export default function Home() {
       </section>
 
       {/* ── Intro statement ──────────────────────────────────── */}
-      <section className="section-light py-20 md:py-28">
-        <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <p className="font-display text-[clamp(32px,5vw,72px)] text-text-dark leading-tight max-w-4xl">
+      <section ref={introRef} className="relative section-dark py-28 md:py-40 overflow-hidden">
+
+        {/* Parallax light bloom — sits behind the text */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{ transform: `translateY(${glowY}px)` }}
+        >
+          <div
+            className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px]"
+            style={{
+              background: 'radial-gradient(ellipse at center, rgba(252,158,79,0.07) 0%, rgba(255,255,255,0.04) 40%, transparent 70%)',
+              borderRadius: '50%',
+            }}
+          />
+        </div>
+
+        {/* Edge vignettes — shadow framing the light */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 18%, transparent 80%, rgba(0,0,0,0.5) 100%)',
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10">
+          <p className="font-display text-[clamp(40px,6vw,88px)] text-text-light leading-tight max-w-4xl">
             We don't make content.<br />
             We tell stories<span className="period-orange" aria-hidden="true" />
           </p>
-          <p className="font-body text-lg text-muted mt-6 max-w-2xl">
+          <p className="font-body text-lg text-muted mt-8 max-w-2xl">
             Freshr Studios is rooted in Buffalo — the culture, the people, the diaspora.
             Every frame is intentional. Every project is a story worth telling.
           </p>
