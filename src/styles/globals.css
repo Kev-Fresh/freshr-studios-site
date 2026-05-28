@@ -115,10 +115,10 @@ h1, h2, h3, h4, h5, h6 {
     height: 0.13em;
     background-color: var(--color-orange);
     border-radius: 50%;
-    vertical-align: middle;
+    vertical-align: baseline;
     margin-left: 0.05em;
-    /* nudge up slightly so it sits at cap-height baseline */
-    margin-bottom: 0.12em;
+    position: relative;
+    bottom: 0.08em;
   }
 
   /* Horizontal filmstrip scroll */

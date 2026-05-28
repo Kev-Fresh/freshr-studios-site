@@ -42,9 +42,9 @@ export default function Navbar() {
             <img
               src={logo}
               alt="Freshr Studios"
-              width="120"
-              height="62"
-              className="w-[120px] h-auto"
+              width="160"
+              height="83"
+              className="w-[160px] h-auto"
             />
           </NavLink>
 
