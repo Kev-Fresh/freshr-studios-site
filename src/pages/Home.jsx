@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-end pb-20 md:pb-28 section-dark grain-overlay overflow-hidden">
+      <section className="relative min-h-screen flex items-start md:items-end pt-24 pb-20 md:pt-0 md:pb-28 section-dark grain-overlay overflow-hidden">
         {/* Background: placeholder until real photography is added */}
         <div className="absolute inset-0 bg-dark-bg" aria-hidden="true" />
 
@@ -65,11 +65,11 @@ export default function Home() {
             We capture authentic stories from the city and its diaspora.
             With intention. With craft.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link to="/archive" className="btn-outline">
+          <div className="mt-10 flex gap-3 md:gap-4">
+            <Link to="/archive" className="btn-outline flex-1 text-center md:flex-none md:text-left">
               See the Work
             </Link>
-            <Link to="/contact" className="btn-primary text-text-light">
+            <Link to="/contact" className="btn-primary text-text-light flex-1 text-center md:flex-none md:text-left">
               Start a Project
             </Link>
           </div>

@@ -111,8 +111,8 @@ h1, h2, h3, h4, h5, h6 {
   /* Orange period — always a circle, never a Bebas Neue rectangle */
   .period-orange {
     display: inline-block;
-    width: 0.13em;
-    height: 0.13em;
+    width: 0.18em;
+    height: 0.18em;
     background-color: var(--color-orange);
     border-radius: 50%;
     vertical-align: baseline;
