@@ -44,7 +44,7 @@ export default function Navbar() {
               alt="Freshr Studios"
               width="160"
               height="83"
-              className="w-[160px] h-auto"
+              className="w-[10rem] h-auto"
             />
           </NavLink>
 

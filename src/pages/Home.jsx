@@ -58,7 +58,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-dark-bg" aria-hidden="true" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10 w-full">
-          <h1 className="font-display text-[clamp(36px,6.5vw,92px)] uppercase leading-[0.88] text-text-light">
+          <h1 className="font-display text-[clamp(2.25rem,6.5vw,5.75rem)] uppercase leading-[0.88] text-text-light">
             Buffalo's Story Studio<span className="period-orange" aria-hidden="true" />
           </h1>
           <p className="font-body text-lg md:text-xl text-text-light/70 mt-6 max-w-md">
@@ -86,7 +86,7 @@ export default function Home() {
           style={{ transform: `translateY(${glowY}px)` }}
         >
           <div
-            className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px]"
+            className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[56.25rem] h-[37.5rem]"
             style={{
               background: 'radial-gradient(ellipse at center, rgba(252,158,79,0.07) 0%, rgba(255,255,255,0.04) 40%, transparent 70%)',
               borderRadius: '50%',
@@ -105,7 +105,7 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10">
-          <p className="font-display text-[clamp(40px,6vw,88px)] text-text-light leading-tight max-w-4xl">
+          <p className="font-display text-[clamp(2.5rem,6vw,5.5rem)] text-text-light leading-tight max-w-4xl">
             We don't make content.<br />
             We tell stories<span className="period-orange" aria-hidden="true" />
           </p>
