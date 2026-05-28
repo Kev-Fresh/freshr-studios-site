@@ -16,20 +16,20 @@
   --color-text-light:#ffffff;
   --color-muted:     #888888;
 
-  /* Active theme tokens — light mode default */
-  --bg:   var(--color-light-bg);
-  --text: var(--color-text-dark);
   --accent: var(--color-orange);
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Dark Mode — responds to OS preference
+   Theme tokens — driven by data-theme set at load time
 ───────────────────────────────────────────────────────────── */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:   var(--color-dark-bg);
-    --text: var(--color-text-light);
-  }
+:root[data-theme="light"] {
+  --bg:   var(--color-light-bg);
+  --text: var(--color-text-dark);
+}
+
+:root[data-theme="dark"] {
+  --bg:   var(--color-dark-bg);
+  --text: var(--color-text-light);
 }
 
 /* ─────────────────────────────────────────────────────────────
