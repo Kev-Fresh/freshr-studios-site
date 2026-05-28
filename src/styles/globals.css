@@ -70,7 +70,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Cerebri Sans', sans-serif;
   line-height: 0.95;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.077em;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 @layer components {
   /* Section titles — "The Work." pattern */
   .section-title {
-    @apply font-display text-6xl md:text-8xl uppercase tracking-tight leading-none;
+    @apply font-display text-6xl md:text-8xl uppercase leading-none;
   }
 
   /* Primary CTA button */
