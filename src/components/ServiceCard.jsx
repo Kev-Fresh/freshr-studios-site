@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom'
  * ServiceCard — Vol. One Studios–style accordion.
  * Service name large on left, expand (+) on click.
  */
-export default function ServiceCard({ title, tagline, description, cta = 'Book this', ctaHref = '/contact', index }) {
+export default function ServiceCard({ title, tagline, description, cta = 'Book this', ctaHref = '/contact', index, onDark = true }) {
   const [open, setOpen] = useState(false)
 
+  const borderColor = onDark ? 'border-white/10' : 'border-black/10'
+  const descColor   = onDark ? 'text-text-light/80' : 'text-text-dark/70'
+
   return (
-    <div className="border-b border-white/10 last:border-b-0">
+    <div className={`border-b last:border-b-0 ${borderColor}`}>
       <button
         className="w-full flex items-center justify-between py-6 md:py-8 text-left group"
         onClick={() => setOpen((o) => !o)}
@@ -48,7 +51,7 @@ export default function ServiceCard({ title, tagline, description, cta = 'Book t
             <p className="font-body font-semibold text-orange text-sm uppercase tracking-widest">
               {tagline}
             </p>
-            <p className="font-body text-text-light/80 leading-relaxed">
+            <p className={`font-body leading-relaxed ${descColor}`}>
               {description}
             </p>
           </div>

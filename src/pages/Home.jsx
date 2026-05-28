@@ -117,10 +117,10 @@ export default function Home() {
       </section>
 
       {/* ── Services preview ─────────────────────────────────── */}
-      <section className="section-dark py-20 md:py-28">
+      <section className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <div className="flex items-end justify-between mb-12">
-            <h2 className="section-title text-text-light">
+            <h2 className="section-title text-text-dark">
               The Services<span className="period-orange" aria-hidden="true" />
             </h2>
             <Link
@@ -138,6 +138,7 @@ export default function Home() {
                 title={s.title}
                 tagline={s.tagline}
                 description={s.description}
+                onDark={false}
               />
             ))}
           </div>
@@ -147,6 +148,7 @@ export default function Home() {
           >
             View all services →
           </Link>
+
         </div>
       </section>
 
