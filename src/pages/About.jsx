@@ -80,7 +80,7 @@ export default function About() {
           <div className="flex flex-col divide-y divide-white/10">
             {PILLARS.map(({ name, desc }, i) => (
               <div key={name} className="py-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                <span className="font-ui text-xs text-muted tabular-nums shrink-0 w-8">
+                <span className="font-body text-xs text-muted tabular-nums shrink-0 w-8">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h3 className="font-display text-4xl md:text-5xl uppercase text-text-light leading-none w-56 shrink-0">
@@ -111,10 +111,10 @@ export default function About() {
               { label: 'Operating as',  value: 'Beam Innovations LLC DBA' },
             ].map(({ label, value }) => (
               <div key={label} className="flex flex-col gap-1">
-                <p className="font-ui text-xs uppercase tracking-widest text-muted">
+                <p className="font-body text-xs uppercase tracking-widest text-muted">
                   {label}
                 </p>
-                <p className="font-ui font-medium text-text-dark">
+                <p className="font-body font-medium text-text-dark">
                   {value}
                 </p>
               </div>

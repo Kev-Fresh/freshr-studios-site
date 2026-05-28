@@ -33,7 +33,7 @@ export default function WorkItem({ title, category, thumbnail, href = '#' }) {
         {/* Category tag — bottom-left overlay */}
         <div className="absolute bottom-3 left-3">
           <span
-            className={`font-ui text-xs uppercase tracking-widest px-2 py-1 bg-dark-bg/80 backdrop-blur-sm ${
+            className={`font-body text-xs uppercase tracking-widest px-2 py-1 bg-dark-bg/80 backdrop-blur-sm ${
               CATEGORY_COLORS[category] ?? 'text-text-light'
             }`}
           >
@@ -44,7 +44,7 @@ export default function WorkItem({ title, category, thumbnail, href = '#' }) {
 
       {/* Title */}
       <div className="mt-3">
-        <p className="font-ui font-medium text-text-light group-hover:text-orange transition-colors duration-200 truncate">
+        <p className="font-body font-medium text-text-light group-hover:text-orange transition-colors duration-200 truncate">
           {title}
         </p>
       </div>

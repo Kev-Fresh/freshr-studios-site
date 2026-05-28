@@ -11,7 +11,7 @@ export default function Footer() {
             <Link to="/">
               <img src={logoDark} alt="Freshr Studios" className="h-12 w-auto" />
             </Link>
-            <p className="font-ui text-muted text-sm uppercase tracking-widest">
+            <p className="font-body text-muted text-sm uppercase tracking-widest">
               Buffalo's Story Studio
             </p>
           </div>
@@ -28,7 +28,7 @@ export default function Footer() {
                 <li key={to}>
                   <Link
                     to={to}
-                    className="font-ui text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+                    className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
                   >
                     {label}
                   </Link>
@@ -43,14 +43,14 @@ export default function Footer() {
               href="https://instagram.com/freshrstudios"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-ui text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+              className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
               aria-label="Freshr Studios on Instagram"
             >
               Instagram
             </a>
             <a
               href="mailto:hello@freshrstudios.com"
-              className="font-ui text-sm text-muted hover:text-orange transition-colors duration-150"
+              className="font-body text-sm text-muted hover:text-orange transition-colors duration-150"
             >
               hello@freshrstudios.com
             </a>
@@ -59,7 +59,7 @@ export default function Footer() {
 
         {/* Legal */}
         <div className="mt-12 pt-6 border-t border-white/10">
-          <p className="font-ui text-xs text-muted">
+          <p className="font-body text-xs text-muted">
             © {new Date().getFullYear()} Freshr Studios.{' '}
             <span className="text-muted/70">A Beam Innovations LLC company.</span>
           </p>

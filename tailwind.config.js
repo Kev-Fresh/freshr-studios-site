@@ -15,9 +15,8 @@ export default {
         muted: '#888888',
       },
       fontFamily: {
-        display: ['"Bebas Neue"', '"Barlow Condensed"', 'sans-serif'],
+        display: ['"Cerebri Sans"', 'sans-serif'],
         body:    ['"DM Sans"', 'sans-serif'],
-        ui:      ['"Syne"', 'sans-serif'],
       },
     },
   },

@@ -20,7 +20,7 @@ export default function ServiceCard({ title, tagline, description, cta = 'Book t
       >
         <div className="flex items-baseline gap-6">
           {/* Index number */}
-          <span className="font-ui text-xs text-muted tabular-nums w-6 shrink-0">
+          <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0">
             {String(index).padStart(2, '0')}
           </span>
           {/* Service title */}
@@ -31,7 +31,7 @@ export default function ServiceCard({ title, tagline, description, cta = 'Book t
 
         {/* Expand / collapse indicator */}
         <span
-          className={`font-ui text-2xl text-orange transition-transform duration-300 ml-4 shrink-0 ${
+          className={`font-body text-2xl text-orange transition-transform duration-300 ml-4 shrink-0 ${
             open ? 'rotate-45' : ''
           }`}
           aria-hidden="true"
@@ -48,7 +48,7 @@ export default function ServiceCard({ title, tagline, description, cta = 'Book t
       >
         <div className="pl-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="flex flex-col gap-3 max-w-xl">
-            <p className="font-ui font-semibold text-orange text-sm uppercase tracking-widest">
+            <p className="font-body font-semibold text-orange text-sm uppercase tracking-widest">
               {tagline}
             </p>
             <p className={`font-body leading-relaxed ${descColor}`}>

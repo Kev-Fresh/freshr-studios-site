@@ -55,7 +55,7 @@ export default function Navbar() {
                 <NavLink
                   to={to}
                   className={({ isActive }) =>
-                    `font-ui text-sm uppercase tracking-widest transition-colors duration-150 ${
+                    `font-body text-sm uppercase tracking-widest transition-colors duration-150 ${
                       isActive ? 'text-orange' : `${textColor} hover:text-orange`
                     }`
                   }

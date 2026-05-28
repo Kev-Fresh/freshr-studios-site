@@ -125,7 +125,7 @@ export default function Home() {
             </h2>
             <Link
               to="/services"
-              className="hidden md:inline font-ui text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+              className="hidden md:inline font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
             >
               View all →
             </Link>
@@ -144,7 +144,7 @@ export default function Home() {
           </div>
           <Link
             to="/services"
-            className="mt-8 inline-block md:hidden font-ui text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+            className="mt-8 inline-block md:hidden font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
           >
             View all services →
           </Link>
@@ -161,7 +161,7 @@ export default function Home() {
             </h2>
             <Link
               to="/archive"
-              className="hidden md:inline font-ui text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+              className="hidden md:inline font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
             >
               Full portfolio →
             </Link>
@@ -185,7 +185,7 @@ export default function Home() {
         <div className="max-w-screen-xl mx-auto px-6 md:px-10 mt-10">
           <Link
             to="/archive"
-            className="inline-block md:hidden font-ui text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+            className="inline-block md:hidden font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
           >
             Full portfolio →
           </Link>
