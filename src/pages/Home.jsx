@@ -58,7 +58,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-dark-bg" aria-hidden="true" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10 w-full">
-          <h1 className="font-display text-[clamp(60px,11vw,160px)] uppercase leading-none text-text-light">
+          <h1 className="font-display text-[clamp(36px,6.5vw,92px)] uppercase leading-[0.88] text-text-light">
             Buffalo's Story Studio<span className="period-orange" aria-hidden="true" />
           </h1>
           <p className="font-body text-lg md:text-xl text-text-light/70 mt-6 max-w-md">
