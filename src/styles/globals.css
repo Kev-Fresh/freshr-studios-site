@@ -47,7 +47,7 @@ body {
   margin: 0;
   background-color: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', 'Syne', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -73,14 +73,14 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Primary CTA button */
   .btn-primary {
-    @apply inline-block px-8 py-3 border-2 border-current font-body font-semibold
+    @apply inline-block px-8 py-3 border-2 border-current font-ui font-semibold
            uppercase tracking-widest text-sm transition-all duration-200
            hover:bg-orange hover:border-orange hover:text-dark-bg;
   }
 
   /* Outlined ghost button */
   .btn-outline {
-    @apply inline-block px-8 py-3 border border-orange text-orange font-body font-semibold
+    @apply inline-block px-8 py-3 border border-orange text-orange font-ui font-semibold
            uppercase tracking-widest text-sm transition-all duration-200
            hover:bg-orange hover:text-dark-bg;
   }

@@ -54,7 +54,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full max-w-xl">
       {/* Name */}
       <div className="flex flex-col gap-2">
-        <label htmlFor="name" className="font-body text-xs uppercase tracking-widest text-muted">
+        <label htmlFor="name" className="font-ui text-xs uppercase tracking-widest text-muted">
           Name <span className="text-orange">*</span>
         </label>
         <input
@@ -70,7 +70,7 @@ export default function ContactForm() {
 
       {/* Email */}
       <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="font-body text-xs uppercase tracking-widest text-muted">
+        <label htmlFor="email" className="font-ui text-xs uppercase tracking-widest text-muted">
           Email <span className="text-orange">*</span>
         </label>
         <input
@@ -86,7 +86,7 @@ export default function ContactForm() {
 
       {/* Phone (optional) */}
       <div className="flex flex-col gap-2">
-        <label htmlFor="phone" className="font-body text-xs uppercase tracking-widest text-muted">
+        <label htmlFor="phone" className="font-ui text-xs uppercase tracking-widest text-muted">
           Phone <span className="text-muted/60">(optional)</span>
         </label>
         <input
@@ -101,7 +101,7 @@ export default function ContactForm() {
 
       {/* Service interest */}
       <div className="flex flex-col gap-2">
-        <label htmlFor="service" className="font-body text-xs uppercase tracking-widest text-muted">
+        <label htmlFor="service" className="font-ui text-xs uppercase tracking-widest text-muted">
           Service <span className="text-orange">*</span>
         </label>
         <select
@@ -123,7 +123,7 @@ export default function ContactForm() {
 
       {/* Message */}
       <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-muted">
+        <label htmlFor="message" className="font-ui text-xs uppercase tracking-widest text-muted">
           Message <span className="text-orange">*</span>
         </label>
         <textarea
@@ -148,7 +148,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="self-start mt-2 px-10 py-4 bg-dark-bg border border-orange text-text-light font-body font-semibold
+        className="self-start mt-2 px-10 py-4 bg-dark-bg border border-orange text-text-light font-ui font-semibold
                    uppercase tracking-widest text-sm transition-all duration-200
                    hover:bg-orange hover:text-dark-bg disabled:opacity-50 disabled:cursor-not-allowed"
       >

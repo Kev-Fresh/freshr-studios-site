@@ -33,7 +33,7 @@ export default function Work() {
           <h1 className="section-title text-text-light">
             The Archive<span className="period-orange" aria-hidden="true" />
           </h1>
-          <p className="font-body text-lg text-muted mt-4">
+          <p className="font-ui text-lg text-muted mt-4">
             Video. Photo. Events. Buffalo.
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function Work() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`font-body text-xs uppercase tracking-widest pb-2 border-b-2 transition-all duration-150 ${
+                className={`font-ui text-xs uppercase tracking-widest pb-2 border-b-2 transition-all duration-150 ${
                   activeFilter === cat
                     ? 'border-orange text-orange'
                     : 'border-transparent text-muted hover:text-text-light'
@@ -90,7 +90,7 @@ export default function Work() {
       {/* ── Coming soon note ─────────────────────────────────── */}
       <section className="section-dark pb-24">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <p className="font-body text-xs text-muted uppercase tracking-widest">
+          <p className="font-ui text-xs text-muted uppercase tracking-widest">
             Portfolio expanding — check back soon.
           </p>
         </div>

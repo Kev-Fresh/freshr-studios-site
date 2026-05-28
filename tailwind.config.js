@@ -16,7 +16,8 @@ export default {
       },
       fontFamily: {
         display: ['"Bebas Neue"', '"Barlow Condensed"', 'sans-serif'],
-        body: ['"DM Sans"', '"Syne"', 'sans-serif'],
+        body:    ['"DM Sans"', 'sans-serif'],
+        ui:      ['"Syne"', 'sans-serif'],
       },
     },
   },

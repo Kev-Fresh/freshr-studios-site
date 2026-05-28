@@ -39,7 +39,7 @@ export default function Contact() {
               <div className="flex flex-col gap-4">
                 {PILLARS.map((p, i) => (
                   <div key={p} className="flex items-center gap-4 py-3 border-b border-white/10">
-                    <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0">
+                    <span className="font-ui text-xs text-muted tabular-nums w-6 shrink-0">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <span className="font-display text-2xl uppercase text-text-light">
@@ -51,26 +51,26 @@ export default function Contact() {
               </div>
 
               <div className="mt-2">
-                <p className="font-body text-xs uppercase tracking-widest text-muted mb-1">
+                <p className="font-ui text-xs uppercase tracking-widest text-muted mb-1">
                   Or reach us directly
                 </p>
                 <a
                   href="mailto:hello@freshrstudios.com"
-                  className="font-body text-text-light hover:text-orange transition-colors duration-150"
+                  className="font-ui text-text-light hover:text-orange transition-colors duration-150"
                 >
                   hello@freshrstudios.com
                 </a>
               </div>
 
               <div>
-                <p className="font-body text-xs uppercase tracking-widest text-muted mb-1">
+                <p className="font-ui text-xs uppercase tracking-widest text-muted mb-1">
                   Instagram
                 </p>
                 <a
                   href="https://instagram.com/freshrstudios"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-body text-text-light hover:text-orange transition-colors duration-150"
+                  className="font-ui text-text-light hover:text-orange transition-colors duration-150"
                 >
                   @freshrstudios
                 </a>

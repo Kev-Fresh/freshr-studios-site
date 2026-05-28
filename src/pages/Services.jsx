@@ -49,7 +49,7 @@ export default function Services() {
           <h1 className="section-title text-text-light">
             The Services<span className="period-orange" aria-hidden="true" />
           </h1>
-          <p className="font-body text-lg text-muted mt-6 max-w-xl">
+          <p className="font-ui text-lg text-muted mt-6 max-w-xl">
             Four offerings. One standard of care.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function Services() {
             {PILLARS.map(({ name, body }, i) => (
               <div key={name} className="flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <span className="font-body text-xs text-muted tabular-nums">
+                  <span className="font-ui text-xs text-muted tabular-nums">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="h-px flex-1 bg-text-dark/20" />
