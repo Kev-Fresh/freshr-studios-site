@@ -5,8 +5,8 @@
 export default function WorkItem({ title, category, thumbnail, href = '#' }) {
   const CATEGORY_COLORS = {
     Video: 'text-orange',
-    Photo: 'text-navy',
-    Event: 'text-cream',
+    Photo: 'text-white',
+    Event: 'text-muted',
   }
 
   return (

@@ -12,7 +12,9 @@
       "Bash(python3 *)",
       "Bash(open *)",
       "Bash(git init *)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(brew install *)",
+      "Bash(gh auth *)"
     ]
   }
 }

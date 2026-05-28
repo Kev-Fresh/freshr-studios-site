@@ -6,25 +6,20 @@
 @tailwind utilities;
 
 /* ─────────────────────────────────────────────────────────────
-   Brand CSS Custom Properties — Light Mode (default)
+   Brand CSS Custom Properties
 ───────────────────────────────────────────────────────────── */
 :root {
-  --color-navy:      #1b4965;
   --color-orange:    #fc9e4f;   /* Sacred. Never change. */
   --color-dark-bg:   #0E0E0E;
   --color-light-bg:  #ffffff;
-  --color-cream:     #F5F0E8;
   --color-text-dark: #0E0E0E;
-  --color-text-light:#F5F0E8;
-  --color-muted:     #888680;
+  --color-text-light:#ffffff;
+  --color-muted:     #888888;
 
-  /* Active theme tokens */
-  --bg:        var(--color-light-bg);
-  --bg-alt:    var(--color-cream);
-  --text:      var(--color-text-dark);
-  --text-inv:  var(--color-text-light);
-  --accent:    var(--color-orange);
-  --brand:     var(--color-navy);
+  /* Active theme tokens — light mode default */
+  --bg:   var(--color-light-bg);
+  --text: var(--color-text-dark);
+  --accent: var(--color-orange);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -32,10 +27,8 @@
 ───────────────────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg:       var(--color-dark-bg);
-    --bg-alt:   #1a1a1a;
-    --text:     var(--color-text-light);
-    --text-inv: var(--color-text-dark);
+    --bg:   var(--color-dark-bg);
+    --text: var(--color-text-light);
   }
 }
 
@@ -92,22 +85,16 @@ h1, h2, h3, h4, h5, h6 {
            hover:bg-orange hover:text-dark-bg;
   }
 
-  /* Dark section wrapper */
+  /* Dark section — #0E0E0E bg, white text */
   .section-dark {
     background-color: var(--color-dark-bg);
     color: var(--color-text-light);
   }
 
-  /* Cream / warm section wrapper */
-  .section-cream {
-    background-color: var(--color-cream);
+  /* Light section — pure white bg, black text */
+  .section-light {
+    background-color: var(--color-light-bg);
     color: var(--color-text-dark);
-  }
-
-  /* Navy section wrapper */
-  .section-navy {
-    background-color: var(--color-navy);
-    color: var(--color-text-light);
   }
 
   /* Orange period — always a circle, never a Bebas Neue rectangle */

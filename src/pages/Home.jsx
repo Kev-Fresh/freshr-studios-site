@@ -39,7 +39,7 @@ export default function Home() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-end pb-20 md:pb-28 section-dark grain-overlay overflow-hidden">
         {/* Background: placeholder until real photography is added */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/40 via-dark-bg to-dark-bg" aria-hidden="true" />
+        <div className="absolute inset-0 bg-dark-bg" aria-hidden="true" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10 w-full">
           <h1 className="font-display text-[clamp(72px,13vw,190px)] uppercase leading-none text-text-light">
@@ -61,7 +61,7 @@ export default function Home() {
       </section>
 
       {/* ── Intro statement ──────────────────────────────────── */}
-      <section className="section-cream py-20 md:py-28">
+      <section className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <p className="font-display text-[clamp(32px,5vw,72px)] text-text-dark leading-tight max-w-4xl">
             We don't make content.<br />
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
-      <section className="section-navy py-24 md:py-32">
+      <section className="section-dark py-24 md:py-32">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10 text-center">
           <h2 className="font-display text-[clamp(48px,8vw,120px)] uppercase leading-none text-text-light">
             Your story<br />

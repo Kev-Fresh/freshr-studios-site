@@ -36,7 +36,7 @@ export default function About() {
       </section>
 
       {/* ── Studio story ─────────────────────────────────────── */}
-      <section className="section-cream py-20 md:py-28">
+      <section className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             {/* Text */}
@@ -96,7 +96,7 @@ export default function About() {
       </section>
 
       {/* ── Equipment note ───────────────────────────────────── */}
-      <section className="section-cream py-16 md:py-20">
+      <section className="section-light py-16 md:py-20">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <h2 className="font-display text-4xl md:text-5xl uppercase text-text-dark mb-8">
             The Kit<span className="period-orange" aria-hidden="true" />

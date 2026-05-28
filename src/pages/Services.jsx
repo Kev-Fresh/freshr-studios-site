@@ -72,7 +72,7 @@ export default function Services() {
       </section>
 
       {/* ── Five Pillars ─────────────────────────────────────── */}
-      <section className="section-cream py-20 md:py-28">
+      <section className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <h2 className="section-title text-text-dark mb-14">
             The Five Pillars<span className="period-orange" aria-hidden="true" />

@@ -7,14 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: '#1b4965',
         orange: '#fc9e4f',
         'dark-bg': '#0E0E0E',
         'light-bg': '#ffffff',
-        cream: '#F5F0E8',
         'text-dark': '#0E0E0E',
-        'text-light': '#F5F0E8',
-        muted: '#888680',
+        'text-light': '#ffffff',
+        muted: '#888888',
       },
       fontFamily: {
         display: ['"Bebas Neue"', '"Barlow Condensed"', 'sans-serif'],
