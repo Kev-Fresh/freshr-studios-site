@@ -58,7 +58,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-dark-bg" aria-hidden="true" />
 
         <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10 w-full">
-          <h1 className="font-display text-[clamp(2.25rem,6.5vw,5.75rem)] uppercase leading-[0.88] text-text-light">
+          <h1 className="font-display text-[clamp(2.25rem,6.5vw,5.75rem)] uppercase text-text-light">
             Buffalo's Story Studio<span className="period-orange" aria-hidden="true" />
           </h1>
           <p className="font-body text-lg md:text-xl text-text-light/70 mt-6 max-w-md">
@@ -105,10 +105,10 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10">
-          <p className="font-display text-[clamp(2.5rem,6vw,5.5rem)] text-text-light leading-tight max-w-4xl">
+          <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] text-text-light max-w-4xl">
             We don't make content.<br />
             We tell stories<span className="period-orange" aria-hidden="true" />
-          </p>
+          </h2>
           <p className="font-body text-lg text-muted mt-8 max-w-2xl">
             Freshr Studios is rooted in Buffalo — the culture, the people, the diaspora.
             Every frame is intentional. Every project is a story worth telling.
