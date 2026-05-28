@@ -26,8 +26,8 @@ export default function Navbar() {
   const closeMenu = () => setMenuOpen(false)
 
   const solidBg   = isDark ? 'bg-dark-bg/95'  : 'bg-white/95'
-  const textColor = isDark ? 'text-text-light' : 'text-text-dark'
-  const barColor  = isDark ? 'bg-text-light'   : 'bg-text-dark'
+  const textColor = isDark ? 'text-white' : 'text-black'
+  const barColor  = isDark ? 'bg-white'   : 'bg-black'
   const logo      = isDark ? logoLight         : logoDark
 
   return (

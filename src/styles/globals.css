@@ -28,6 +28,13 @@
   --color-muted:     #888888;
 
   --accent: var(--color-orange);
+
+  /* RGB tuples for Tailwind — dark mode defaults */
+  --rgb-dark-bg:    14 14 14;
+  --rgb-light-bg:   255 255 255;
+  --rgb-text-dark:  14 14 14;
+  --rgb-text-light: 255 255 255;
+  --rgb-muted:      136 136 136;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -36,11 +43,22 @@
 :root[data-theme="light"] {
   --bg:   var(--color-light-bg);
   --text: var(--color-text-dark);
+
+  /* Flip: dark sections → white, light sections → black */
+  --rgb-dark-bg:    255 255 255;
+  --rgb-light-bg:   14 14 14;
+  --rgb-text-dark:  255 255 255;
+  --rgb-text-light: 14 14 14;
 }
 
 :root[data-theme="dark"] {
   --bg:   var(--color-dark-bg);
   --text: var(--color-text-light);
+
+  --rgb-dark-bg:    14 14 14;
+  --rgb-light-bg:   255 255 255;
+  --rgb-text-dark:  14 14 14;
+  --rgb-text-light: 255 255 255;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -96,16 +114,16 @@ h1, h2, h3, h4, h5, h6 {
            hover:bg-orange hover:text-dark-bg;
   }
 
-  /* Dark section — #0E0E0E bg, white text */
+  /* Primary section — flips with theme */
   .section-dark {
-    background-color: var(--color-dark-bg);
-    color: var(--color-text-light);
+    background-color: rgb(var(--rgb-dark-bg));
+    color: rgb(var(--rgb-text-light));
   }
 
-  /* Light section — pure white bg, black text */
+  /* Accent section — flips with theme */
   .section-light {
-    background-color: var(--color-light-bg);
-    color: var(--color-text-dark);
+    background-color: rgb(var(--rgb-light-bg));
+    color: rgb(var(--rgb-text-dark));
   }
 
   /* Orange period — always a circle, never a Bebas Neue rectangle */

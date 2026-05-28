@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 export default function ServiceCard({ title, tagline, description, cta = 'Book this', ctaHref = '/contact', index, onDark = true }) {
   const [open, setOpen] = useState(false)
 
-  const borderColor = onDark ? 'border-white/10' : 'border-black/10'
+  const borderColor = onDark ? 'border-text-light/10' : 'border-text-dark/10'
   const descColor   = onDark ? 'text-text-light/80' : 'text-text-dark/70'
 
   return (
