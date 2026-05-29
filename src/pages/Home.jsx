@@ -39,6 +39,8 @@ export default function Home() {
   const [glowY, setGlowY] = useState(0)
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
     const onScroll = () => {
       if (!introRef.current) return
       const rect = introRef.current.getBoundingClientRect()
@@ -53,7 +55,7 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-start md:items-end pt-36 pb-12 md:pt-0 md:pb-28 section-dark grain-overlay overflow-hidden">
+      <section className="relative min-h-[100dvh] flex items-start md:items-end pt-36 pb-12 md:pt-0 md:pb-28 section-dark grain-overlay overflow-hidden">
         {/* Background: placeholder until real photography is added */}
         <div className="absolute inset-0 bg-dark-bg" aria-hidden="true" />
 
@@ -169,7 +171,7 @@ export default function Home() {
         </div>
 
         {/* Horizontal filmstrip — no container max-width */}
-        <div className="pl-6 md:pl-10">
+        <div className="filmstrip-container pl-6 md:pl-10">
           <div className="filmstrip pr-6 md:pr-10">
             {WORK_PREVIEW.map((item) => (
               <WorkItem

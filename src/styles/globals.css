@@ -49,6 +49,8 @@
   --rgb-light-bg:   14 14 14;
   --rgb-text-dark:  255 255 255;
   --rgb-text-light: 14 14 14;
+  /* Darker muted for 4.5:1 contrast on white (#666 = 5.74:1) */
+  --rgb-muted:      102 102 102;
 }
 
 :root[data-theme="dark"] {
@@ -77,6 +79,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -140,6 +143,22 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   /* Horizontal filmstrip scroll */
+  .filmstrip-container {
+    position: relative;
+  }
+
+  .filmstrip-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 1rem;
+    width: 5rem;
+    background: linear-gradient(to right, transparent, rgb(var(--rgb-dark-bg)));
+    pointer-events: none;
+    z-index: 1;
+  }
+
   .filmstrip {
     @apply flex gap-4 overflow-x-auto pb-4;
     scrollbar-width: thin;

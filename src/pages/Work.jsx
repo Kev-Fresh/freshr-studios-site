@@ -74,7 +74,7 @@ export default function Work() {
         </div>
 
         {/* Desktop: horizontal filmstrip */}
-        <div className="hidden md:block pl-10">
+        <div className="filmstrip-container hidden md:block pl-10">
           <div className="filmstrip pr-10">
             {filtered.map((item) => (
               <WorkItem
