@@ -7,15 +7,14 @@
     <title>Freshr Studios — Buffalo's Story Studio</title>
     <meta name="description" content="Freshr Studios is Buffalo's boutique video and photography production studio. We capture authentic stories from the city and its diaspora." />
 
-    <!-- Time-based theme: light 6am–8pm, dark 8pm–6am -->
+    <!-- Theme: localStorage override → time-based fallback -->
     <!-- Random accent color per session -->
     <script>
       (function () {
+        var saved = localStorage.getItem('freshr-theme');
         var h = new Date().getHours();
-        document.documentElement.setAttribute(
-          'data-theme',
-          h >= 6 && h < 20 ? 'light' : 'dark'
-        );
+        var theme = saved ? saved : (h >= 6 && h < 20 ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
 
         var palette = [
           '252 158 79',  /* orange  */

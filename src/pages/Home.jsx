@@ -238,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
-      <section className="section-dark py-24 md:py-32">
+      <section className="section-light py-24 md:py-32">
         <motion.div
           className="max-w-screen-xl mx-auto px-6 md:px-10 text-center"
           variants={fadeUp}
@@ -247,11 +247,11 @@ export default function Home() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display text-[clamp(48px,8vw,120px)] uppercase leading-none text-text-light">
+          <h2 className="font-display text-[clamp(48px,8vw,120px)] uppercase leading-none text-text-dark">
             Your story<br />
             starts here<span className="period-orange" aria-hidden="true" />
           </h2>
-          <p className="font-body text-lg text-text-light/70 mt-6 max-w-md mx-auto">
+          <p className="font-body text-lg text-text-dark/60 mt-6 max-w-md mx-auto">
             Ready to tell something real? Let's talk.
           </p>
           <DirectionalCTA to="/contact" className="mt-10">
