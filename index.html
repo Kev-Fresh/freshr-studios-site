@@ -8,6 +8,7 @@
     <meta name="description" content="Freshr Studios is Buffalo's boutique video and photography production studio. We capture authentic stories from the city and its diaspora." />
 
     <!-- Time-based theme: light 6am–8pm, dark 8pm–6am -->
+    <!-- Random accent color per session -->
     <script>
       (function () {
         var h = new Date().getHours();
@@ -15,6 +16,16 @@
           'data-theme',
           h >= 6 && h < 20 ? 'light' : 'dark'
         );
+
+        var palette = [
+          '252 158 79',  /* orange  */
+          '198 241 53',  /* acid    */
+          '196 30 58',   /* red     */
+          '0 71 171',    /* cobalt  */
+          '124 58 237',  /* violet  */
+        ];
+        var pick = palette[Math.floor(Math.random() * palette.length)];
+        document.documentElement.style.setProperty('--rgb-accent', pick);
       })();
     </script>
 

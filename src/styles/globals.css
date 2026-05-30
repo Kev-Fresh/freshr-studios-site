@@ -20,14 +20,11 @@
    Brand CSS Custom Properties
 ───────────────────────────────────────────────────────────── */
 :root {
-  --color-orange:    #fc9e4f;   /* Sacred. Never change. */
   --color-dark-bg:   #0E0E0E;
   --color-light-bg:  #ffffff;
   --color-text-dark: #0E0E0E;
   --color-text-light:#ffffff;
   --color-muted:     #888888;
-
-  --accent: var(--color-orange);
 
   /* RGB tuples for Tailwind — dark mode defaults */
   --rgb-dark-bg:    14 14 14;
@@ -35,6 +32,9 @@
   --rgb-text-dark:  14 14 14;
   --rgb-text-light: 255 255 255;
   --rgb-muted:      136 136 136;
+
+  /* Accent — overridden at runtime by index.html script */
+  --rgb-accent:     252 158 79;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -51,6 +51,8 @@
   --rgb-text-light: 14 14 14;
   /* Darker muted for 4.5:1 contrast on white (#666 = 5.74:1) */
   --rgb-muted:      102 102 102;
+  /* Accent stays acid green in both modes */
+  --rgb-accent:     196 146 42;
 }
 
 :root[data-theme="dark"] {
@@ -129,12 +131,12 @@ h1, h2, h3, h4, h5, h6 {
     color: rgb(var(--rgb-text-dark));
   }
 
-  /* Orange period — always a circle, never a Bebas Neue rectangle */
+  /* Period mark — circle, accent color */
   .period-orange {
     display: inline-block;
     width: 0.2em;
     height: 0.2em;
-    background-color: var(--color-orange);
+    background-color: rgb(var(--rgb-accent));
     border-radius: 50%;
     vertical-align: -0.02em;
     margin-left: 0.06em;
@@ -160,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
   .filmstrip {
     @apply flex gap-4 overflow-x-auto pb-4;
     scrollbar-width: thin;
-    scrollbar-color: var(--color-orange) transparent;
+    scrollbar-color: currentColor transparent;
   }
 
   .filmstrip::-webkit-scrollbar {
@@ -168,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .filmstrip::-webkit-scrollbar-thumb {
-    background-color: var(--color-orange);
+    background-color: currentColor;
     border-radius: 2px;
   }
 }

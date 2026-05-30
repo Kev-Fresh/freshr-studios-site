@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        orange:      '#fc9e4f',
+        orange:      'rgb(var(--rgb-accent) / <alpha-value>)',
         'dark-bg':   'rgb(var(--rgb-dark-bg) / <alpha-value>)',
         'light-bg':  'rgb(var(--rgb-light-bg) / <alpha-value>)',
         'text-dark': 'rgb(var(--rgb-text-dark) / <alpha-value>)',
