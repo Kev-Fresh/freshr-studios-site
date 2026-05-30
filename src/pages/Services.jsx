@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+import { motion, useReducedMotion } from 'motion/react'
 import ServiceCard from '../components/ServiceCard'
+import DirectionalCTA from '../components/DirectionalCTA'
 
 const SERVICES = [
   {
     title: 'First Frame',
-    tagline: 'Entry-level package — photography & video',
+    tagline: 'Entry-level package: photography & video',
     description:
       'A clean, focused story told well. Perfect for solo entrepreneurs, small businesses, or anyone stepping into professional storytelling for the first time. One session. One deliverable. Done right.',
     cta: 'Book First Frame',
@@ -13,45 +14,64 @@ const SERVICES = [
     title: 'The Sit Down',
     tagline: 'Interview & portrait format',
     description:
-      'One subject. One story. We position you, light you, and let the conversation breathe. Boom or hot-shoe mount — no clip mic in sight. The result is a portrait session or short interview that feels documentary, not corporate.',
+      'One subject. One story. We position you, light you, and let the conversation breathe. Boom or hot-shoe mount only. No clip mic in sight. The result is a portrait session or short interview that feels documentary, not corporate.',
     cta: 'Book The Sit Down',
   },
   {
     title: 'The Deep Dive',
-    tagline: 'Full production — extended coverage',
+    tagline: 'Full production: extended coverage',
     description:
-      "Multiple angles. Extended coverage. Editorial post-production in DaVinci Resolve. For stories that deserve the full treatment — brand films, documentary shorts, full-day portrait series. This is where the FX30 and Sigma 18-50 do what they're built for.",
+      "Multiple angles. Extended coverage. Editorial post-production in DaVinci Resolve. For stories that deserve the full treatment: brand films, documentary shorts, full-day portrait series.",
     cta: 'Book The Deep Dive',
   },
   {
     title: 'In The Moment',
     tagline: 'Live event coverage',
     description:
-      'Live, reactive, real-time storytelling. We show up to your event, read the room, and capture what actually happens. Cultural events, community gatherings, performances, celebrations. No staged moments — just real ones.',
+      'Live, reactive, real-time storytelling. We show up to your event, read the room, and capture what actually happens. Cultural events, community gatherings, performances, celebrations. No staged moments. Just real ones.',
     cta: 'Book In The Moment',
   },
 ]
 
 const PILLARS = [
-  { name: 'Clarity',    body: "No confusion about what you're getting — ever." },
+  { name: 'Clarity',    body: "No confusion about what you're getting. Ever." },
   { name: 'Craft',      body: 'Every frame is intentional. We edit with purpose.' },
   { name: 'Care',       body: 'We treat your story like it matters. Because it does.' },
   { name: 'Community',  body: 'Rooted in Buffalo. Always.' },
   { name: 'Continuity', body: "The relationship doesn't end at delivery." },
 ]
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show:   { opacity: 1, y: 0  },
+}
+
 export default function Services() {
+  const reduced = useReducedMotion()
+
   return (
     <>
       {/* ── Header ───────────────────────────────────────────── */}
       <section className="section-dark pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <h1 className="section-title text-text-light">
-            The Services<span className="period-orange" aria-hidden="true" />
-          </h1>
-          <p className="font-body text-lg text-muted mt-6 max-w-xl">
+          <motion.h1
+            className="section-title text-text-light"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            animate="show"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            The <span className="whitespace-nowrap">Services<span className="period-orange" aria-hidden="true" /></span>
+          </motion.h1>
+          <motion.p
+            className="font-body text-lg text-muted mt-6 max-w-xl"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            animate="show"
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
             Four offerings. One standard of care.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -74,12 +94,27 @@ export default function Services() {
       {/* ── Five Pillars ─────────────────────────────────────── */}
       <section className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <h2 className="section-title text-text-dark mb-14">
-            The Five Pillars<span className="period-orange" aria-hidden="true" />
-          </h2>
+          <motion.h2
+            className="section-title text-text-dark mb-14"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            The Five <span className="whitespace-nowrap">Pillars<span className="period-orange" aria-hidden="true" /></span>
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {PILLARS.map(({ name, body }, i) => (
-              <div key={name} className="flex flex-col gap-3">
+              <motion.div
+                key={name}
+                className="flex flex-col gap-3"
+                variants={fadeUp}
+                initial={reduced ? false : 'hidden'}
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <div className="flex items-center gap-3">
                   <span className="font-body text-xs text-muted tabular-nums">
                     {String(i + 1).padStart(2, '0')}
@@ -92,7 +127,7 @@ export default function Services() {
                 <p className="font-body text-sm text-muted leading-relaxed">
                   {body}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -100,7 +135,14 @@ export default function Services() {
 
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section className="section-dark py-20 md:py-24">
-        <div className="max-w-screen-xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <motion.div
+          className="max-w-screen-xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+          variants={fadeUp}
+          initial={reduced ? false : 'hidden'}
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div>
             <p className="font-display text-4xl md:text-5xl uppercase text-text-light leading-tight">
               Not sure which service<br />is right for you<span className="text-orange">?</span>
@@ -109,10 +151,10 @@ export default function Services() {
               Tell us about your project. We'll figure it out together.
             </p>
           </div>
-          <Link to="/contact" className="btn-outline shrink-0">
+          <DirectionalCTA to="/contact" className="shrink-0">
             Talk to us
-          </Link>
-        </div>
+          </DirectionalCTA>
+        </motion.div>
       </section>
     </>
   )

@@ -1,8 +1,8 @@
-/**
- * WorkItem — filmstrip thumbnail card.
- * Hover: slight scale + orange border accent.
- */
+import { motion, useReducedMotion } from 'motion/react'
+
 export default function WorkItem({ title, category, thumbnail, href = '#' }) {
+  const reduced = useReducedMotion()
+
   const CATEGORY_COLORS = {
     Video: 'text-orange',
     Photo: 'text-white',
@@ -10,27 +10,34 @@ export default function WorkItem({ title, category, thumbnail, href = '#' }) {
   }
 
   return (
-    <a
+    <motion.a
       href={href}
       className="group relative flex-shrink-0 w-72 md:w-80 overflow-hidden cursor-pointer"
-      aria-label={`${title} — ${category}`}
+      aria-label={`${title}, ${category}`}
+      whileHover={reduced ? {} : { y: -4 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       {/* Thumbnail */}
       <div className="relative aspect-[4/5] bg-dark-bg/60 overflow-hidden border border-white/10 group-hover:border-orange transition-colors duration-300">
         {thumbnail ? (
-          <img
+          <motion.img
             src={thumbnail}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover"
+            whileHover={reduced ? {} : { scale: 1.05 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           />
         ) : (
-          /* Placeholder when no image yet */
+          /* Labeled placeholder slot */
           <div className="w-full h-full flex items-center justify-center">
-            <span className="font-display text-7xl text-white/10 select-none">F</span>
+            {/* TODO: replace with real project thumbnail */}
+            <span className="font-body text-xs uppercase tracking-widest text-white/20 text-center px-4">
+              {title}
+            </span>
           </div>
         )}
 
-        {/* Category tag — bottom-left overlay */}
+        {/* Category tag */}
         <div className="absolute bottom-3 left-3">
           <span
             className={`font-body text-xs uppercase tracking-widest px-2 py-1 bg-dark-bg/80 backdrop-blur-sm ${
@@ -48,6 +55,6 @@ export default function WorkItem({ title, category, thumbnail, href = '#' }) {
           {title}
         </p>
       </div>
-    </a>
+    </motion.a>
   )
 }

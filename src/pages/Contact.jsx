@@ -1,19 +1,39 @@
+import { motion, useReducedMotion } from 'motion/react'
 import ContactForm from '../components/ContactForm'
 
 const PILLARS = ['Clarity', 'Craft', 'Care', 'Community', 'Continuity']
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show:   { opacity: 1, y: 0  },
+}
+
 export default function Contact() {
+  const reduced = useReducedMotion()
+
   return (
     <>
       {/* ── Header ───────────────────────────────────────────── */}
       <section className="section-dark pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <h1 className="section-title text-text-light">
-            The Conversation<span className="period-orange" aria-hidden="true" />
-          </h1>
-          <p className="font-body text-lg text-muted mt-4 max-w-lg">
+          <motion.h1
+            className="section-title text-text-light"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            animate="show"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            The <span className="whitespace-nowrap">Conversation<span className="period-orange" aria-hidden="true" /></span>
+          </motion.h1>
+          <motion.p
+            className="font-body text-lg text-muted mt-4 max-w-lg"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            animate="show"
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
             Tell us your story. We'll tell you how we can help.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -22,15 +42,28 @@ export default function Contact() {
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             {/* Form */}
-            <ContactForm />
+            <motion.div
+              variants={fadeUp}
+              initial={reduced ? false : 'hidden'}
+              animate="show"
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <ContactForm />
+            </motion.div>
 
-            {/* Sidebar: Five Pillars start here */}
-            <aside className="flex flex-col gap-10">
+            {/* Sidebar */}
+            <motion.aside
+              className="flex flex-col gap-10"
+              variants={fadeUp}
+              initial={reduced ? false : 'hidden'}
+              animate="show"
+              transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
               <div>
                 <h2 className="font-display text-3xl uppercase text-text-light mb-4">
                   The Experience<span className="period-orange" aria-hidden="true" />
                 </h2>
-                <p className="font-body text-muted leading-relaxed">
+                <p className="font-body text-muted leading-relaxed max-w-[65ch]">
                   Every Freshr client interaction is guided by five pillars. Your
                   experience starts with this form.
                 </p>
@@ -45,7 +78,7 @@ export default function Contact() {
                     <span className="font-display text-2xl uppercase text-text-light">
                       {p}
                     </span>
-                    <span className="text-orange ml-auto">·</span>
+                    <span className="text-orange ml-auto" aria-hidden="true">·</span>
                   </div>
                 ))}
               </div>
@@ -75,7 +108,7 @@ export default function Contact() {
                   @freshrstudios
                 </a>
               </div>
-            </aside>
+            </motion.aside>
           </div>
         </div>
       </section>

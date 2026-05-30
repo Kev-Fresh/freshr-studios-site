@@ -100,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
 @layer components {
   /* Section titles — "The Work." pattern */
   .section-title {
-    @apply font-display text-6xl md:text-8xl uppercase leading-none;
+    @apply font-display text-5xl md:text-8xl uppercase leading-none;
   }
 
   /* Primary CTA button */
@@ -132,14 +132,12 @@ h1, h2, h3, h4, h5, h6 {
   /* Orange period — always a circle, never a Bebas Neue rectangle */
   .period-orange {
     display: inline-block;
-    width: 0.18em;
-    height: 0.18em;
+    width: 0.2em;
+    height: 0.2em;
     background-color: var(--color-orange);
     border-radius: 50%;
-    vertical-align: baseline;
-    margin-left: 0.05em;
-    position: relative;
-    bottom: 0.08em;
+    vertical-align: -0.02em;
+    margin-left: 0.06em;
   }
 
   /* Horizontal filmstrip scroll */

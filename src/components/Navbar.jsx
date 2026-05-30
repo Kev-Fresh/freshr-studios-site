@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
-import logoLight from '../assets/logos/logo-nav-dark.svg'  // white wordmark — dark bg
-import logoDark  from '../assets/logos/2.svg'              // navy wordmark  — light bg
+import logoLight from '../assets/logos/logo-nav-dark.svg'
+import logoDark  from '../assets/logos/2.svg'
 
 const NAV_LINKS = [
   { to: '/archive',  label: 'The Archive' },
@@ -16,11 +16,17 @@ export default function Navbar() {
   const [isDark,    setIsDark]    = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark'
   )
+  const sentinelRef = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const sentinel = sentinelRef.current
+    if (!sentinel) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 0 }
+    )
+    observer.observe(sentinel)
+    return () => observer.disconnect()
   }, [])
 
   const closeMenu = () => setMenuOpen(false)
@@ -32,6 +38,9 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Sentinel — sits just below the fold; when it leaves viewport, nav goes solid */}
+      <div ref={sentinelRef} className="absolute top-20 left-0 h-px w-full pointer-events-none" aria-hidden="true" />
+
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled || menuOpen || !isDark ? `${solidBg} backdrop-blur-sm` : 'bg-transparent'
@@ -80,7 +89,7 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile full-screen overlay — always dark for drama */}
+      {/* Mobile full-screen overlay */}
       <div
         className={`fixed inset-0 z-40 bg-dark-bg flex flex-col items-center justify-center transition-all duration-300 ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'

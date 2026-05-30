@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 import WorkItem from '../components/WorkItem'
 
 const WORK_ITEMS = [
@@ -15,10 +17,14 @@ const WORK_ITEMS = [
 
 const CATEGORIES = ['All', 'Video', 'Photo', 'Event']
 
-import { useState } from 'react'
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show:   { opacity: 1, y: 0  },
+}
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const reduced = useReducedMotion()
 
   const filtered =
     activeFilter === 'All'
@@ -30,12 +36,24 @@ export default function Work() {
       {/* ── Header ───────────────────────────────────────────── */}
       <section className="section-dark pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <h1 className="section-title text-text-light">
-            The Archive<span className="period-orange" aria-hidden="true" />
-          </h1>
-          <p className="font-body text-lg text-muted mt-4">
+          <motion.h1
+            className="section-title text-text-light"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            animate="show"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            The <span className="whitespace-nowrap">Archive<span className="period-orange" aria-hidden="true" /></span>
+          </motion.h1>
+          <motion.p
+            className="font-body text-lg text-muted mt-4"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            animate="show"
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
             Video. Photo. Events. Buffalo.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -64,12 +82,17 @@ export default function Work() {
       <section className="section-dark py-16 md:py-20">
         {/* Mobile: 2-col grid */}
         <div className="md:hidden max-w-screen-xl mx-auto px-6 grid grid-cols-2 gap-4">
-          {filtered.map((item) => (
-            <WorkItem
+          {filtered.map((item, i) => (
+            <motion.div
               key={item.title}
-              title={item.title}
-              category={item.category}
-            />
+              variants={fadeUp}
+              initial={reduced ? false : 'hidden'}
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <WorkItem title={item.title} category={item.category} />
+            </motion.div>
           ))}
         </div>
 
@@ -91,7 +114,7 @@ export default function Work() {
       <section className="section-dark pb-24">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <p className="font-body text-xs text-muted uppercase tracking-widest">
-            Portfolio expanding — check back soon.
+            Portfolio expanding. Check back soon.
           </p>
         </div>
       </section>
