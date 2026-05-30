@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import ServiceCard from '../components/ServiceCard'
 import DirectionalCTA from '../components/DirectionalCTA'
+import inTheMomentImg from '../assets/images/event-roller-skate.png'
 
 const SERVICES = [
   {
@@ -30,6 +31,7 @@ const SERVICES = [
     description:
       'Live, reactive, real-time storytelling. We show up to your event, read the room, and capture what actually happens. Cultural events, community gatherings, performances, celebrations. No staged moments. Just real ones.',
     cta: 'Book In The Moment',
+    image: inTheMomentImg,
   },
 ]
 
@@ -86,6 +88,7 @@ export default function Services() {
               tagline={s.tagline}
               description={s.description}
               cta={s.cta}
+              image={s.image}
             />
           ))}
         </div>

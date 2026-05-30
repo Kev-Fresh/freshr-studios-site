@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import ServiceCard from '../components/ServiceCard'
 import WorkItem from '../components/WorkItem'
 import DirectionalCTA from '../components/DirectionalCTA'
+import inTheMomentImg from '../assets/images/event-roller-skate.png'
 
 const SERVICES_PREVIEW = [
   {
@@ -25,6 +26,7 @@ const SERVICES_PREVIEW = [
     title: 'In The Moment',
     tagline: 'Event coverage',
     description: 'Live, reactive, real-time storytelling. We show up and capture what actually happens.',
+    image: inTheMomentImg,
   },
 ]
 
@@ -175,6 +177,7 @@ export default function Home() {
                 title={s.title}
                 tagline={s.tagline}
                 description={s.description}
+                image={s.image}
                 onDark={false}
               />
             ))}
