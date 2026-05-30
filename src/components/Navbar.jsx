@@ -78,9 +78,20 @@ export default function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-50">
         <nav className="max-w-screen-xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
 
-          {/* Logo — always visible */}
+          {/* Logo — always visible, shrinks on scroll */}
           <NavLink to="/" onClick={closeMenu} className="flex-shrink-0 relative z-10">
-            <img src={logo} alt="Freshr Studios" width="160" height="83" className="w-[10rem] h-auto" />
+            <img
+              src={logo}
+              alt="Freshr Studios"
+              width="160"
+              height="83"
+              className="w-[10rem] h-auto"
+              style={{
+                transform:       scrolled ? 'scale(0.72)' : 'scale(1)',
+                transformOrigin: 'left center',
+                transition:      'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+            />
           </NavLink>
 
           {/* Desktop links + theme toggle — fade out on scroll */}
