@@ -15,10 +15,16 @@ function AppInner() {
   const location = useLocation()
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2 focus:bg-orange focus:text-dark-bg focus:font-body focus:font-semibold focus:text-sm focus:uppercase focus:tracking-widest focus:rounded-sm"
+      >
+        Skip to content
+      </a>
       <CursorDot />
-<Navbar />
+      <Navbar />
       <ScrollReset />
-      <main>
+      <main id="main-content">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/"         element={<PageTransition><Home /></PageTransition>} />

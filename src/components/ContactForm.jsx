@@ -37,7 +37,7 @@ export default function ContactForm() {
           required
           placeholder="Your name"
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
-                     focus:outline-none focus:border-orange transition-colors duration-200"
+                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200"
         />
         <ValidationError field="name" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
@@ -54,7 +54,7 @@ export default function ContactForm() {
           required
           placeholder="your@email.com"
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
-                     focus:outline-none focus:border-orange transition-colors duration-200"
+                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200"
         />
         <ValidationError field="email" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
@@ -70,7 +70,7 @@ export default function ContactForm() {
           type="tel"
           placeholder="(716) 000-0000"
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
-                     focus:outline-none focus:border-orange transition-colors duration-200"
+                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200"
         />
       </div>
 
@@ -85,7 +85,7 @@ export default function ContactForm() {
           required
           defaultValue=""
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light
-                     focus:outline-none focus:border-orange transition-colors duration-200
+                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200
                      appearance-none cursor-pointer"
         >
           {SERVICES.map(({ value, label }) => (
@@ -109,7 +109,7 @@ export default function ContactForm() {
           rows={5}
           placeholder="Tell us about your story…"
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
-                     focus:outline-none focus:border-orange transition-colors duration-200 resize-none"
+                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200 resize-none"
         />
         <ValidationError field="message" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
