@@ -102,7 +102,7 @@ export default function Contact() {
                   Instagram
                 </p>
                 <a
-                  href="https://instagram.com/freshrstudios"
+                  href="https://www.instagram.com/freshr.studios"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-body text-text-light hover:text-orange transition-colors duration-150"

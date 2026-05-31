@@ -26,10 +26,11 @@ const LOGO_MAP = {
 }
 
 const NAV_LINKS = [
-  { to: '/archive',  label: 'The Archive' },
-  { to: '/services', label: 'Services'    },
-  { to: '/about',    label: 'About'       },
-  { to: '/contact',  label: 'Contact'     },
+  { to: '/',         label: 'Home',        end: true },
+  { to: '/archive',  label: 'The Archive'            },
+  { to: '/services', label: 'Services'               },
+  { to: '/about',    label: 'About'                  },
+  { to: '/contact',  label: 'Contact'                },
 ]
 
 function SunIcon() {
@@ -163,10 +164,11 @@ export default function Navbar() {
             }}
           >
             <ul className="flex items-center gap-8">
-              {NAV_LINKS.map(({ to, label }) => (
+              {NAV_LINKS.map(({ to, label, end }) => (
                 <li key={to}>
                   <NavLink
                     to={to}
+                    end={end}
                     className={({ isActive }) =>
                       `font-body text-sm uppercase tracking-widest transition-colors duration-150 ${
                         isActive ? 'text-orange' : `${textColor} hover:text-orange`
@@ -218,10 +220,11 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col items-center gap-10">
-          {NAV_LINKS.map(({ to, label }) => (
+          {NAV_LINKS.map(({ to, label, end }) => (
             <li key={to}>
               <NavLink
                 to={to}
+                end={end}
                 onClick={closeMenu}
                 className={({ isActive }) =>
                   `font-display text-6xl uppercase tracking-tight transition-colors duration-150 ${

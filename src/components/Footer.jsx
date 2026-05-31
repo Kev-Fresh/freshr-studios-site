@@ -101,7 +101,7 @@ export default function Footer() {
             <p className="font-body text-xs uppercase tracking-widest text-muted/50 mb-5">Follow</p>
             <div className="flex flex-col gap-3">
               <a
-                href="https://instagram.com/freshrstudios"
+                href="https://www.instagram.com/freshr.studios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
@@ -110,7 +110,7 @@ export default function Footer() {
                 Instagram
               </a>
               <a
-                href="https://tiktok.com/@freshrstudios"
+                href="https://www.tiktok.com/@freshr.studios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
@@ -119,7 +119,7 @@ export default function Footer() {
                 TikTok
               </a>
               <a
-                href="https://youtube.com/@freshrstudios"
+                href="https://www.youtube.com/@Freshr.Studios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"

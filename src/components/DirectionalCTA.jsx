@@ -46,7 +46,7 @@ export default function DirectionalCTA({ to, children, className = '', variant =
         style={{ transform: 'translateX(-101%)' }}
         aria-hidden="true"
       />
-      <span className="relative z-10 transition-colors duration-200 group-hover:text-dark-bg">
+      <span className="relative z-10 transition-colors duration-200 group-hover:text-white">
         {children}
       </span>
     </Link>

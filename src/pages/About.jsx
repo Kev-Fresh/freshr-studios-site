@@ -45,7 +45,7 @@ export default function About() {
             animate="show"
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            The <span className="whitespace-nowrap">Studio<span className="period-orange" aria-hidden="true" /></span>
+            The <span className="whitespace-nowrap">Story<span className="period-orange" aria-hidden="true" /></span>
           </motion.h1>
           <UnderlineBar />
         </div>
@@ -64,24 +64,20 @@ export default function About() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <h2 className="font-display text-5xl md:text-6xl uppercase text-text-dark leading-none">
-                Buffalo<span className="period-orange" aria-hidden="true" /><br />
-                Rooted<span className="period-orange" aria-hidden="true" /><br />
-                Real<span className="period-orange" aria-hidden="true" />
+                Some stories<br />don't get<br />told<span className="period-orange" aria-hidden="true" />
               </h2>
               <p className="font-body text-lg text-text-dark/80 leading-relaxed max-w-[65ch]">
-                Freshr Studios was built to document Buffalo: its culture, its
-                people, and the diaspora that carries this city with them wherever
-                they go.
+                Some stories don't get told — not because they aren't worth
+                telling, but because nobody pointed a camera at them yet.
               </p>
               <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
-                We're not a one-size-fits-all content shop. We're a boutique
-                operation. The camera and glass go everywhere. DaVinci
-                Resolve is where the story gets finished. Boom or hot-shoe mount
-                only. We want the sound of the room, not a clip mic cutting out.
+                Freshr Studios exists to change that. For the people moving
+                through Buffalo doing real things. For the businesses that want
+                to be seen the way they actually are. We show up, we listen,
+                and we make something worth watching.
               </p>
-              <p className="font-body text-text-dark/70 leading-relaxed">
-                Photography &gt; illustration. Authenticity &gt; aesthetic.
-                Story &gt; product.
+              <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
+                Every frame is intentional. Every story is earned.
               </p>
             </motion.div>
 
