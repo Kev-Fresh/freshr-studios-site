@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
+import usePageTitle from '../hooks/usePageTitle'
 import ContactForm from '../components/ContactForm'
 import UnderlineBar from '../components/UnderlineBar'
 
@@ -10,6 +11,7 @@ const fadeUp = {
 }
 
 export default function Contact() {
+  usePageTitle('The Conversation')
   const reduced = useReducedMotion()
 
   return (

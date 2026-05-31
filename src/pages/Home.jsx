@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import usePageTitle from '../hooks/usePageTitle'
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import ServiceCard from '../components/ServiceCard'
@@ -47,6 +48,7 @@ const fadeUp = {
 }
 
 export default function Home() {
+  usePageTitle(null)
   const introRef  = useRef(null)
   const ctaRef    = useRef(null)
   const periodRef = useRef(null)

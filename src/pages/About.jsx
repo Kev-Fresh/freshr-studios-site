@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
+import usePageTitle from '../hooks/usePageTitle'
 import DirectionalCTA from '../components/DirectionalCTA'
 import UnderlineBar from '../components/UnderlineBar'
 
@@ -31,6 +32,7 @@ const fadeUp = {
 }
 
 export default function About() {
+  usePageTitle('The Story')
   const reduced = useReducedMotion()
 
   return (

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
+import usePageTitle from '../hooks/usePageTitle'
 import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
 
@@ -24,6 +25,7 @@ const fadeUp = {
 }
 
 export default function Work() {
+  usePageTitle('The Archive')
   const [activeFilter, setActiveFilter] = useState('All')
   const reduced = useReducedMotion()
 
