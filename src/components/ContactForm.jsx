@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 
 const SERVICES = [
   { value: '', label: 'Select a service…' },
@@ -8,37 +8,10 @@ const SERVICES = [
   { value: 'in-the-moment',label: 'In The Moment' },
 ]
 
-/**
- * ContactForm — wired to Formspree.
- * Replace YOUR_FORM_ID with your actual Formspree endpoint ID.
- */
 export default function ContactForm() {
-  const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [state, handleSubmit] = useForm('xwvzdprg')
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setStatus('sending')
-    const form = e.target
-    const data = new FormData(form)
-
-    try {
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
-      })
-      if (res.ok) {
-        setStatus('success')
-        form.reset()
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  if (status === 'success') {
+  if (state.succeeded) {
     return (
       <div className="flex flex-col items-center gap-4 py-16 text-center">
         <span className="font-display text-6xl text-orange">✓</span>
@@ -66,6 +39,7 @@ export default function ContactForm() {
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
                      focus:outline-none focus:border-orange transition-colors duration-200"
         />
+        <ValidationError field="name" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
 
       {/* Email */}
@@ -82,6 +56,7 @@ export default function ContactForm() {
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
                      focus:outline-none focus:border-orange transition-colors duration-200"
         />
+        <ValidationError field="email" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
 
       {/* Phone (optional) */}
@@ -119,6 +94,7 @@ export default function ContactForm() {
             </option>
           ))}
         </select>
+        <ValidationError field="service" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
 
       {/* Message */}
@@ -135,24 +111,21 @@ export default function ContactForm() {
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
                      focus:outline-none focus:border-orange transition-colors duration-200 resize-none"
         />
+        <ValidationError field="message" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
 
-      {/* Error */}
-      {status === 'error' && (
-        <p className="font-body text-sm text-red-400">
-          Something went wrong. Please try again or email us directly.
-        </p>
-      )}
+      {/* Form-level errors */}
+      <ValidationError errors={state.errors} className="font-body text-sm text-red-400" />
 
       {/* Submit */}
       <button
         type="submit"
-        disabled={status === 'sending'}
+        disabled={state.submitting}
         className="self-start mt-2 px-10 py-4 bg-dark-bg border border-orange text-text-light font-body font-semibold
                    uppercase tracking-widest text-sm rounded-sm transition-all duration-200
                    hover:bg-orange hover:text-dark-bg disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {status === 'sending' ? 'Sending…' : 'Start the Conversation'}
+        {state.submitting ? 'Sending…' : 'Send'}
       </button>
     </form>
   )
