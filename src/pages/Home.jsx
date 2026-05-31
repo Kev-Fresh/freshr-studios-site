@@ -119,7 +119,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            className="mt-8 flex flex-col gap-3 md:flex-row md:gap-4"
+            className="mt-8 flex flex-col gap-3 md:flex-row md:gap-4 text-white"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             animate="show"
@@ -202,7 +202,7 @@ export default function Home() {
             </div>
             <Link
               to="/services"
-              className="hidden md:inline font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+              className="hidden md:inline font-body text-sm uppercase tracking-widest text-text-dark/60 hover:text-orange transition-colors duration-150"
             >
               View all →
             </Link>
@@ -248,7 +248,7 @@ export default function Home() {
             </div>
             <Link
               to="/archive"
-              className="hidden md:inline font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+              className="hidden md:inline font-body text-sm uppercase tracking-widest text-text-light/60 hover:text-orange transition-colors duration-150"
             >
               Full portfolio →
             </Link>

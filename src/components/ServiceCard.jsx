@@ -55,7 +55,7 @@ function ServiceModal({ title, tagline, description, cta, ctaHref, image, video,
         )}
 
         {/* Scrim — heavy at bottom where content lives, fades out top */}
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/55 to-dark-bg/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/10" />
       </motion.div>
 
       {/* Close button */}
@@ -69,7 +69,7 @@ function ServiceModal({ title, tagline, description, cta, ctaHref, image, video,
 
       {/* Content — sits at bottom */}
       <motion.div
-        className="relative z-10 w-full max-w-screen-xl mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32"
+        className="relative z-10 w-full max-w-screen-xl mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32 text-white"
         initial={reduced ? false : { y: 32, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 16, opacity: 0 }}

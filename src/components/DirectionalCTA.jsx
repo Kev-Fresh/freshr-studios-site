@@ -36,7 +36,7 @@ export default function DirectionalCTA({ to, children, className = '', variant =
     <Link
       ref={wrapRef}
       to={to}
-      className={`group relative overflow-hidden inline-block px-8 py-3 font-body font-semibold uppercase tracking-widest text-sm ${baseClass} ${className}`}
+      className={`group relative overflow-hidden inline-block px-8 py-3 font-body font-semibold uppercase tracking-widest text-sm rounded-sm ${baseClass} ${className}`}
       onMouseEnter={(e) => run(e, true)}
       onMouseLeave={(e) => run(e, false)}
     >

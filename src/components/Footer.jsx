@@ -51,24 +51,25 @@ export default function Footer() {
 
   return (
     <footer className="section-dark border-t border-text-light/10">
-      <div className="max-w-screen-xl mx-auto px-6 md:px-10 py-14 md:py-16">
+      <div className="max-w-screen-xl mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-10 md:pb-12">
 
-        {/* Mobile: stacked center — Desktop: three-column row */}
-        <div className="flex flex-col items-center gap-10 md:flex-row md:items-start md:justify-between">
+        {/* Main grid: tagline left, columns right */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 md:gap-8">
 
-          {/* Logo + tagline */}
-          <div className="flex flex-col items-center gap-3 md:items-start">
+          {/* Left — logo + tagline */}
+          <div className="flex flex-col gap-8">
             <Link to="/">
               <img src={logo} alt="Freshr Studios" className="h-[65px] md:h-[100px] w-auto" />
             </Link>
-            <p className="font-body text-muted text-xs uppercase tracking-widest">
-              Buffalo's Story Studio
-            </p>
+            <h2 className="font-display text-[clamp(1.8rem,3vw,3rem)] uppercase leading-[0.92] text-text-light">
+              Every story<br />deserves<br />a frame<span className="period-orange" aria-hidden="true" />
+            </h2>
           </div>
 
-          {/* Nav links — vertical stack on mobile, horizontal on desktop */}
+          {/* Nav links */}
           <nav aria-label="Footer navigation">
-            <ul className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
+            <p className="font-body text-xs uppercase tracking-widest text-muted/50 mb-5">Navigate</p>
+            <ul className="flex flex-col gap-3">
               {NAV_LINKS.map(({ to, label }) => (
                 <li key={to}>
                   <Link
@@ -82,29 +83,57 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Social + contact */}
-          <div className="flex flex-col items-center gap-3 md:items-end">
-            <a
-              href="https://instagram.com/freshrstudios"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
-              aria-label="Freshr Studios on Instagram"
-            >
-              Instagram
-            </a>
-            <a
-              href="mailto:hello@freshrstudios.com"
-              className="font-body text-sm text-muted hover:text-orange transition-colors duration-150"
-            >
-              hello@freshrstudios.com
-            </a>
+          {/* Contact */}
+          <div>
+            <p className="font-body text-xs uppercase tracking-widest text-muted/50 mb-5">Contact</p>
+            <div className="flex flex-col gap-3">
+              <a
+                href="mailto:hello@freshrstudios.com"
+                className="font-body text-sm text-muted hover:text-orange transition-colors duration-150"
+              >
+                hello@freshrstudios.com
+              </a>
+            </div>
+          </div>
+
+          {/* Socials */}
+          <div>
+            <p className="font-body text-xs uppercase tracking-widest text-muted/50 mb-5">Follow</p>
+            <div className="flex flex-col gap-3">
+              <a
+                href="https://instagram.com/freshrstudios"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+                aria-label="Freshr Studios on Instagram"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://tiktok.com/@freshrstudios"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+                aria-label="Freshr Studios on TikTok"
+              >
+                TikTok
+              </a>
+              <a
+                href="https://youtube.com/@freshrstudios"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+                aria-label="Freshr Studios on YouTube"
+              >
+                YouTube
+              </a>
+            </div>
           </div>
 
         </div>
 
-        {/* Legal */}
-        <div className="mt-12 pt-6 border-t border-text-light/10 flex flex-col gap-2 md:flex-row md:justify-between md:items-center">
+        {/* Bottom bar */}
+        <div className="mt-16 pt-6 border-t border-text-light/10 flex flex-col gap-2 md:flex-row md:justify-between md:items-center">
           <p className="font-body text-xs text-muted text-center md:text-left">
             © {new Date().getFullYear()} Freshr Studios.{' '}
             <span className="text-muted/70">A Beam Innovations LLC company.</span>

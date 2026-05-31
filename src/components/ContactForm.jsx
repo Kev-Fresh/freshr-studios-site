@@ -149,7 +149,7 @@ export default function ContactForm() {
         type="submit"
         disabled={status === 'sending'}
         className="self-start mt-2 px-10 py-4 bg-dark-bg border border-orange text-text-light font-body font-semibold
-                   uppercase tracking-widest text-sm transition-all duration-200
+                   uppercase tracking-widest text-sm rounded-sm transition-all duration-200
                    hover:bg-orange hover:text-dark-bg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === 'sending' ? 'Sending…' : 'Start the Conversation'}
