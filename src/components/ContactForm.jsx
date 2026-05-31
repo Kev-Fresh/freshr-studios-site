@@ -63,7 +63,7 @@ export default function ContactForm() {
           type="text"
           required
           placeholder="Your name"
-          className="bg-transparent border-b border-white/20 py-3 font-body text-text-light placeholder:text-muted/60
+          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
                      focus:outline-none focus:border-orange transition-colors duration-200"
         />
       </div>
@@ -79,7 +79,7 @@ export default function ContactForm() {
           type="email"
           required
           placeholder="your@email.com"
-          className="bg-transparent border-b border-white/20 py-3 font-body text-text-light placeholder:text-muted/60
+          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
                      focus:outline-none focus:border-orange transition-colors duration-200"
         />
       </div>
@@ -94,7 +94,7 @@ export default function ContactForm() {
           name="phone"
           type="tel"
           placeholder="(716) 000-0000"
-          className="bg-transparent border-b border-white/20 py-3 font-body text-text-light placeholder:text-muted/60
+          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
                      focus:outline-none focus:border-orange transition-colors duration-200"
         />
       </div>
@@ -109,7 +109,7 @@ export default function ContactForm() {
           name="service"
           required
           defaultValue=""
-          className="bg-transparent border-b border-white/20 py-3 font-body text-text-light
+          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light
                      focus:outline-none focus:border-orange transition-colors duration-200
                      appearance-none cursor-pointer"
         >
@@ -132,7 +132,7 @@ export default function ContactForm() {
           required
           rows={5}
           placeholder="Tell us about your story…"
-          className="bg-transparent border-b border-white/20 py-3 font-body text-text-light placeholder:text-muted/60
+          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
                      focus:outline-none focus:border-orange transition-colors duration-200 resize-none"
         />
       </div>

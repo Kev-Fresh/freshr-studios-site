@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 import DirectionalCTA from './DirectionalCTA'
+import heroVideo from '../assets/Videos/Shelly Test.mov'
 
 function ServiceModal({ title, tagline, description, cta, ctaHref, image, video, reduced, onClose }) {
   useEffect(() => {
@@ -43,7 +44,14 @@ function ServiceModal({ title, tagline, description, cta, ctaHref, image, video,
         ) : image ? (
           <img src={image} alt="" aria-hidden="true" className="w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full bg-dark-bg" />
+          <video
+            src={heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
         )}
 
         {/* Scrim — heavy at bottom where content lives, fades out top */}

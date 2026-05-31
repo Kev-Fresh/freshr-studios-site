@@ -17,14 +17,16 @@
         document.documentElement.setAttribute('data-theme', theme);
 
         var palette = [
-          '252 158 79',  /* orange  */
-          '198 241 53',  /* acid    */
-          '196 30 58',   /* red     */
-          '0 71 171',    /* cobalt  */
-          '124 58 237',  /* violet  */
+          { rgb: '252 158 79',  key: 'orange' },
+          { rgb: '22 163 74',   key: 'green'  },
+          { rgb: '196 30 58',   key: 'red'    },
+          { rgb: '0 71 171',    key: 'cobalt' },
+          { rgb: '124 58 237',  key: 'violet' },
+          { rgb: '255 222 89',  key: 'yellow' },
         ];
         var pick = palette[Math.floor(Math.random() * palette.length)];
-        document.documentElement.style.setProperty('--rgb-accent', pick);
+        document.documentElement.style.setProperty('--rgb-accent', pick.rgb);
+        document.documentElement.setAttribute('data-accent', pick.key);
       })();
     </script>
 

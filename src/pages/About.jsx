@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react'
 import DirectionalCTA from '../components/DirectionalCTA'
+import UnderlineBar from '../components/UnderlineBar'
 
 const PILLARS = [
   {
@@ -35,7 +36,7 @@ export default function About() {
   return (
     <>
       {/* ── Header ───────────────────────────────────────────── */}
-      <section className="section-dark pt-32 pb-16 md:pt-40 md:pb-20">
+      <section data-nav-theme="dark" className="section-dark pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.h1
             className="section-title text-text-light"
@@ -46,11 +47,12 @@ export default function About() {
           >
             The <span className="whitespace-nowrap">Studio<span className="period-orange" aria-hidden="true" /></span>
           </motion.h1>
+          <UnderlineBar />
         </div>
       </section>
 
       {/* ── Studio story ─────────────────────────────────────── */}
-      <section className="section-light py-20 md:py-28">
+      <section data-nav-theme="light" className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <motion.div
@@ -100,10 +102,10 @@ export default function About() {
       </section>
 
       {/* ── Five Pillars ─────────────────────────────────────── */}
-      <section className="section-dark py-20 md:py-28">
+      <section data-nav-theme="dark" className="section-dark py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.h2
-            className="section-title text-text-light mb-14"
+            className="section-title text-text-light"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             whileInView="show"
@@ -112,6 +114,7 @@ export default function About() {
           >
             The Five <span className="whitespace-nowrap">Pillars<span className="period-orange" aria-hidden="true" /></span>
           </motion.h2>
+          <UnderlineBar className="mb-14" />
           <div className="flex flex-col divide-y divide-white/10">
             {PILLARS.map(({ name, desc }, i) => (
               <motion.div
@@ -139,7 +142,7 @@ export default function About() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
-      <section className="section-dark py-20 md:py-24">
+      <section data-nav-theme="dark" className="section-dark py-20 md:py-24">
         <motion.div
           className="max-w-screen-xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
           variants={fadeUp}

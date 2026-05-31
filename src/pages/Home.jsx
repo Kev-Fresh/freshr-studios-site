@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom'
 import ServiceCard from '../components/ServiceCard'
 import WorkItem from '../components/WorkItem'
 import DirectionalCTA from '../components/DirectionalCTA'
+import RevealText from '../components/RevealText'
+import UnderlineBar from '../components/UnderlineBar'
 import inTheMomentImg from '../assets/images/event-roller-skate.png'
+import heroVideo from '../assets/Videos/Shelly Test.mov'
 
 const SERVICES_PREVIEW = [
   {
@@ -44,8 +47,10 @@ const fadeUp = {
 }
 
 export default function Home() {
-  const introRef = useRef(null)
-  const reduced  = useReducedMotion()
+  const introRef  = useRef(null)
+  const ctaRef    = useRef(null)
+  const periodRef = useRef(null)
+  const reduced   = useReducedMotion()
 
   const { scrollYProgress } = useScroll({
     target: introRef,
@@ -53,19 +58,47 @@ export default function Home() {
   })
   const glowY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [-40, 40])
 
+  const { scrollYProgress: ctaProgress } = useScroll({
+    target: ctaRef,
+    offset: ['start end', 'center center'],
+  })
+  const circleScale    = useTransform(ctaProgress, [0, 1], reduced ? [1, 1] : [140, 1])
+  const contentOpacity = useTransform(ctaProgress, [0.4, 1], reduced ? [1, 1] : [0, 1])
+
+  // Animate circle from section center toward the real period position
+  const circleOffsetX = useTransform(ctaProgress, (p) => {
+    if (!periodRef.current || !ctaRef.current) return 0
+    const pr = periodRef.current.getBoundingClientRect()
+    const sr = ctaRef.current.getBoundingClientRect()
+    return (pr.left - sr.left + pr.width / 2 - sr.width / 2) * p
+  })
+  const circleOffsetY = useTransform(ctaProgress, (p) => {
+    if (!periodRef.current || !ctaRef.current) return 0
+    const pr = periodRef.current.getBoundingClientRect()
+    const sr = ctaRef.current.getBoundingClientRect()
+    return (pr.top - sr.top + pr.height / 2 - sr.height / 2) * p
+  })
+
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative min-h-[100dvh] flex items-start md:items-end pt-36 pb-12 md:pt-0 md:pb-28 section-dark grain-overlay overflow-hidden">
+      <section data-nav-theme="dark" className="relative min-h-[100dvh] flex items-end pb-12 md:pb-28 grain-overlay overflow-hidden" style={{ backgroundColor: '#000' }}>
         {/* Hero image slot — replace src with real photography */}
-        <div className="absolute inset-0 bg-dark-bg" aria-hidden="true">
-          {/* TODO: hero full-bleed photo, 1920×1080, from actual Freshr shoot */}
-          <div className="w-full h-full bg-gradient-to-b from-dark-bg/60 via-transparent to-dark-bg/80" />
+        <div className="absolute inset-0 bg-black" aria-hidden="true">
+          <video
+            src={heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
         </div>
 
-        <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10 w-full">
+        <div className="relative z-10 w-full pl-10 pr-6 md:pl-16 md:pr-10">
           <motion.h1
-            className="font-display text-[clamp(2.25rem,6.5vw,5.75rem)] uppercase text-text-light"
+            className="font-display text-[clamp(2.25rem,6.5vw,5.75rem)] uppercase text-white"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             animate="show"
@@ -75,7 +108,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p
-            className="font-body text-lg md:text-xl text-text-light/70 mt-6 max-w-md"
+            className="font-body text-lg md:text-xl text-white/70 mt-6 max-w-md"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             animate="show"
@@ -103,7 +136,7 @@ export default function Home() {
       </section>
 
       {/* ── Intro statement ──────────────────────────────────── */}
-      <section ref={introRef} className="relative section-dark py-28 md:py-40 overflow-hidden">
+      <section ref={introRef} data-nav-theme="dark" className="relative section-dark py-28 md:py-40 overflow-hidden">
 
         {/* Parallax light bloom — Motion useScroll, no raw listener */}
         <motion.div
@@ -125,31 +158,33 @@ export default function Home() {
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 18%, transparent 80%, rgba(0,0,0,0.5) 100%)',
+            background: 'linear-gradient(to bottom, rgb(var(--rgb-dark-bg)) 0%, transparent 18%, transparent 80%, rgb(var(--rgb-dark-bg)) 100%)',
           }}
         />
 
-        <motion.div
-          className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10"
-          variants={fadeUp}
-          initial={reduced ? false : 'hidden'}
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10">
           <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] text-text-light max-w-4xl">
-            We don't make content.<br />
-            We tell stories<span className="period-orange" aria-hidden="true" />
+            <RevealText>We don't make content.</RevealText>
+            <RevealText delay={0.1}>
+              We tell stories<span className="period-orange" aria-hidden="true" />
+            </RevealText>
           </h2>
-          <p className="font-body text-lg text-muted mt-8 max-w-[65ch]">
+          <motion.p
+            className="font-body text-lg text-muted mt-8 max-w-[65ch]"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
             Freshr Studios is rooted in Buffalo: the culture, the people, the diaspora.
             Every frame is intentional. Every project is a story worth telling.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
       </section>
 
       {/* ── Services preview ─────────────────────────────────── */}
-      <section className="section-light py-20 md:py-28">
+      <section data-nav-theme="light" className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.div
             className="flex items-end justify-between mb-12"
@@ -159,9 +194,12 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="section-title text-text-dark">
-              The <span className="whitespace-nowrap">Services<span className="period-orange" aria-hidden="true" /></span>
-            </h2>
+            <div>
+              <h2 className="section-title text-text-dark">
+                The <span className="whitespace-nowrap">Services<span className="period-orange" aria-hidden="true" /></span>
+              </h2>
+              <UnderlineBar />
+            </div>
             <Link
               to="/services"
               className="hidden md:inline font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
@@ -192,7 +230,7 @@ export default function Home() {
       </section>
 
       {/* ── Work teaser ──────────────────────────────────────── */}
-      <section className="section-dark py-20 md:py-28 border-t border-white/10">
+      <section data-nav-theme="dark" className="section-dark py-20 md:py-28 border-t border-white/10">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.div
             className="flex items-end justify-between mb-10"
@@ -202,9 +240,12 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="section-title text-text-light">
-              The <span className="whitespace-nowrap">Archive<span className="period-orange" aria-hidden="true" /></span>
-            </h2>
+            <div>
+              <h2 className="section-title text-text-light">
+                The <span className="whitespace-nowrap">Archive<span className="period-orange" aria-hidden="true" /></span>
+              </h2>
+              <UnderlineBar />
+            </div>
             <Link
               to="/archive"
               className="hidden md:inline font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
@@ -214,7 +255,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className="filmstrip-container pl-6 md:pl-10">
+        <div className="filmstrip-container pl-10 md:pl-16">
           <div className="filmstrip pr-6 md:pr-10">
             {WORK_PREVIEW.map((item) => (
               <WorkItem
@@ -238,18 +279,30 @@ export default function Home() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
-      <section className="section-light py-24 md:py-32">
+      <section ref={ctaRef} data-nav-theme="light" className="section-light relative overflow-hidden py-24 md:py-32">
+        {/* Period bloom — starts full-screen, tracks to real period position on scroll */}
+        <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none">
+          <motion.div
+            aria-hidden="true"
+            className="rounded-full"
+            style={{
+              width:      '1rem',
+              height:     '1rem',
+              background: 'rgb(var(--rgb-accent))',
+              x:          circleOffsetX,
+              y:          circleOffsetY,
+              scale:      circleScale,
+            }}
+          />
+        </div>
+
         <motion.div
-          className="max-w-screen-xl mx-auto px-6 md:px-10 text-center"
-          variants={fadeUp}
-          initial={reduced ? false : 'hidden'}
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10 text-center"
+          style={{ opacity: contentOpacity }}
         >
           <h2 className="font-display text-[clamp(48px,8vw,120px)] uppercase leading-none text-text-dark">
             Your story<br />
-            starts here<span className="period-orange" aria-hidden="true" />
+            starts here<span ref={periodRef} className="period-orange" aria-hidden="true" />
           </h2>
           <p className="font-body text-lg text-text-dark/60 mt-6 max-w-md mx-auto">
             Ready to tell something real? Let's talk.

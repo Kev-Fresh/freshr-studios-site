@@ -29,7 +29,7 @@ export default function DirectionalCTA({ to, children, className = '', variant =
   }
 
   const baseClass = variant === 'outline'
-    ? 'border border-orange text-orange'
+    ? 'border border-current'
     : 'border-2 border-white bg-dark-bg text-text-light group-hover:border-orange transition-colors duration-300'
 
   return (

@@ -1,7 +1,29 @@
 import { useState, useRef, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import logoLight from '../assets/logos/logo-nav-dark.svg'
-import logoDark  from '../assets/logos/2.svg'
+import { NavLink, useLocation } from 'react-router-dom'
+import logoWhite       from '../assets/logos/logo-white.svg'
+import logoBlack       from '../assets/logos/logo-black.svg'
+import logoWhiteOrange from '../assets/logos/logo-white-orange.svg'
+import logoWhiteGreen  from '../assets/logos/logo-white-green.svg'
+import logoWhiteRed    from '../assets/logos/logo-white-red.svg'
+import logoWhiteBlue   from '../assets/logos/logo-white-blue.svg'
+import logoWhiteViolet from '../assets/logos/logo-white-violet.svg'
+import logoBlackViolet from '../assets/logos/logo-black-violet.svg'
+import logoWhiteYellow from '../assets/logos/logo-white-yellow.svg'
+import logoBlackOrange from '../assets/logos/logo-black-orange.svg'
+import logoBlackGreen  from '../assets/logos/logo-black-green.svg'
+import logoBlackRed    from '../assets/logos/logo-black-red.svg'
+import logoBlackBlue   from '../assets/logos/logo-black-blue.svg'
+import logoBlackYellow from '../assets/logos/logo-black-yellow.svg'
+
+// [white-wordmark (on dark), black-wordmark (on light)]
+const LOGO_MAP = {
+  orange: [logoWhiteOrange, logoBlackOrange],
+  green:  [logoWhiteGreen,  logoBlackGreen ],
+  red:    [logoWhiteRed,    logoBlackRed   ],
+  cobalt: [logoWhiteBlue,   logoBlackBlue  ],
+  violet: [logoWhiteViolet, logoBlackViolet],
+  yellow: [logoWhiteYellow, logoBlackYellow],
+}
 
 const NAV_LINKS = [
   { to: '/archive',  label: 'The Archive' },
@@ -40,7 +62,10 @@ export default function Navbar() {
   const [isDark,   setIsDark]   = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark'
   )
+  const [navBg,    setNavBg]    = useState('dark')
+  const accentKey = document.documentElement.getAttribute('data-accent') || 'orange'
   const sentinelRef = useRef(null)
+  const location = useLocation()
 
   useEffect(() => {
     const sentinel = sentinelRef.current
@@ -53,6 +78,28 @@ export default function Navbar() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const update = () => {
+      const sections = document.querySelectorAll('[data-nav-theme]')
+      for (const section of sections) {
+        const { top, bottom } = section.getBoundingClientRect()
+        if (top <= 32 && bottom > 32) {
+          const bg = getComputedStyle(section).backgroundColor
+          const [r, g, b] = (bg.match(/\d+/g) ?? ['0', '0', '0']).map(Number)
+          const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+          setNavBg(luminance < 0.5 ? 'dark' : 'light')
+          break
+        }
+      }
+    }
+    const timer = setTimeout(update, 50)
+    window.addEventListener('scroll', update, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', update)
+      clearTimeout(timer)
+    }
+  }, [location.pathname, isDark])
+
   const toggleTheme = () => {
     const next = isDark ? 'light' : 'dark'
     document.documentElement.classList.add('theme-transitioning')
@@ -64,9 +111,14 @@ export default function Navbar() {
 
   const closeMenu = () => setMenuOpen(false)
 
-  const textColor = isDark ? 'text-white' : 'text-black'
-  const barColor  = isDark ? 'bg-white'   : 'bg-black'
-  const logo      = isDark ? logoLight    : logoDark
+  // Menu open → contrast against solid menu bg (isDark)
+  // At top (not scrolled) → contrast against semi-transparent nav bg (isDark)
+  // Scrolled (transparent nav) → contrast against section behind nav (navBg)
+  const onDark    = menuOpen ? isDark : (scrolled ? navBg === 'dark' : isDark)
+  const textColor = onDark ? 'text-white' : 'text-black'
+  const barColor  = onDark ? 'bg-white'   : 'bg-black'
+  const [logoDarkVariant, logoLightVariant] = LOGO_MAP[accentKey] ?? [logoWhite, logoBlack]
+  const logo = onDark ? logoDarkVariant : logoLightVariant
 
   // Links + toggle fade out on scroll, fade back in at top
   const linksVisible = !scrolled || menuOpen
@@ -75,19 +127,25 @@ export default function Navbar() {
     <>
       <div ref={sentinelRef} className="absolute top-20 left-0 h-px w-full pointer-events-none" aria-hidden="true" />
 
-      <header className="fixed top-0 left-0 right-0 z-50">
-        <nav className="max-w-screen-xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        menuOpen
+          ? `${isDark ? 'bg-dark-bg/95' : 'bg-white/95'} backdrop-blur-sm`
+          : scrolled
+            ? 'bg-transparent'
+            : isDark ? 'bg-black/50 backdrop-blur-sm' : 'bg-white/90 backdrop-blur-sm'
+      }`}>
+        <nav className={`w-full pl-10 pr-8 md:pl-16 md:pr-12 flex items-center justify-between transition-all duration-700 ${scrolled ? 'h-16' : 'h-24'}`}>
 
           {/* Logo — always visible, shrinks on scroll */}
           <NavLink to="/" onClick={closeMenu} className="flex-shrink-0 relative z-10">
             <img
               src={logo}
               alt="Freshr Studios"
-              width="160"
-              height="83"
-              className="w-[10rem] h-auto"
+              width="110"
+              height="85"
+              className="h-[75px] md:h-[95px] w-auto"
               style={{
-                transform:       scrolled ? 'scale(0.72)' : 'scale(1)',
+                transform:       scrolled ? 'scale(0.58)' : 'scale(1)',
                 transformOrigin: 'left center',
                 transition:      'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
               }}

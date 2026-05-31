@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import WorkItem from '../components/WorkItem'
+import UnderlineBar from '../components/UnderlineBar'
 
 const WORK_ITEMS = [
   { title: 'Skate Park Sessions',      category: 'Video' },
@@ -34,7 +35,7 @@ export default function Work() {
   return (
     <>
       {/* ── Header ───────────────────────────────────────────── */}
-      <section className="section-dark pt-32 pb-12 md:pt-40 md:pb-16">
+      <section data-nav-theme="dark" className="section-dark pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.h1
             className="section-title text-text-light"
@@ -45,6 +46,7 @@ export default function Work() {
           >
             The <span className="whitespace-nowrap">Archive<span className="period-orange" aria-hidden="true" /></span>
           </motion.h1>
+          <UnderlineBar />
           <motion.p
             className="font-body text-lg text-muted mt-4"
             variants={fadeUp}
@@ -58,7 +60,7 @@ export default function Work() {
       </section>
 
       {/* ── Filter tabs ──────────────────────────────────────── */}
-      <section className="section-dark pb-8 border-b border-white/10">
+      <section data-nav-theme="dark" className="section-dark pb-8 border-b border-white/10">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <div className="flex gap-6 flex-wrap">
             {CATEGORIES.map((cat) => (
@@ -79,7 +81,7 @@ export default function Work() {
       </section>
 
       {/* ── Grid — desktop filmstrip, mobile 2-col ───────────── */}
-      <section className="section-dark py-16 md:py-20">
+      <section data-nav-theme="dark" className="section-dark py-16 md:py-20">
         {/* Mobile: 2-col grid */}
         <div className="md:hidden max-w-screen-xl mx-auto px-6 grid grid-cols-2 gap-4">
           {filtered.map((item, i) => (
@@ -111,7 +113,7 @@ export default function Work() {
       </section>
 
       {/* ── Coming soon note ─────────────────────────────────── */}
-      <section className="section-dark pb-24">
+      <section data-nav-theme="dark" className="section-dark pb-24">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <p className="font-body text-xs text-muted uppercase tracking-widest">
             Portfolio expanding. Check back soon.

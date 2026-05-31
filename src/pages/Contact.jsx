@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react'
 import ContactForm from '../components/ContactForm'
+import UnderlineBar from '../components/UnderlineBar'
 
 const PILLARS = ['Clarity', 'Craft', 'Care', 'Community', 'Continuity']
 
@@ -14,7 +15,7 @@ export default function Contact() {
   return (
     <>
       {/* ── Header ───────────────────────────────────────────── */}
-      <section className="section-dark pt-32 pb-12 md:pt-40 md:pb-16">
+      <section data-nav-theme="dark" className="section-dark pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.h1
             className="section-title text-text-light"
@@ -25,6 +26,7 @@ export default function Contact() {
           >
             The <span className="whitespace-nowrap">Conversation<span className="period-orange" aria-hidden="true" /></span>
           </motion.h1>
+          <UnderlineBar />
           <motion.p
             className="font-body text-lg text-muted mt-4 max-w-lg"
             variants={fadeUp}
@@ -38,7 +40,7 @@ export default function Contact() {
       </section>
 
       {/* ── Form + sidebar ───────────────────────────────────── */}
-      <section className="section-dark py-16 md:py-24 border-t border-white/10">
+      <section data-nav-theme="dark" className="section-dark py-16 md:py-24 border-t border-white/10">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             {/* Form */}
