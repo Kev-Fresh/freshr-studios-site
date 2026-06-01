@@ -84,22 +84,6 @@ export default function Navbar() {
     return () => observer.disconnect()
   }, [])
 
-  // On navigation or theme change: derive nav color from data-nav-theme attribute + isDark.
-  // Reading the attribute is instant and immune to CSS-variable timing races.
-  // In dark mode  → 'dark' section = dark bg, 'light' section = light bg
-  // In light mode → sections are inverted: 'dark' = white, 'light' = dark
-  // Exception: home hero has an inline backgroundColor (#000) — always dark.
-  useEffect(() => {
-    const section = document.querySelector('[data-nav-theme]')
-    if (!section) return
-    if (section.style.backgroundColor) {
-      // Hardcoded bg (home hero) is always dark regardless of theme
-      setNavBg('dark')
-    } else {
-      const navTheme = section.getAttribute('data-nav-theme')
-      setNavBg((navTheme === 'dark') === isDark ? 'dark' : 'light')
-    }
-  }, [location.pathname, isDark])
 
   // Update on scroll as sections enter the nav zone
   useEffect(() => {
@@ -153,10 +137,10 @@ export default function Navbar() {
 
   const closeMenu = () => setMenuOpen(false)
 
-  // Menu open → contrast against solid menu bg (isDark)
-  // At top (not scrolled) → contrast against semi-transparent nav bg (isDark)
-  // Scrolled (transparent nav) → contrast against section behind nav (navBg)
-  const onDark    = menuOpen ? isDark : navBg === 'dark'
+  // At the top: home hero is always dark; all other pages flip with the theme.
+  // Once scrolled: use scroll-detected navBg (which tracks section transitions).
+  const atTopDark = location.pathname === '/' ? true : isDark
+  const onDark    = menuOpen ? isDark : (scrolled ? navBg === 'dark' : atTopDark)
   const textColor = onDark ? 'text-white' : 'text-black'
   const barColor  = onDark ? 'bg-white'   : 'bg-black'
   const [logoDarkVariant, logoLightVariant] = LOGO_MAP[accentKey] ?? [logoWhite, logoBlack]
