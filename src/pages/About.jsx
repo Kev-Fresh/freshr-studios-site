@@ -46,23 +46,14 @@ export default function About() {
               <h2 className="font-display text-5xl md:text-6xl uppercase text-text-dark leading-none">
                 Some stories<br />don't get<br />told<span className="period-orange" aria-hidden="true" />
               </h2>
-              <p className="font-body text-lg text-text-dark/80 leading-relaxed max-w-[65ch]">
-                Not because they aren't worth telling. Because nobody pointed a camera at them.
+              <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
+                Buffalo is a city full of rich culture. There are communities that form cultures
+                and subcultures within those cultures. It's what makes Buffalo what it is. With so
+                many things going on but not enough eyes on them, Freshr aims to tell the stories
+                of the people and places that are shaping Buffalo for the better.
               </p>
               <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
-                Freshr Studios exists to change that. We're from Buffalo — west side and east side.
-                We've watched businesses fight to exist and communities hold each other together
-                when nothing else would. We've seen what connection does to a neighborhood when it's real.
-              </p>
-              <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
-                The people moving through this city doing real things — the business owner who's been
-                in the same spot for 22 years, the woman selling fruit juice and collecting donations
-                for a family she saw on the news, the Black woman throwing skate parties that fill up
-                before the flyers even drop — they deserve to be seen the way they actually are.
-              </p>
-              <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
-                We show up. We listen. We make something worth watching.
-                Every frame is intentional. Every story is earned.
+                We show up and put what they do under a cinematic camera lens to connect Buffalo with itself.
               </p>
             </motion.div>
 
