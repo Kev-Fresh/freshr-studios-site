@@ -130,20 +130,6 @@ h1, h2, h3, h4, h5, h6 {
     @apply font-display text-5xl md:text-8xl uppercase leading-none;
   }
 
-  /* Primary CTA button */
-  .btn-primary {
-    @apply inline-block px-8 py-3 border-2 border-current font-body font-semibold
-           uppercase tracking-widest text-sm transition-all duration-200
-           hover:bg-orange hover:border-orange hover:text-dark-bg;
-  }
-
-  /* Outlined ghost button */
-  .btn-outline {
-    @apply inline-block px-8 py-3 border border-orange text-orange font-body font-semibold
-           uppercase tracking-widest text-sm transition-all duration-200
-           hover:bg-orange hover:text-dark-bg;
-  }
-
   /* Primary section — flips with theme */
   .section-dark {
     background-color: rgb(var(--rgb-dark-bg));

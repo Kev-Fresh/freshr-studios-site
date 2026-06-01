@@ -14,7 +14,8 @@
       "Bash(git init *)",
       "Bash(git *)",
       "Bash(brew install *)",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(unzip -l \"Freshr \\(1300 x 1000 px\\).zip\")"
     ]
   }
 }
