@@ -284,7 +284,7 @@ export default function Home() {
         >
           <h2 className="font-display text-[clamp(48px,8vw,120px)] uppercase leading-none text-text-dark">
             Your story<br />
-            starts here<span ref={periodRef} className="period-orange" aria-hidden="true" />
+            starts here<span ref={periodRef} className="period-orange period-orange-cta" aria-hidden="true" />
           </h2>
           <p className="font-body text-lg text-text-dark/60 mt-6 max-w-md mx-auto">
             Ready to tell something real? Let's talk.
