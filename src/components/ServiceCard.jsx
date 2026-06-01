@@ -111,22 +111,22 @@ export default function ServiceCard({ title, tagline, description, included, cta
           onClick={() => setOpen(true)}
           aria-label={`Open ${title}`}
         >
-          <div className="flex items-baseline gap-6 flex-1 min-w-0">
-            <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0">
+          <div className="flex items-start gap-6 flex-1 min-w-0">
+            <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0 mt-2">
               {String(index).padStart(2, '0')}
             </span>
-            <span className="font-display text-4xl md:text-5xl uppercase leading-none group-hover:text-orange transition-colors duration-200 truncate">
-              {title}
-            </span>
-          </div>
-          <div className="flex items-center gap-6 shrink-0 ml-4">
-            {price && (
-              <span className="hidden md:block font-body text-sm text-muted uppercase tracking-widest">
-                {price}
+            <div className="flex flex-col gap-1 min-w-0">
+              <span className="font-display text-4xl md:text-5xl uppercase leading-none group-hover:text-orange transition-colors duration-200">
+                {title}
               </span>
-            )}
-            <span className="font-body text-2xl text-orange" aria-hidden="true">+</span>
+              {price && (
+                <span className="font-body text-sm text-muted">
+                  {price}
+                </span>
+              )}
+            </div>
           </div>
+          <span className="font-body text-2xl text-orange ml-4 shrink-0" aria-hidden="true">+</span>
         </button>
       </div>
 
