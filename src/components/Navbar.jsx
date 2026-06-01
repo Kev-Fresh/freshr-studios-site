@@ -63,7 +63,8 @@ export default function Navbar() {
   const [isDark,   setIsDark]   = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark'
   )
-  const [navBg,    setNavBg]    = useState('dark')
+  const [navBg,       setNavBg]       = useState('dark')
+  const [footerVisible, setFooterVisible] = useState(false)
   const accentKey = document.documentElement.getAttribute('data-accent') || 'orange'
   const sentinelRef = useRef(null)
   const location = useLocation()
@@ -107,6 +108,17 @@ export default function Navbar() {
     }
   }, [location.pathname, isDark])
 
+  useEffect(() => {
+    const footer = document.querySelector('footer')
+    if (!footer) return
+    const obs = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { threshold: 0 }
+    )
+    obs.observe(footer)
+    return () => obs.disconnect()
+  }, [location.pathname])
+
   const toggleTheme = () => {
     const next = isDark ? 'light' : 'dark'
     document.documentElement.classList.add('theme-transitioning')
@@ -135,6 +147,8 @@ export default function Navbar() {
       <div ref={sentinelRef} className="absolute top-20 left-0 h-px w-full pointer-events-none" aria-hidden="true" />
 
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        footerVisible && !menuOpen ? '-translate-y-full' : 'translate-y-0'
+      } ${
         menuOpen
           ? `${isDark ? 'bg-dark-bg/95' : 'bg-white/95'} backdrop-blur-sm`
           : scrolled
