@@ -5,10 +5,10 @@ import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
 
 const WORK_ITEMS = [
-  { title: 'Skate Park Sessions',      category: 'Video' },
-  { title: 'East Side Portraits',      category: 'Photo' },
-  { title: 'Allentown Arts Fest',      category: 'Event' },
-  { title: 'The Conversation',         category: 'Video' },
+  { title: 'Shelly Skate Jam',  category: 'Event' },
+  { title: 'MuralFest',         category: 'Event' },
+  { title: 'Waterfront',        category: 'Video' },
+  { title: 'Birthday Party',    category: 'Event' },
 ]
 
 const CATEGORIES = ['All', 'Video', 'Photo', 'Event']
