@@ -7,7 +7,6 @@ import WorkItem from '../components/WorkItem'
 import DirectionalCTA from '../components/DirectionalCTA'
 import RevealText from '../components/RevealText'
 import UnderlineBar from '../components/UnderlineBar'
-import heroVideo from '../assets/Videos/Shelly Test.mov'
 import { SERVICES } from '../data/services'
 
 const WORK_PREVIEW = [
@@ -63,14 +62,7 @@ export default function Home() {
       <section data-nav-theme="dark" className="relative min-h-[100dvh] flex items-end pb-12 md:pb-28 grain-overlay overflow-hidden" style={{ backgroundColor: '#000' }}>
         {/* Hero image slot — replace src with real photography */}
         <div className="absolute inset-0 bg-black" aria-hidden="true">
-          <video
-            src={heroVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          />
+          {/* TODO: replace with hosted video URL */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
         </div>
 

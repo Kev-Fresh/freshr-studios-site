@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 import DirectionalCTA from './DirectionalCTA'
-import heroVideo from '../assets/Videos/Shelly Test.mov'
-
 function ServiceModal({ title, tagline, description, included, cta, ctaHref, image, video, reduced, onClose }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose() }
@@ -37,9 +35,7 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
           <video src={video} poster={image} autoPlay muted loop playsInline className="w-full h-full object-cover" />
         ) : image ? (
           <img src={image} alt="" aria-hidden="true" className="w-full h-full object-cover" />
-        ) : (
-          <video src={heroVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
-        )}
+        ) : null}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/10" />
       </motion.div>
 
