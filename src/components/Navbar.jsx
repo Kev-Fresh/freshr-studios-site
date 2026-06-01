@@ -154,8 +154,8 @@ export default function Navbar() {
         menuOpen
           ? `${isDark ? 'bg-dark-bg/95' : 'bg-white/95'} backdrop-blur-sm`
           : scrolled
-            ? `${isDark ? 'bg-dark-bg/80' : 'bg-white/80'} backdrop-blur-md`
-            : `${isDark ? 'bg-black/20' : 'bg-white/30'} backdrop-blur-sm`
+            ? `${isDark ? 'bg-dark-bg/40' : 'bg-white/50'} backdrop-blur-md`
+            : `${isDark ? 'bg-black/10' : 'bg-white/10'} backdrop-blur-sm`
       }`}>
         <nav className={`w-full pl-10 pr-8 md:pl-16 md:pr-12 flex items-center justify-between transition-all duration-700 ${scrolled ? 'h-16' : 'h-24'}`}>
 
