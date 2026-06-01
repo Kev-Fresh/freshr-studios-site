@@ -3,7 +3,7 @@ import inTheMomentImg from '../assets/images/event-roller-skate.png'
 export const SERVICES = [
   {
     title: 'First Frame',
-    tagline: 'Entry-level package',
+    tagline: 'One day. One business. Camera woven throughout.',
     description: [
       'Your first time on film. No staged moments. No corporate setup. We show up, observe, and capture you doing what you actually do. Questions woven in while you work. The result feels like we caught something real — because we did.',
       'One session. One story. Done right.',
@@ -21,8 +21,29 @@ export const SERVICES = [
     ctaHref: '/contact?service=first-frame',
   },
   {
+    title: 'In The Moment',
+    tagline: 'One day. One event. Before, during, after.',
+    description: [
+      'Before the doors open. While it\'s happening. After the last person leaves.',
+      'We show up early and stay late. We read the room and capture what actually happens — not the highlight reel version, the real version. Cultural events, community gatherings, celebrations, performances. No staged moments. Just real ones.',
+    ],
+    price: 'Starting at $1,200',
+    included: [
+      'Full event coverage — before, during, after',
+      'Behind-the-scenes access',
+      'Story-driven edit (not a highlight reel)',
+      '4–7 min event film',
+      'Music and color grade',
+      '1 round of revisions',
+      "Director's note on delivery",
+    ],
+    cta: 'Book In The Moment',
+    ctaHref: '/contact?service=in-the-moment',
+    image: inTheMomentImg,
+  },
+  {
     title: 'The Sit Down',
-    tagline: 'Interview & portrait format',
+    tagline: 'Two days. One subject. The full interview portrait.',
     description: [
       'Everything stops. Lights set up. Just you and the lens.',
       "We spend day one in your world — your space, your work, the life of what you've built. Day two we sit you down and ask the questions nobody has ever asked you. The result is a portrait that feels documentary, not corporate.",
@@ -43,7 +64,7 @@ export const SERVICES = [
   },
   {
     title: 'The Deep Dive',
-    tagline: 'Full production: extended coverage',
+    tagline: 'Multiple days. Multiple subjects. Documentary scope.',
     description: [
       'For stories too big for one person or one day.',
       'Multiple subjects. Multiple locations. Multiple shoot days. The kind of film that has chapters. The kind that gets submitted somewhere, shared everywhere, and talked about for years. This is Freshr operating at full capacity — and we choose these projects carefully.',
@@ -58,30 +79,8 @@ export const SERVICES = [
       'Music and color grade',
       '3 rounds of revisions',
       "Director's note on delivery",
-      'Festival-ready export format',
     ],
     cta: 'Book The Deep Dive',
     ctaHref: '/contact?service=the-deep-dive',
-  },
-  {
-    title: 'In The Moment',
-    tagline: 'Live event coverage',
-    description: [
-      'Before the doors open. While it\'s happening. After the last person leaves.',
-      'We show up early and stay late. We read the room and capture what actually happens — not the highlight reel version, the real version. Cultural events, community gatherings, celebrations, performances. No staged moments. Just real ones.',
-    ],
-    price: 'Starting at $1,200',
-    included: [
-      'Full event coverage — before, during, after',
-      'Behind-the-scenes access',
-      'Story-driven edit (not a highlight reel)',
-      '4–7 min event film',
-      'Music and color grade',
-      '1 round of revisions',
-      "Director's note on delivery",
-    ],
-    cta: 'Book In The Moment',
-    ctaHref: '/contact?service=in-the-moment',
-    image: inTheMomentImg,
   },
 ]

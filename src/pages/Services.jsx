@@ -37,7 +37,7 @@ export default function Services() {
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Four offerings. One standard of care.
+            Two ways to work. One standard of care.
           </motion.p>
         </div>
       </section>
@@ -45,7 +45,13 @@ export default function Services() {
       {/* ── Service accordion ────────────────────────────────── */}
       <section data-nav-theme="dark" className="section-dark pb-20 md:pb-32 border-t border-white/10">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          {SERVICES.map((s, i) => (
+
+          {/* Track 1 */}
+          <div className="pt-12 pb-2">
+            <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">Track 1 — The Capture</p>
+            <p className="font-body text-sm text-muted">For when you need the camera to move through the moment.</p>
+          </div>
+          {SERVICES.slice(0, 2).map((s, i) => (
             <ServiceCard
               key={s.title}
               index={i + 1}
@@ -59,6 +65,27 @@ export default function Services() {
               image={s.image}
             />
           ))}
+
+          {/* Track 2 */}
+          <div className="pt-14 pb-2">
+            <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">Track 2 — The Story</p>
+            <p className="font-body text-sm text-muted">For when the moment needs a sit down.</p>
+          </div>
+          {SERVICES.slice(2).map((s, i) => (
+            <ServiceCard
+              key={s.title}
+              index={i + 3}
+              title={s.title}
+              tagline={s.tagline}
+              description={s.description}
+              included={s.included}
+              price={s.price}
+              cta={s.cta}
+              ctaHref={s.ctaHref}
+              image={s.image}
+            />
+          ))}
+
         </div>
       </section>
 
