@@ -11,10 +11,10 @@ import heroVideo from '../assets/Videos/Shelly.mp4'
 import { SERVICES } from '../data/services'
 
 const WORK_PREVIEW = [
-  { title: 'Shelly Skate Jam',  category: 'Event' },
-  { title: 'MuralFest',         category: 'Event' },
-  { title: 'Waterfront',        category: 'Video' },
-  { title: 'Birthday Party',    category: 'Event' },
+  { title: 'Shelly Skate Jam',  category: 'Event', comingSoon: true },
+  { title: 'MuralFest',         category: 'Event', comingSoon: true },
+  { title: 'Waterfront',        category: 'Video', comingSoon: true },
+  { title: 'Birthday Party',    category: 'Event', comingSoon: true },
 ]
 
 const fadeUp = {
@@ -245,6 +245,7 @@ export default function Home() {
                 key={item.title}
                 title={item.title}
                 category={item.category}
+                comingSoon={item.comingSoon}
                 href="/archive"
               />
             ))}

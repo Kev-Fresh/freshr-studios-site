@@ -5,10 +5,10 @@ import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
 
 const WORK_ITEMS = [
-  { title: 'Shelly Skate Jam',  category: 'Event' },
-  { title: 'MuralFest',         category: 'Event' },
-  { title: 'Waterfront',        category: 'Video' },
-  { title: 'Birthday Party',    category: 'Event' },
+  { title: 'Shelly Skate Jam',  category: 'Event', comingSoon: true },
+  { title: 'MuralFest',         category: 'Event', comingSoon: true },
+  { title: 'Waterfront',        category: 'Video', comingSoon: true },
+  { title: 'Birthday Party',    category: 'Event', comingSoon: true },
 ]
 
 const CATEGORIES = ['All', 'Video', 'Photo', 'Event']
@@ -89,7 +89,7 @@ export default function Work() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
             >
-              <WorkItem title={item.title} category={item.category} />
+              <WorkItem title={item.title} category={item.category} comingSoon={item.comingSoon} />
             </motion.div>
           ))}
         </div>
@@ -102,6 +102,7 @@ export default function Work() {
                 key={item.title}
                 title={item.title}
                 category={item.category}
+                comingSoon={item.comingSoon}
               />
             ))}
           </div>
