@@ -25,8 +25,7 @@ export const SERVICES = [
     tagline: 'Interview & portrait format',
     description: [
       'Everything stops. Lights set up. Just you and the lens.',
-      "We spend day one in your world — your space, your work, the life of what you've built. Day two we sit you down and ask the questions nobody has ever asked you. Boom mic only. No clip mic in sight. The result is a portrait that feels documentary, not corporate.",
-      'This is what Freshr is known for.',
+      "We spend day one in your world — your space, your work, the life of what you've built. Day two we sit you down and ask the questions nobody has ever asked you. The result is a portrait that feels documentary, not corporate.",
     ],
     price: 'Starting at $3,000',
     included: [
