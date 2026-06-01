@@ -194,7 +194,6 @@ export default function Home() {
                 tagline={s.tagline}
                 description={s.description}
                 included={s.included}
-                price={s.price}
                 cta={s.cta}
                 ctaHref={s.ctaHref}
                 image={s.image}

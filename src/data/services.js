@@ -18,7 +18,7 @@ export const SERVICES = [
       "Director's note on delivery",
     ],
     cta: 'Book First Frame',
-    ctaHref: '/contact',
+    ctaHref: '/contact?service=first-frame',
   },
   {
     title: 'The Sit Down',
@@ -40,7 +40,7 @@ export const SERVICES = [
       "Director's note on delivery",
     ],
     cta: 'Book The Sit Down',
-    ctaHref: '/contact',
+    ctaHref: '/contact?service=the-sit-down',
   },
   {
     title: 'The Deep Dive',
@@ -62,7 +62,7 @@ export const SERVICES = [
       'Festival-ready export format',
     ],
     cta: 'Book The Deep Dive',
-    ctaHref: '/contact',
+    ctaHref: '/contact?service=the-deep-dive',
   },
   {
     title: 'In The Moment',
@@ -82,7 +82,7 @@ export const SERVICES = [
       "Director's note on delivery",
     ],
     cta: 'Book In The Moment',
-    ctaHref: '/contact',
+    ctaHref: '/contact?service=in-the-moment',
     image: inTheMomentImg,
   },
 ]

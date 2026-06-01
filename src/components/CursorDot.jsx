@@ -68,7 +68,7 @@ export default function CursorDot() {
           width:        10,
           height:       10,
           borderRadius: '50%',
-          border:       '1.5px solid #ffffff',
+          border:       '1.5px solid rgb(var(--rgb-accent))',
           x:            '-50%',
           y:            '-50%',
           opacity:      rippleOpacity,

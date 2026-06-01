@@ -1,4 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react'
+import { useSearchParams } from 'react-router-dom'
 
 const SERVICES = [
   { value: '',             label: 'Select a service…'              },
@@ -11,6 +12,8 @@ const SERVICES = [
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xwvzdprg')
+  const [searchParams] = useSearchParams()
+  const defaultService = searchParams.get('service') || ''
 
   if (state.succeeded) {
     return (
@@ -84,7 +87,7 @@ export default function ContactForm() {
           id="service"
           name="service"
           required
-          defaultValue=""
+          defaultValue={defaultService}
           className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light
                      focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200
                      appearance-none cursor-pointer"
