@@ -2,9 +2,11 @@ import { useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, animate } from 'motion/react'
 
 export default function CursorDot() {
-  const dotRef = useRef(null)
-  const rawX   = useMotionValue(-200)
-  const rawY   = useMotionValue(-200)
+  const dotRef    = useRef(null)
+  const rippleRef = useRef(null)
+  const overLink  = useRef(false)
+  const rawX = useMotionValue(-200)
+  const rawY = useMotionValue(-200)
   const x = useSpring(rawX, { stiffness: 600, damping: 35, mass: 0.5 })
   const y = useSpring(rawY, { stiffness: 600, damping: 35, mass: 0.5 })
 
@@ -21,18 +23,26 @@ export default function CursorDot() {
 
     const onOver = (e) => {
       if (!e.target.closest('a, button')) return
+      overLink.current = true
       animate(el, { width: 40, height: 40 }, { duration: 0.2, ease: 'easeOut' })
       el.style.background  = 'transparent'
       el.style.borderColor = '#ffffff'
     }
     const onOut = (e) => {
       if (!e.target.closest('a, button')) return
+      overLink.current = false
       animate(el, { width: 10, height: 10 }, { duration: 0.2, ease: 'easeOut' })
       el.style.background  = 'rgb(var(--rgb-accent))'
       el.style.borderColor = 'transparent'
     }
 
     const onClick = () => {
+      // Update ripple color before animating
+      if (rippleRef.current) {
+        rippleRef.current.style.borderColor = overLink.current
+          ? '#ffffff'
+          : 'rgb(var(--rgb-accent))'
+      }
       rippleScale.set(0.5)
       rippleOpacity.set(0.7)
       animate(rippleScale,   5, { duration: 0.55, ease: [0.16, 1, 0.3, 1] })
@@ -59,8 +69,9 @@ export default function CursorDot() {
       className="fixed top-0 left-0 pointer-events-none z-[200]"
       style={{ x, y }}
     >
-      {/* Ripple — motion values drive opacity/scale directly, no CSS conflict */}
+      {/* Ripple — motion values drive opacity/scale; ref lets us swap border color on click */}
       <motion.div
+        ref={rippleRef}
         style={{
           position:     'absolute',
           top:          0,
