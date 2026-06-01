@@ -11,11 +11,10 @@ import heroVideo from '../assets/Videos/Shelly.mp4'
 import { SERVICES } from '../data/services'
 
 const WORK_PREVIEW = [
-  { title: 'Skate Park Sessions', category: 'Video' },
-  { title: 'East Side Portraits', category: 'Photo' },
-  { title: 'Juneteenth Block Party', category: 'Event' },
-  { title: 'The Conversation', category: 'Video' },
-  { title: 'Allentown Arts Fest', category: 'Event' },
+  { title: 'Shelly Skate Jam',  category: 'Event' },
+  { title: 'MuralFest',         category: 'Event' },
+  { title: 'Waterfront',        category: 'Video' },
+  { title: 'Birthday Party',    category: 'Event' },
 ]
 
 const fadeUp = {
