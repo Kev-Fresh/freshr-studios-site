@@ -133,7 +133,7 @@ export default function Navbar() {
   // Menu open → contrast against solid menu bg (isDark)
   // At top (not scrolled) → contrast against semi-transparent nav bg (isDark)
   // Scrolled (transparent nav) → contrast against section behind nav (navBg)
-  const onDark    = menuOpen ? isDark : (scrolled ? navBg === 'dark' : isDark)
+  const onDark    = menuOpen ? isDark : (scrolled ? navBg === 'dark' : true)
   const textColor = onDark ? 'text-white' : 'text-black'
   const barColor  = onDark ? 'bg-white'   : 'bg-black'
   const [logoDarkVariant, logoLightVariant] = LOGO_MAP[accentKey] ?? [logoWhite, logoBlack]
@@ -151,9 +151,7 @@ export default function Navbar() {
       } ${
         menuOpen
           ? `${isDark ? 'bg-dark-bg/95' : 'bg-white/95'} backdrop-blur-sm`
-          : scrolled
-            ? 'bg-transparent'
-            : isDark ? 'bg-black/50 backdrop-blur-sm' : 'bg-white/90 backdrop-blur-sm'
+          : 'bg-transparent'
       }`}>
         <nav className={`w-full pl-10 pr-8 md:pl-16 md:pr-12 flex items-center justify-between transition-all duration-700 ${scrolled ? 'h-16' : 'h-24'}`}>
 
