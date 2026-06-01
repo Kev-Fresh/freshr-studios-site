@@ -92,7 +92,7 @@ export default function Home() {
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Cinematic storytelling for the people and places that make Buffalo what it is.
+            Cinematic storytelling for the people and places shaping Buffalo.
           </motion.p>
 
           <motion.div
