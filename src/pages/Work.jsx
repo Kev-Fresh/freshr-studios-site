@@ -7,14 +7,8 @@ import UnderlineBar from '../components/UnderlineBar'
 const WORK_ITEMS = [
   { title: 'Skate Park Sessions',      category: 'Video' },
   { title: 'East Side Portraits',      category: 'Photo' },
-  { title: 'Juneteenth Block Party',   category: 'Event' },
-  { title: 'The Conversation',         category: 'Video' },
   { title: 'Allentown Arts Fest',      category: 'Event' },
-  { title: 'Corner Store Chronicles',  category: 'Video' },
-  { title: 'Studio Portraits: Vol. 1', category: 'Photo' },
-  { title: 'The Cookout',              category: 'Event' },
-  { title: 'Elmwood Ave Walk',         category: 'Photo' },
-  { title: 'Sunday Service',           category: 'Video' },
+  { title: 'The Conversation',         category: 'Video' },
 ]
 
 const CATEGORIES = ['All', 'Video', 'Photo', 'Event']
