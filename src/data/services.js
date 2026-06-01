@@ -1,4 +1,5 @@
 import inTheMomentImg from '../assets/images/event-roller-skate.png'
+import roseVideo      from '../assets/Videos/Rose.mp4'
 
 export const SERVICES = [
   {
@@ -19,6 +20,7 @@ export const SERVICES = [
     ],
     cta: 'Book First Frame',
     ctaHref: '/contact?service=first-frame',
+    video: roseVideo,
   },
   {
     title: 'In The Moment',
@@ -59,6 +61,7 @@ export const SERVICES = [
     ],
     cta: 'Book The Sit Down',
     ctaHref: '/contact?service=the-sit-down',
+    video: roseVideo,
   },
   {
     title: 'The Deep Dive',
@@ -79,5 +82,6 @@ export const SERVICES = [
     ],
     cta: 'Book The Deep Dive',
     ctaHref: '/contact?service=the-deep-dive',
+    video: roseVideo,
   },
 ]

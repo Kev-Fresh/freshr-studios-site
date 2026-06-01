@@ -63,6 +63,7 @@ export default function Services() {
               cta={s.cta}
               ctaHref={s.ctaHref}
               image={s.image}
+              video={s.video}
             />
           ))}
 
@@ -83,6 +84,7 @@ export default function Services() {
               cta={s.cta}
               ctaHref={s.ctaHref}
               image={s.image}
+              video={s.video}
             />
           ))}
 

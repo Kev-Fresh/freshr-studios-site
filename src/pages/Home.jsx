@@ -189,6 +189,7 @@ export default function Home() {
                 cta={s.cta}
                 ctaHref={s.ctaHref}
                 image={s.image}
+                video={s.video}
                 onDark={false}
               />
             ))}
