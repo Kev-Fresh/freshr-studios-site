@@ -163,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 0.17em;
     background-color: rgb(var(--rgb-accent));
     border-radius: 50%;
-    vertical-align: 0.05em;
+    vertical-align: 0.22em;
     margin-left: 0.03em;
   }
 
