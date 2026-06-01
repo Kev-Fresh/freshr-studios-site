@@ -5,7 +5,7 @@ export const SERVICES = [
     title: 'First Frame',
     tagline: 'One day. One business. Camera woven throughout.',
     description: [
-      'Your first time on film. No staged moments. No corporate setup. We show up, observe, and capture you doing what you actually do. Questions woven in while you work. The result feels like we caught something real — because we did.',
+      'One day. One business. We show up, observe, and capture you doing what you actually do. Questions woven in naturally while you work. No staged moments. Just you being real on camera.',
       'One session. One story. Done right.',
     ],
     price: 'Starting at $800',
@@ -24,8 +24,7 @@ export const SERVICES = [
     title: 'In The Moment',
     tagline: 'One day. One event. Before, during, after.',
     description: [
-      'Before the doors open. While it\'s happening. After the last person leaves.',
-      'We show up early and stay late. We read the room and capture what actually happens — not the highlight reel version, the real version. Cultural events, community gatherings, celebrations, performances. No staged moments. Just real ones.',
+      'One day. One event. We arrive before the doors open and stay until the last person leaves. Before, during, and after — the full arc of the day captured as it actually happens. Questions woven in naturally throughout. No formal interview setup. Just the real energy of what you built.',
     ],
     price: 'Starting at $1,200',
     included: [
@@ -45,8 +44,7 @@ export const SERVICES = [
     title: 'The Sit Down',
     tagline: 'Two days. One subject. The full interview portrait.',
     description: [
-      'Everything stops. Lights set up. Just you and the lens.',
-      "We spend day one in your world — your space, your work, the life of what you've built. Day two we sit you down and ask the questions nobody has ever asked you. The result is a portrait that feels documentary, not corporate.",
+      "Two days. One subject. Day one we capture your world — your space, the life of what you've built. Day two everything stops. Lights set up. Just you and the lens. We ask the questions nobody has ever asked you. The result is a portrait that feels documentary, not corporate.",
     ],
     price: 'Starting at $3,000',
     included: [
@@ -66,8 +64,7 @@ export const SERVICES = [
     title: 'The Deep Dive',
     tagline: 'Multiple days. Multiple subjects. Documentary scope.',
     description: [
-      'For stories too big for one person or one day.',
-      'Multiple subjects. Multiple locations. Multiple shoot days. The kind of film that has chapters. The kind that gets submitted somewhere, shared everywhere, and talked about for years. This is Freshr operating at full capacity — and we choose these projects carefully.',
+      'Three or more days. Multiple subjects. Multiple locations. Multiple sit down interviews. For stories too big for one person or one day. The kind of film that has chapters and lives long after the project is done.',
     ],
     price: 'Starting at $5,000',
     included: [
