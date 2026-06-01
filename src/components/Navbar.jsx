@@ -146,7 +146,7 @@ export default function Navbar() {
     <>
       <div ref={sentinelRef} className="absolute top-20 left-0 h-px w-full pointer-events-none" aria-hidden="true" />
 
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
         footerVisible && !menuOpen ? 'md:translate-y-0 -translate-y-full' : 'translate-y-0'
       } ${
         menuOpen
