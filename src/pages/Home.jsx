@@ -84,7 +84,7 @@ export default function Home() {
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Because Buffalo has stories worth seeing that nobody has pointed a cinema camera at yet.
+            Cinematic storytelling for the people and places that make Buffalo what it is.
           </motion.p>
 
           <motion.div
