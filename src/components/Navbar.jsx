@@ -164,7 +164,7 @@ export default function Navbar() {
     <>
       <div ref={sentinelRef} className="absolute top-20 left-0 h-px w-full pointer-events-none" aria-hidden="true" />
 
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+      <header className={`fixed top-3 left-3 right-3 z-50 rounded-2xl transition-transform duration-300 ${
         footerVisible && !menuOpen ? 'md:translate-y-0 -translate-y-full' : 'translate-y-0'
       } ${
         menuOpen
@@ -173,7 +173,7 @@ export default function Navbar() {
             ? `${isDark ? 'bg-dark-bg/40' : 'bg-white/50'} backdrop-blur-md`
             : `${isDark ? 'bg-black/10' : 'bg-white/10'} backdrop-blur-sm`
       }`}>
-        <nav className={`w-full pl-10 pr-8 md:pl-16 md:pr-12 flex items-center justify-between transition-all duration-700 ${scrolled ? 'h-16' : 'h-24'}`}>
+        <nav className={`w-full pl-6 pr-5 md:pl-10 md:pr-8 flex items-center justify-between transition-all duration-700 ${scrolled ? 'h-14' : 'h-20'}`}>
 
           {/* Logo — always visible, shrinks on scroll */}
           <NavLink to="/" onClick={closeMenu} className="flex-shrink-0 relative z-10">
