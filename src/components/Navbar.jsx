@@ -66,7 +66,9 @@ export default function Navbar() {
   const [navBg,       setNavBg]       = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
   )
-  const [footerVisible, setFooterVisible] = useState(false)
+  const [footerVisible,  setFooterVisible]  = useState(false)
+  const [scrollingUp,    setScrollingUp]    = useState(false)
+  const lastScrollY = useRef(0)
   const accentKey = document.documentElement.getAttribute('data-accent') || 'orange'
   const sentinelRef = useRef(null)
   const location = useLocation()
@@ -116,6 +118,9 @@ export default function Navbar() {
       }
     }
     const onScroll = () => {
+      const y = window.scrollY
+      setScrollingUp(y < lastScrollY.current)
+      lastScrollY.current = y
       if (rafId) return
       rafId = requestAnimationFrame(() => { rafId = null; update() })
     }
@@ -157,8 +162,8 @@ export default function Navbar() {
   const [logoDarkVariant, logoLightVariant] = LOGO_MAP[accentKey] ?? [logoWhite, logoBlack]
   const logo = onDark ? logoDarkVariant : logoLightVariant
 
-  // Links + toggle fade out on scroll, fade back in at top
-  const linksVisible = !scrolled || menuOpen
+  // Links visible at top, on scroll-up, or when menu is open
+  const linksVisible = !scrolled || scrollingUp || menuOpen
 
   return (
     <>
