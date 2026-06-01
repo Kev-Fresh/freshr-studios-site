@@ -146,9 +146,9 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            Freshr Studios is rooted in Buffalo — the culture, the people, the diaspora, the block.
-            We show up where other cameras don't go. We sit with people until they're ready to be real.
-            Then we make something worth watching. Every frame is intentional. Every story is earned.
+            Most of what makes Buffalo worth living in never makes it on camera.
+            Freshr Studios documents the people, places, and events shaping this city — the ones
+            residents might not even know about. Cinematically.
           </motion.p>
         </div>
       </section>
