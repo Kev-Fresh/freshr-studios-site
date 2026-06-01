@@ -71,6 +71,8 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
+          {/* Nav contrast guard — ensures white links always read against video */}
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent" />
         </div>
 
         <div className="relative z-10 w-full pl-10 pr-6 md:pl-16 md:pr-10">

@@ -63,7 +63,9 @@ export default function Navbar() {
   const [isDark,   setIsDark]   = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark'
   )
-  const [navBg,       setNavBg]       = useState('dark')
+  const [navBg,       setNavBg]       = useState(
+    () => document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+  )
   const [footerVisible, setFooterVisible] = useState(false)
   const accentKey = document.documentElement.getAttribute('data-accent') || 'orange'
   const sentinelRef = useRef(null)
@@ -133,7 +135,7 @@ export default function Navbar() {
   // Menu open → contrast against solid menu bg (isDark)
   // At top (not scrolled) → contrast against semi-transparent nav bg (isDark)
   // Scrolled (transparent nav) → contrast against section behind nav (navBg)
-  const onDark    = menuOpen ? isDark : (scrolled ? navBg === 'dark' : true)
+  const onDark    = menuOpen ? isDark : navBg === 'dark'
   const textColor = onDark ? 'text-white' : 'text-black'
   const barColor  = onDark ? 'bg-white'   : 'bg-black'
   const [logoDarkVariant, logoLightVariant] = LOGO_MAP[accentKey] ?? [logoWhite, logoBlack]
