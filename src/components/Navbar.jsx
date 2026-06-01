@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import logoWhite       from '../assets/logos/logo-white.svg'
 import logoBlack       from '../assets/logos/logo-black.svg'
@@ -82,16 +82,21 @@ export default function Navbar() {
     return () => observer.disconnect()
   }, [])
 
-  // Detect section color synchronously after each navigation/theme change — no timing race
-  useLayoutEffect(() => {
-    const detect = (section) => {
-      const bg = getComputedStyle(section).backgroundColor
-      const [r, g, b] = (bg.match(/\d+/g) ?? ['0', '0', '0']).map(Number)
-      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
-      setNavBg(luminance < 0.5 ? 'dark' : 'light')
-    }
+  // On navigation or theme change: derive nav color from data-nav-theme attribute + isDark.
+  // Reading the attribute is instant and immune to CSS-variable timing races.
+  // In dark mode  → 'dark' section = dark bg, 'light' section = light bg
+  // In light mode → sections are inverted: 'dark' = white, 'light' = dark
+  // Exception: home hero has an inline backgroundColor (#000) — always dark.
+  useEffect(() => {
     const section = document.querySelector('[data-nav-theme]')
-    if (section) detect(section)
+    if (!section) return
+    if (section.style.backgroundColor) {
+      // Hardcoded bg (home hero) is always dark regardless of theme
+      setNavBg('dark')
+    } else {
+      const navTheme = section.getAttribute('data-nav-theme')
+      setNavBg((navTheme === 'dark') === isDark ? 'dark' : 'light')
+    }
   }, [location.pathname, isDark])
 
   // Update on scroll as sections enter the nav zone
