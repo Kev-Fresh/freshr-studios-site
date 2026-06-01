@@ -2,8 +2,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import usePageTitle from '../hooks/usePageTitle'
 import ContactForm from '../components/ContactForm'
 import UnderlineBar from '../components/UnderlineBar'
-
-const PILLARS = ['Clarity', 'Craft', 'Care', 'Community', 'Continuity']
+import FivePillars from '../components/FivePillars'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -73,19 +72,7 @@ export default function Contact() {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-4">
-                {PILLARS.map((p, i) => (
-                  <div key={p} className="flex items-center gap-4 py-3 border-b border-white/10">
-                    <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span className="font-display text-2xl uppercase text-text-light">
-                      {p}
-                    </span>
-                    <span className="text-orange ml-auto" aria-hidden="true">·</span>
-                  </div>
-                ))}
-              </div>
+              <FivePillars variant="list" />
 
               <div className="mt-2">
                 <p className="font-body text-xs uppercase tracking-widest text-muted mb-1">
@@ -109,7 +96,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="font-body text-text-light hover:text-orange transition-colors duration-150"
                 >
-                  @freshrstudios
+                  @freshr.studios
                 </a>
               </div>
             </motion.aside>

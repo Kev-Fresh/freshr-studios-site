@@ -1,0 +1,88 @@
+import inTheMomentImg from '../assets/images/event-roller-skate.png'
+
+export const SERVICES = [
+  {
+    title: 'First Frame',
+    tagline: 'Entry-level package',
+    description: [
+      'Your first time on film. No staged moments. No corporate setup. We show up, observe, and capture you doing what you actually do. Questions woven in while you work. The result feels like we caught something real — because we did.',
+      'One session. One story. Done right.',
+    ],
+    price: 'Starting at $800',
+    included: [
+      '1 shoot day',
+      'Organic interview woven into b-roll',
+      '3–5 min edited film',
+      'Music and color grade',
+      '1 round of revisions',
+      "Director's note on delivery",
+    ],
+    cta: 'Book First Frame',
+    ctaHref: '/contact',
+  },
+  {
+    title: 'The Sit Down',
+    tagline: 'Interview & portrait format',
+    description: [
+      'Everything stops. Lights set up. Just you and the lens.',
+      "We spend day one in your world — your space, your work, the life of what you've built. Day two we sit you down and ask the questions nobody has ever asked you. Boom mic only. No clip mic in sight. The result is a portrait that feels documentary, not corporate.",
+      'This is what Freshr is known for.',
+    ],
+    price: 'Starting at $3,000',
+    included: [
+      'Discovery call + Vision session',
+      '2 shoot days',
+      'Day 1: b-roll, space, organic moments',
+      'Day 2: Full Netflix-style sit down interview',
+      '8–12 min edited film',
+      'Music and color grade',
+      '2 rounds of revisions',
+      "Director's note on delivery",
+    ],
+    cta: 'Book The Sit Down',
+    ctaHref: '/contact',
+  },
+  {
+    title: 'The Deep Dive',
+    tagline: 'Full production: extended coverage',
+    description: [
+      'For stories too big for one person or one day.',
+      'Multiple subjects. Multiple locations. Multiple shoot days. The kind of film that has chapters. The kind that gets submitted somewhere, shared everywhere, and talked about for years. This is Freshr operating at full capacity — and we choose these projects carefully.',
+    ],
+    price: 'Starting at $5,000',
+    included: [
+      'Full pre-production and story development',
+      '3+ shoot days',
+      'Multiple subject interviews',
+      'Multiple locations',
+      '15–25 min documentary film',
+      'Music and color grade',
+      '3 rounds of revisions',
+      "Director's note on delivery",
+      'Festival-ready export format',
+    ],
+    cta: 'Book The Deep Dive',
+    ctaHref: '/contact',
+  },
+  {
+    title: 'In The Moment',
+    tagline: 'Live event coverage',
+    description: [
+      'Before the doors open. While it\'s happening. After the last person leaves.',
+      'We show up early and stay late. We read the room and capture what actually happens — not the highlight reel version, the real version. Cultural events, community gatherings, celebrations, performances. No staged moments. Just real ones.',
+    ],
+    price: 'Starting at $1,200',
+    included: [
+      'Full event coverage — before, during, after',
+      'Behind-the-scenes access',
+      'Story-driven edit (not a highlight reel)',
+      '4–7 min event film',
+      'Music and color grade',
+      '1 round of revisions',
+      "Director's note on delivery",
+    ],
+    cta: 'Book In The Moment',
+    ctaHref: '/contact',
+    image: inTheMomentImg,
+  },
+]

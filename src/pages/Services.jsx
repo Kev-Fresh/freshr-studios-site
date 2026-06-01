@@ -3,47 +3,8 @@ import usePageTitle from '../hooks/usePageTitle'
 import ServiceCard from '../components/ServiceCard'
 import DirectionalCTA from '../components/DirectionalCTA'
 import UnderlineBar from '../components/UnderlineBar'
-import inTheMomentImg from '../assets/images/event-roller-skate.png'
-
-const SERVICES = [
-  {
-    title: 'First Frame',
-    tagline: 'Entry-level package: photography & video',
-    description:
-      'A clean, focused story told well. Perfect for solo entrepreneurs, small businesses, or anyone stepping into professional storytelling for the first time. One session. One deliverable. Done right.',
-    cta: 'Book First Frame',
-  },
-  {
-    title: 'The Sit Down',
-    tagline: 'Interview & portrait format',
-    description:
-      'One subject. One story. We position you, light you, and let the conversation breathe. Boom or hot-shoe mount only. No clip mic in sight. The result is a portrait session or short interview that feels documentary, not corporate.',
-    cta: 'Book The Sit Down',
-  },
-  {
-    title: 'The Deep Dive',
-    tagline: 'Full production: extended coverage',
-    description:
-      "Multiple angles. Extended coverage. Editorial post-production in DaVinci Resolve. For stories that deserve the full treatment: brand films, documentary shorts, full-day portrait series.",
-    cta: 'Book The Deep Dive',
-  },
-  {
-    title: 'In The Moment',
-    tagline: 'Live event coverage',
-    description:
-      'Live, reactive, real-time storytelling. We show up to your event, read the room, and capture what actually happens. Cultural events, community gatherings, performances, celebrations. No staged moments. Just real ones.',
-    cta: 'Book In The Moment',
-    image: inTheMomentImg,
-  },
-]
-
-const PILLARS = [
-  { name: 'Clarity',    body: "No confusion about what you're getting. Ever." },
-  { name: 'Craft',      body: 'Every frame is intentional. We edit with purpose.' },
-  { name: 'Care',       body: 'We treat your story like it matters. Because it does.' },
-  { name: 'Community',  body: 'Rooted in Buffalo. Always.' },
-  { name: 'Continuity', body: "The relationship doesn't end at delivery." },
-]
+import FivePillars from '../components/FivePillars'
+import { SERVICES } from '../data/services'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -91,7 +52,10 @@ export default function Services() {
               title={s.title}
               tagline={s.tagline}
               description={s.description}
+              included={s.included}
+              price={s.price}
               cta={s.cta}
+              ctaHref={s.ctaHref}
               image={s.image}
             />
           ))}
@@ -112,32 +76,7 @@ export default function Services() {
             The Five <span className="whitespace-nowrap">Pillars<span className="period-orange" aria-hidden="true" /></span>
           </motion.h2>
           <UnderlineBar className="mb-14" />
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {PILLARS.map(({ name, body }, i) => (
-              <motion.div
-                key={name}
-                className="flex flex-col gap-3"
-                variants={fadeUp}
-                initial={reduced ? false : 'hidden'}
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="flex items-center gap-3">
-                  <span className="font-body text-xs text-muted tabular-nums">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <div className="h-px flex-1 bg-text-dark/20" />
-                </div>
-                <h3 className="font-display text-3xl uppercase text-text-dark">
-                  {name}
-                </h3>
-                <p className="font-body text-sm text-muted leading-relaxed">
-                  {body}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          <FivePillars variant="grid" />
         </div>
       </section>
 

@@ -7,32 +7,8 @@ import WorkItem from '../components/WorkItem'
 import DirectionalCTA from '../components/DirectionalCTA'
 import RevealText from '../components/RevealText'
 import UnderlineBar from '../components/UnderlineBar'
-import inTheMomentImg from '../assets/images/event-roller-skate.png'
 import heroVideo from '../assets/Videos/Shelly Test.mov'
-
-const SERVICES_PREVIEW = [
-  {
-    title: 'First Frame',
-    tagline: 'Entry-level package',
-    description: 'A clean, focused story told well. Photography or video. Your first frame with us.',
-  },
-  {
-    title: 'The Sit Down',
-    tagline: 'Interview / portrait',
-    description: 'One subject. One story. Thoughtfully captured and carefully finished.',
-  },
-  {
-    title: 'The Deep Dive',
-    tagline: 'Full production',
-    description: 'Extended coverage, multiple angles, editorial post. For stories that deserve the full treatment.',
-  },
-  {
-    title: 'In The Moment',
-    tagline: 'Event coverage',
-    description: 'Live, reactive, real-time storytelling. We show up and capture what actually happens.',
-    image: inTheMomentImg,
-  },
-]
+import { SERVICES } from '../data/services'
 
 const WORK_PREVIEW = [
   { title: 'Skate Park Sessions', category: 'Video' },
@@ -116,8 +92,7 @@ export default function Home() {
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            We capture authentic stories from the city and its diaspora.
-            With intention. With craft.
+            Because Buffalo has stories worth seeing that nobody has pointed a cinema camera at yet.
           </motion.p>
 
           <motion.div
@@ -179,8 +154,9 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            Freshr Studios is rooted in Buffalo: the culture, the people, the diaspora.
-            Every frame is intentional. Every project is a story worth telling.
+            Freshr Studios is rooted in Buffalo — the culture, the people, the diaspora, the block.
+            We show up where other cameras don't go. We sit with people until they're ready to be real.
+            Then we make something worth watching. Every frame is intentional. Every story is earned.
           </motion.p>
         </div>
       </section>
@@ -210,13 +186,17 @@ export default function Home() {
             </Link>
           </motion.div>
           <div>
-            {SERVICES_PREVIEW.map((s, i) => (
+            {SERVICES.map((s, i) => (
               <ServiceCard
                 key={s.title}
                 index={i + 1}
                 title={s.title}
                 tagline={s.tagline}
                 description={s.description}
+                included={s.included}
+                price={s.price}
+                cta={s.cta}
+                ctaHref={s.ctaHref}
                 image={s.image}
                 onDark={false}
               />
