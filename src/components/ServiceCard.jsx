@@ -36,8 +36,8 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
         ) : image ? (
           <img src={image} alt="" aria-hidden="true" className="w-full h-full object-cover" />
         ) : null}
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
       </motion.div>
 
       {/* Close button — fixed so it never scrolls away */}
