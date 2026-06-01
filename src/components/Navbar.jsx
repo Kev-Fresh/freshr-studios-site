@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import logoWhite       from '../assets/logos/logo-white.svg'
 import logoBlack       from '../assets/logos/logo-black.svg'
@@ -82,6 +82,19 @@ export default function Navbar() {
     return () => observer.disconnect()
   }, [])
 
+  // Detect section color synchronously after each navigation/theme change — no timing race
+  useLayoutEffect(() => {
+    const detect = (section) => {
+      const bg = getComputedStyle(section).backgroundColor
+      const [r, g, b] = (bg.match(/\d+/g) ?? ['0', '0', '0']).map(Number)
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+      setNavBg(luminance < 0.5 ? 'dark' : 'light')
+    }
+    const section = document.querySelector('[data-nav-theme]')
+    if (section) detect(section)
+  }, [location.pathname, isDark])
+
+  // Update on scroll as sections enter the nav zone
   useEffect(() => {
     let rafId = null
     const update = () => {
@@ -101,11 +114,9 @@ export default function Navbar() {
       if (rafId) return
       rafId = requestAnimationFrame(() => { rafId = null; update() })
     }
-    const timer = setTimeout(update, 50)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', onScroll)
-      clearTimeout(timer)
       if (rafId) cancelAnimationFrame(rafId)
     }
   }, [location.pathname, isDark])
