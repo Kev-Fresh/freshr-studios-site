@@ -80,6 +80,7 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
+    let rafId = null
     const update = () => {
       const sections = document.querySelectorAll('[data-nav-theme]')
       for (const section of sections) {
@@ -93,11 +94,16 @@ export default function Navbar() {
         }
       }
     }
+    const onScroll = () => {
+      if (rafId) return
+      rafId = requestAnimationFrame(() => { rafId = null; update() })
+    }
     const timer = setTimeout(update, 50)
-    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
-      window.removeEventListener('scroll', update)
+      window.removeEventListener('scroll', onScroll)
       clearTimeout(timer)
+      if (rafId) cancelAnimationFrame(rafId)
     }
   }, [location.pathname, isDark])
 

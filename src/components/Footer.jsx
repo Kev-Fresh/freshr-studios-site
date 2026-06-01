@@ -50,7 +50,7 @@ export default function Footer() {
   const logo = isDark ? logoDarkVariant : logoLightVariant
 
   return (
-    <footer className="section-dark border-t border-text-light/10">
+    <footer data-nav-theme="dark" className="section-dark border-t border-text-light/10">
       <div className="max-w-screen-xl mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-10 md:pb-12">
 
         {/* Main grid: tagline left, columns right */}
