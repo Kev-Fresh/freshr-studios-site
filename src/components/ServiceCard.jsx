@@ -17,13 +17,13 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-end overflow-y-auto"
+      className="fixed inset-0 z-[100] overflow-y-auto"
       initial={reduced ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.35, ease: 'easeOut' }}
     >
-      {/* Media layer */}
+      {/* Media layer — fixed so it stays put while content scrolls */}
       <motion.div
         className="fixed inset-0"
         initial={reduced ? false : { scale: 1.06 }}
@@ -40,7 +40,7 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       </motion.div>
 
-      {/* Close button */}
+      {/* Close button — fixed so it never scrolls away */}
       <button
         onClick={onClose}
         className="fixed top-6 right-6 z-20 w-10 h-10 flex items-center justify-center text-white/60 hover:text-white transition-colors duration-150"
@@ -49,9 +49,10 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
         <span className="font-body text-4xl leading-none">×</span>
       </button>
 
-      {/* Content */}
+      {/* Content — scrolls over the fixed background */}
       <motion.div
-        className="relative z-10 w-full max-w-screen-xl mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32 text-white"
+        className="relative z-10 w-full max-w-screen-xl mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-24 text-white"
+        style={{ paddingTop: 'max(6rem, calc(env(safe-area-inset-top, 0px) + 4rem))' }}
         initial={reduced ? false : { y: 32, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 16, opacity: 0 }}
