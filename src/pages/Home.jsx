@@ -263,7 +263,7 @@ export default function Home() {
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section ref={ctaRef} data-nav-theme="light" className="section-light relative overflow-hidden py-24 md:py-32">
         {/* Period bloom — starts full-screen, tracks to real period position on scroll */}
-        <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <motion.div
             aria-hidden="true"
             className="rounded-full"
