@@ -124,6 +124,7 @@ export default function ContactForm() {
       {/* Submit */}
       <button
         type="submit"
+        data-cta
         disabled={state.submitting}
         className="self-start mt-2 px-10 py-4 bg-dark-bg border border-orange text-text-light font-body font-semibold
                    uppercase tracking-widest text-sm rounded-sm transition-all duration-200

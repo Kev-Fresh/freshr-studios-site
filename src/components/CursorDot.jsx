@@ -36,10 +36,10 @@ export default function CursorDot() {
       el.style.borderColor = 'transparent'
     }
 
-    const onClick = () => {
-      // Update ripple color before animating
+    const onClick = (e) => {
+      const onCTA = !!e.target.closest('[data-cta]')
       if (rippleRef.current) {
-        rippleRef.current.style.borderColor = overLink.current
+        rippleRef.current.style.borderColor = onCTA
           ? '#ffffff'
           : 'rgb(var(--rgb-accent))'
       }
