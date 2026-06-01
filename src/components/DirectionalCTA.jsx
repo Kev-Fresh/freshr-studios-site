@@ -30,7 +30,7 @@ export default function DirectionalCTA({ to, children, className = '', variant =
 
   const baseClass = variant === 'outline'
     ? 'border border-current'
-    : 'border-2 border-white bg-dark-bg text-text-light group-hover:border-orange transition-colors duration-300'
+    : 'border-2 border-white bg-[#0E0E0E] text-white group-hover:border-orange transition-colors duration-300'
 
   return (
     <Link

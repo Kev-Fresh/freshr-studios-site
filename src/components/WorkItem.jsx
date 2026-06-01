@@ -18,7 +18,7 @@ export default function WorkItem({ title, category, thumbnail, href = '#' }) {
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       {/* Thumbnail */}
-      <div className="relative aspect-[4/5] bg-dark-bg/60 overflow-hidden border border-white/10 group-hover:border-orange transition-colors duration-300">
+      <div className="relative aspect-[4/5] bg-[#0E0E0E] overflow-hidden border border-white/10 group-hover:border-orange transition-colors duration-300">
         {thumbnail ? (
           <motion.img
             src={thumbnail}
@@ -40,8 +40,8 @@ export default function WorkItem({ title, category, thumbnail, href = '#' }) {
         {/* Category tag */}
         <div className="absolute bottom-3 left-3">
           <span
-            className={`font-body text-xs uppercase tracking-widest px-2 py-1 bg-dark-bg/80 backdrop-blur-sm ${
-              CATEGORY_COLORS[category] ?? 'text-text-light'
+            className={`font-body text-xs uppercase tracking-widest px-2 py-1 bg-black/80 backdrop-blur-sm ${
+              CATEGORY_COLORS[category] ?? 'text-white'
             }`}
           >
             {category}
@@ -51,7 +51,7 @@ export default function WorkItem({ title, category, thumbnail, href = '#' }) {
 
       {/* Title */}
       <div className="mt-3">
-        <p className="font-body font-medium text-text-light group-hover:text-orange transition-colors duration-200 truncate">
+        <p className="font-body font-medium text-white group-hover:text-orange transition-colors duration-200 truncate">
           {title}
         </p>
       </div>

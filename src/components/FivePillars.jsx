@@ -64,7 +64,7 @@ function GridVariant({ reduced }) {
 // stack — stacked rows on dark bg (About page)
 function StackVariant({ reduced }) {
   return (
-    <div className="flex flex-col divide-y divide-white/10">
+    <div className="flex flex-col divide-y divide-text-light/10">
       {PILLARS.map(({ name, expanded }, i) => (
         <motion.div
           key={name}
@@ -93,7 +93,7 @@ function ListVariant() {
   return (
     <div className="flex flex-col gap-4">
       {PILLARS.map(({ name }, i) => (
-        <div key={name} className="flex items-center gap-4 py-3 border-b border-white/10">
+        <div key={name} className="flex items-center gap-4 py-3 border-b border-text-light/10">
           <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0">
             {String(i + 1).padStart(2, '0')}
           </span>
