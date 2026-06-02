@@ -48,7 +48,7 @@ function GridVariant({ reduced }) {
           transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="flex items-center gap-3">
-            <span className="font-body text-xs text-muted tabular-nums">
+            <span className="font-body text-sm text-orange tabular-nums">
               {String(i + 1).padStart(2, '0')}
             </span>
             <div className="h-px flex-1 bg-text-dark/20" />
@@ -75,7 +75,7 @@ function StackVariant({ reduced }) {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-body text-xs text-muted tabular-nums shrink-0 w-8">
+          <span className="font-body text-sm text-orange tabular-nums shrink-0 w-8">
             {String(i + 1).padStart(2, '0')}
           </span>
           <h3 className="font-display text-4xl md:text-5xl uppercase text-text-light leading-none w-56 shrink-0">
@@ -94,7 +94,7 @@ function ListVariant() {
     <div className="flex flex-col gap-4">
       {PILLARS.map(({ name }, i) => (
         <div key={name} className="flex items-center gap-4 py-3 border-b border-text-light/10">
-          <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0">
+          <span className="font-body text-sm text-orange tabular-nums w-6 shrink-0">
             {String(i + 1).padStart(2, '0')}
           </span>
           <span className="font-display text-2xl uppercase text-text-light">{name}</span>
