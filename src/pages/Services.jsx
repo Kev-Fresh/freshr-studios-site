@@ -27,7 +27,7 @@ export default function Services() {
             animate="show"
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            The <span className="whitespace-nowrap">Services<span className="period-orange" aria-hidden="true" /></span>
+            The <span className="whitespace-nowrap">Services<span className="period-orange period-pulse" aria-hidden="true" /></span>
           </motion.h1>
           <UnderlineBar />
           <motion.p

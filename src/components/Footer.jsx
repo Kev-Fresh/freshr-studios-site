@@ -64,7 +64,7 @@ export default function Footer() {
               <img src={logo} alt="Freshr Studios" className="h-[65px] md:h-[100px] w-auto" />
             </Link>
             <h2 className="font-display text-[clamp(1.8rem,3vw,3rem)] uppercase leading-[0.92] text-text-light">
-              Every story<br />deserves<br />a frame<span className="period-orange" aria-hidden="true" />
+              Every story<br />deserves<br />a frame<span className="period-orange period-pulse" aria-hidden="true" />
             </h2>
           </div>
 

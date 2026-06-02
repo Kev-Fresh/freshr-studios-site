@@ -156,7 +156,10 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     vertical-align: -0.02em;
     margin-left: 0.06em;
-    animation: period-pulse 3s ease-in-out infinite;
+  }
+
+  .period-pulse {
+    animation: period-pulse 6s ease-in-out infinite;
   }
 
   /* CTA section — mobile values (48px font) */
