@@ -127,7 +127,7 @@ export default function Services() {
               Tell us about your project. We'll figure it out together.
             </p>
           </div>
-          <DirectionalCTA to="/contact" className="shrink-0">
+          <DirectionalCTA to="/contact?service=not-sure" className="shrink-0">
             Talk to us
           </DirectionalCTA>
         </motion.div>
