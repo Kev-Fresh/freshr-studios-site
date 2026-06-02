@@ -150,7 +150,7 @@ export default function Footer() {
               initial={reduced ? false : { scale: 0, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true, amount: 0.8 }}
-              transition={{ type: 'spring', stiffness: 500, damping: 18, mass: 0.6, delay: 2 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 18, mass: 0.6, delay: 5 }}
             />
             Born in Buffalo
           </p>
