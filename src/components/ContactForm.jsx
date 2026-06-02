@@ -37,7 +37,7 @@ function SuccessState() {
         {/* Circle */}
         <motion.circle
           cx="36" cy="36" r="32"
-          stroke="#fc9e4f"
+          stroke="rgb(var(--rgb-accent))"
           strokeWidth="2"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}
@@ -46,7 +46,7 @@ function SuccessState() {
         {/* Check */}
         <motion.path
           d="M22 36l10 10 18-18"
-          stroke="#fc9e4f"
+          stroke="rgb(var(--rgb-accent))"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
