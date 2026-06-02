@@ -41,16 +41,13 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
       </motion.div>
 
       {/* Close button — fixed so it never scrolls away */}
-      <motion.button
+      <button
         onClick={onClose}
         className="fixed top-6 right-6 z-20 w-10 h-10 flex items-center justify-center text-orange hover:text-orange/70 transition-colors duration-150"
         aria-label="Close"
-        whileHover={{ rotate: 90 }}
-        whileTap={{ rotate: 180, scale: 0.85 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 18 }}
       >
         <span className="font-body text-4xl leading-none">×</span>
-      </motion.button>
+      </button>
 
       {/* Content — scrolls over the fixed background */}
       <motion.div
@@ -128,14 +125,9 @@ export default function ServiceCard({ title, tagline, description, included, cta
               )}
             </div>
           </div>
-          <motion.span
-            className="font-body text-2xl text-orange ml-4 shrink-0 inline-block"
-            aria-hidden="true"
-            animate={{ rotate: open ? 405 : 0 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-          >
-            +
-          </motion.span>
+          <span className="font-body text-2xl text-orange ml-4 shrink-0" aria-hidden="true">
+            {open ? '×' : '+'}
+          </span>
         </button>
       </div>
 
