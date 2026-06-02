@@ -106,8 +106,9 @@ export default function ServiceCard({ title, tagline, description, included, cta
       <div className={`border-b last:border-b-0 ${borderColor}`}>
         <button
           className="w-full flex items-center justify-between py-6 md:py-8 text-left group"
-          onClick={() => setOpen(true)}
-          aria-label={`Open ${title}`}
+          onClick={() => setOpen(o => !o)}
+          aria-label={open ? `Close ${title}` : `Open ${title}`}
+          aria-expanded={open}
         >
           <div className="flex items-start gap-6 flex-1 min-w-0">
             <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0 mt-2">
@@ -124,7 +125,14 @@ export default function ServiceCard({ title, tagline, description, included, cta
               )}
             </div>
           </div>
-          <span className="font-body text-2xl text-orange ml-4 shrink-0" aria-hidden="true">+</span>
+          <motion.span
+            className="font-body text-2xl text-orange ml-4 shrink-0 inline-block"
+            aria-hidden="true"
+            animate={{ rotate: open ? 405 : 0 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+          >
+            +
+          </motion.span>
         </button>
       </div>
 
