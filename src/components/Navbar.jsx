@@ -207,9 +207,13 @@ export default function Navbar() {
                     to={to}
                     end={end}
                     className={({ isActive }) =>
-                      `font-body text-sm uppercase tracking-widest transition-colors duration-150 ${
-                        isActive ? 'text-orange' : `${textColor} hover:text-orange`
-                      }`
+                      `font-body text-sm uppercase tracking-widest transition-colors duration-150 relative
+                       after:absolute after:bottom-[-3px] after:left-0 after:h-[1.5px] after:bg-orange
+                       after:transition-[width] after:duration-300 after:ease-out
+                       ${isActive
+                         ? 'text-orange after:w-full'
+                         : `${textColor} hover:text-orange after:w-0 hover:after:w-full`
+                       }`
                     }
                   >
                     {label}
