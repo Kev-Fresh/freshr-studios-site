@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion } from 'motion/react'
 import logoWhite       from '../assets/logos/logo-white.svg'
 import logoBlack       from '../assets/logos/logo-black.svg'
 import logoWhiteOrange from '../assets/logos/logo-white-orange.svg'
@@ -210,10 +211,21 @@ export default function Navbar() {
 
             <button
               onClick={toggleTheme}
-              className={`${textColor} hover:text-orange transition-colors duration-150 p-1`}
+              className={`${textColor} hover:text-orange transition-colors duration-150 p-1 overflow-hidden relative w-[26px] h-[26px]`}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {isDark ? <SunIcon /> : <MoonIcon />}
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.span
+                  key={isDark ? 'sun' : 'moon'}
+                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0,  opacity: 1 }}
+                  exit={{    y: -10, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                >
+                  {isDark ? <SunIcon /> : <MoonIcon />}
+                </motion.span>
+              </AnimatePresence>
             </button>
           </div>
 
@@ -221,10 +233,21 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className={`${textColor} hover:text-orange transition-colors duration-150 p-1`}
+              className={`${textColor} hover:text-orange transition-colors duration-150 p-1 overflow-hidden relative w-[26px] h-[26px]`}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {isDark ? <SunIcon /> : <MoonIcon />}
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.span
+                  key={isDark ? 'sun' : 'moon'}
+                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0,  opacity: 1 }}
+                  exit={{    y: -10, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                >
+                  {isDark ? <SunIcon /> : <MoonIcon />}
+                </motion.span>
+              </AnimatePresence>
             </button>
             <button
               className="flex flex-col gap-1.5 p-2 -mr-2"
