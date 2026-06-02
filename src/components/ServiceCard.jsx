@@ -125,19 +125,9 @@ export default function ServiceCard({ title, tagline, description, included, cta
               )}
             </div>
           </div>
-          <AnimatePresence mode="crossfade" initial={false}>
-            <motion.span
-              key={open ? 'close' : 'open'}
-              className="font-body text-2xl text-orange ml-4 shrink-0 inline-block"
-              aria-hidden="true"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {open ? '×' : '+'}
-            </motion.span>
-          </AnimatePresence>
+          <span className="font-body text-2xl text-orange ml-4 shrink-0" aria-hidden="true">
+            {open ? '×' : '+'}
+          </span>
         </button>
       </div>
 
