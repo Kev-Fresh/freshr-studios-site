@@ -10,6 +10,18 @@ const SERVICES = [
   { value: 'not-sure',     label: "Not sure yet — let's talk"      },
 ]
 
+const fieldClass = `w-full bg-transparent py-3 font-body text-text-light placeholder:text-muted/60 focus:outline-none`
+
+function FieldWrap({ children }) {
+  return (
+    <div className="relative group">
+      {children}
+      <span className="absolute bottom-0 left-0 h-px w-full bg-text-light/30 pointer-events-none" />
+      <span className="absolute bottom-0 left-0 h-[1.5px] bg-orange w-0 group-focus-within:w-full transition-[width] duration-300 ease-out pointer-events-none" />
+    </div>
+  )
+}
+
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xwvzdprg')
   const [searchParams] = useSearchParams()
@@ -34,15 +46,16 @@ export default function ContactForm() {
         <label htmlFor="name" className="font-body text-xs uppercase tracking-widest text-muted">
           Name <span className="text-orange">*</span>
         </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          placeholder="Your name"
-          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
-                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200"
-        />
+        <FieldWrap>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            placeholder="Your name"
+            className={fieldClass}
+          />
+        </FieldWrap>
         <ValidationError field="name" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
 
@@ -51,15 +64,16 @@ export default function ContactForm() {
         <label htmlFor="email" className="font-body text-xs uppercase tracking-widest text-muted">
           Email <span className="text-orange">*</span>
         </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          placeholder="your@email.com"
-          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
-                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200"
-        />
+        <FieldWrap>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="your@email.com"
+            className={fieldClass}
+          />
+        </FieldWrap>
         <ValidationError field="email" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
 
@@ -68,14 +82,15 @@ export default function ContactForm() {
         <label htmlFor="phone" className="font-body text-xs uppercase tracking-widest text-muted">
           Phone <span className="text-muted/60">(optional)</span>
         </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          placeholder="(716) 000-0000"
-          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
-                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200"
-        />
+        <FieldWrap>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="(716) 000-0000"
+            className={fieldClass}
+          />
+        </FieldWrap>
       </div>
 
       {/* Service interest */}
@@ -83,21 +98,21 @@ export default function ContactForm() {
         <label htmlFor="service" className="font-body text-xs uppercase tracking-widest text-muted">
           Service <span className="text-orange">*</span>
         </label>
-        <select
-          id="service"
-          name="service"
-          required
-          defaultValue={defaultService}
-          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light
-                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200
-                     appearance-none cursor-pointer"
-        >
-          {SERVICES.map(({ value, label }) => (
-            <option key={value} value={value} className="bg-dark-bg">
-              {label}
-            </option>
-          ))}
-        </select>
+        <FieldWrap>
+          <select
+            id="service"
+            name="service"
+            required
+            defaultValue={defaultService}
+            className={`${fieldClass} appearance-none cursor-pointer`}
+          >
+            {SERVICES.map(({ value, label }) => (
+              <option key={value} value={value} className="bg-dark-bg">
+                {label}
+              </option>
+            ))}
+          </select>
+        </FieldWrap>
         <ValidationError field="service" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
 
@@ -106,15 +121,16 @@ export default function ContactForm() {
         <label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-muted">
           Message <span className="text-orange">*</span>
         </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          placeholder="Tell us about your story…"
-          className="bg-transparent border-b border-text-light/30 py-3 font-body text-text-light placeholder:text-muted/60
-                     focus:outline-none focus:border-orange focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-1 transition-colors duration-200 resize-none"
-        />
+        <FieldWrap>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows={5}
+            placeholder="Tell us about your story…"
+            className={`${fieldClass} resize-none`}
+          />
+        </FieldWrap>
         <ValidationError field="message" errors={state.errors} className="font-body text-sm text-red-400" />
       </div>
 
