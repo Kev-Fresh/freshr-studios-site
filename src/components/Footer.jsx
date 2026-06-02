@@ -146,7 +146,7 @@ export default function Footer() {
               alt=""
               aria-hidden="true"
               className="h-5 w-auto"
-              style={{ filter: 'brightness(0) saturate(100%) invert(72%) sepia(60%) saturate(600%) hue-rotate(333deg) brightness(104%)' }}
+              style={{ filter: isDark ? 'brightness(0) invert(1)' : 'brightness(0)' }}
               initial={reduced ? false : { y: 6, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, amount: 0.8 }}
