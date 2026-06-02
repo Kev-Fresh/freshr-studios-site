@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import logoWhite       from '../assets/logos/logo-white.svg'
 import logoBlack       from '../assets/logos/logo-black.svg'
@@ -33,6 +34,7 @@ const NAV_LINKS = [
 ]
 
 export default function Footer() {
+  const reduced = useReducedMotion()
   const [isDark, setIsDark] = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark'
   )
@@ -139,12 +141,16 @@ export default function Footer() {
             <span className="text-muted/70">A Beam Innovations LLC company.</span>
           </p>
           <p className="font-body text-xs text-muted uppercase tracking-widest text-center md:text-right flex items-center justify-center md:justify-end gap-2">
-            <img
+            <motion.img
               src={bisonSvg}
               alt=""
               aria-hidden="true"
               className="h-5 w-auto"
               style={{ filter: isDark ? 'brightness(0) invert(1)' : 'brightness(0)' }}
+              initial={reduced ? false : { scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 18, mass: 0.6 }}
             />
             Born in Buffalo
           </p>
