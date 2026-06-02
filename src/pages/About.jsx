@@ -74,21 +74,36 @@ export default function About() {
 
       {/* ── Pull quote ───────────────────────────────────────── */}
       <section data-nav-theme="dark" className="section-dark py-24 md:py-36 border-t border-white/10">
-        <motion.blockquote
-          className="max-w-screen-xl mx-auto px-6 md:px-10"
-          variants={fadeUp}
-          initial={reduced ? false : 'hidden'}
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <blockquote className="max-w-screen-xl mx-auto px-6 md:px-10">
           <p className="font-display text-[clamp(2rem,5.5vw,5rem)] uppercase text-text-light leading-[0.92] max-w-5xl">
-            "Buffalo has stories worth seeing that nobody has pointed a camera at yet."
+            {[
+              '"Buffalo has stories',
+              'worth seeing that',
+              'nobody has pointed',
+              'a camera at yet."',
+            ].map((line, i) => (
+              <motion.span
+                key={i}
+                className="block"
+                initial={reduced ? false : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {line}
+              </motion.span>
+            ))}
           </p>
-          <footer className="mt-10 font-body text-sm uppercase tracking-widest text-muted">
+          <motion.footer
+            className="mt-10 font-body text-sm uppercase tracking-widest text-muted"
+            initial={reduced ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+          >
             — Kevin Cole Jr., Founder, Freshr Studios
-          </footer>
-        </motion.blockquote>
+          </motion.footer>
+        </blockquote>
       </section>
 
       {/* ── Five Pillars ─────────────────────────────────────── */}

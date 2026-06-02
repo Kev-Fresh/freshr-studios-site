@@ -67,12 +67,12 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
           </div>
         )}
 
-        {/* Category tag */}
-        <div className="absolute bottom-3 left-3">
+        {/* Category tag — slides up from below on hover */}
+        <div className="absolute bottom-0 left-3 overflow-hidden pb-3">
           <span
-            className={`font-body text-xs uppercase tracking-widest px-2 py-1 bg-black/80 backdrop-blur-sm ${
-              CATEGORY_COLORS[category] ?? 'text-white'
-            }`}
+            className={`block font-body text-xs uppercase tracking-widest px-2 py-1 bg-black/80 backdrop-blur-sm
+              translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out
+              ${CATEGORY_COLORS[category] ?? 'text-white'}`}
           >
             {category}
           </span>
