@@ -142,9 +142,8 @@ export default function Home() {
 
         <div className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-10">
           <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] text-text-light max-w-4xl">
-            <RevealText>Every person and every place</RevealText>
-            <RevealText delay={0.1}>has a story.</RevealText>
-            <RevealText delay={0.2}>
+            <RevealText>Every person and every place has a story<span className="period-orange" aria-hidden="true" /></RevealText>
+            <RevealText delay={0.1}>
               We find yours<span className="period-orange" aria-hidden="true" />
             </RevealText>
           </h2>
