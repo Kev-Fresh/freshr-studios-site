@@ -1,5 +1,6 @@
 import { useForm, ValidationError } from '@formspree/react'
 import { useSearchParams } from 'react-router-dom'
+import { AnimatePresence, motion } from 'motion/react'
 
 const SERVICES = [
   { value: '',             label: 'Select a service…'              },
@@ -22,132 +23,186 @@ function FieldWrap({ children }) {
   )
 }
 
+function SuccessState() {
+  return (
+    <motion.div
+      key="success"
+      className="flex flex-col items-center gap-6 py-16 text-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      {/* Animated checkmark */}
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+        {/* Circle */}
+        <motion.circle
+          cx="36" cy="36" r="32"
+          stroke="#fc9e4f"
+          strokeWidth="2"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        />
+        {/* Check */}
+        <motion.path
+          d="M22 36l10 10 18-18"
+          stroke="#fc9e4f"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.5, ease: 'easeOut' }}
+        />
+      </svg>
+
+      <motion.h3
+        className="font-display text-4xl uppercase text-text-light"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      >
+        Message received.
+      </motion.h3>
+
+      <motion.p
+        className="font-body text-muted max-w-sm"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+      >
+        We'll be in touch soon. The conversation has started.
+      </motion.p>
+    </motion.div>
+  )
+}
+
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xwvzdprg')
   const [searchParams] = useSearchParams()
   const defaultService = searchParams.get('service') || ''
 
-  if (state.succeeded) {
-    return (
-      <div className="flex flex-col items-center gap-4 py-16 text-center">
-        <span className="font-display text-6xl text-orange">✓</span>
-        <h3 className="font-display text-4xl uppercase">Message received.</h3>
-        <p className="font-body text-muted max-w-sm">
-          We'll be in touch soon. The conversation has started.
-        </p>
-      </div>
-    )
-  }
-
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full max-w-xl">
-      {/* Name */}
-      <div className="flex flex-col gap-2">
-        <label htmlFor="name" className="font-body text-xs uppercase tracking-widest text-muted">
-          Name <span className="text-orange">*</span>
-        </label>
-        <FieldWrap>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            placeholder="Your name"
-            className={fieldClass}
-          />
-        </FieldWrap>
-        <ValidationError field="name" errors={state.errors} className="font-body text-sm text-red-400" />
-      </div>
+    <AnimatePresence mode="wait">
+      {state.succeeded ? (
+        <SuccessState />
+      ) : (
+        <motion.form
+          key="form"
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-6 w-full max-w-xl"
+          exit={{ opacity: 0, y: -16 }}
+          transition={{ duration: 0.3, ease: 'easeIn' }}
+        >
+          {/* Name */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="name" className="font-body text-xs uppercase tracking-widest text-muted">
+              Name <span className="text-orange">*</span>
+            </label>
+            <FieldWrap>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="Your name"
+                className={fieldClass}
+              />
+            </FieldWrap>
+            <ValidationError field="name" errors={state.errors} className="font-body text-sm text-red-400" />
+          </div>
 
-      {/* Email */}
-      <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="font-body text-xs uppercase tracking-widest text-muted">
-          Email <span className="text-orange">*</span>
-        </label>
-        <FieldWrap>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="your@email.com"
-            className={fieldClass}
-          />
-        </FieldWrap>
-        <ValidationError field="email" errors={state.errors} className="font-body text-sm text-red-400" />
-      </div>
+          {/* Email */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="email" className="font-body text-xs uppercase tracking-widest text-muted">
+              Email <span className="text-orange">*</span>
+            </label>
+            <FieldWrap>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="your@email.com"
+                className={fieldClass}
+              />
+            </FieldWrap>
+            <ValidationError field="email" errors={state.errors} className="font-body text-sm text-red-400" />
+          </div>
 
-      {/* Phone (optional) */}
-      <div className="flex flex-col gap-2">
-        <label htmlFor="phone" className="font-body text-xs uppercase tracking-widest text-muted">
-          Phone <span className="text-muted/60">(optional)</span>
-        </label>
-        <FieldWrap>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="(716) 000-0000"
-            className={fieldClass}
-          />
-        </FieldWrap>
-      </div>
+          {/* Phone (optional) */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="phone" className="font-body text-xs uppercase tracking-widest text-muted">
+              Phone <span className="text-muted/60">(optional)</span>
+            </label>
+            <FieldWrap>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="(716) 000-0000"
+                className={fieldClass}
+              />
+            </FieldWrap>
+          </div>
 
-      {/* Service interest */}
-      <div className="flex flex-col gap-2">
-        <label htmlFor="service" className="font-body text-xs uppercase tracking-widest text-muted">
-          Service <span className="text-orange">*</span>
-        </label>
-        <FieldWrap>
-          <select
-            id="service"
-            name="service"
-            required
-            defaultValue={defaultService}
-            className={`${fieldClass} appearance-none cursor-pointer`}
+          {/* Service interest */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="service" className="font-body text-xs uppercase tracking-widest text-muted">
+              Service <span className="text-orange">*</span>
+            </label>
+            <FieldWrap>
+              <select
+                id="service"
+                name="service"
+                required
+                defaultValue={defaultService}
+                className={`${fieldClass} appearance-none cursor-pointer`}
+              >
+                {SERVICES.map(({ value, label }) => (
+                  <option key={value} value={value} className="bg-dark-bg">
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </FieldWrap>
+            <ValidationError field="service" errors={state.errors} className="font-body text-sm text-red-400" />
+          </div>
+
+          {/* Message */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-muted">
+              Message <span className="text-orange">*</span>
+            </label>
+            <FieldWrap>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                placeholder="Tell us about your story…"
+                className={`${fieldClass} resize-none`}
+              />
+            </FieldWrap>
+            <ValidationError field="message" errors={state.errors} className="font-body text-sm text-red-400" />
+          </div>
+
+          {/* Form-level errors */}
+          <ValidationError errors={state.errors} className="font-body text-sm text-red-400" />
+
+          {/* Submit */}
+          <button
+            type="submit"
+            data-cta
+            disabled={state.submitting}
+            className="self-start mt-2 px-10 py-4 bg-transparent border border-orange text-text-light font-body font-semibold
+                       uppercase tracking-widest text-sm rounded-sm transition-all duration-200
+                       hover:bg-orange hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {SERVICES.map(({ value, label }) => (
-              <option key={value} value={value} className="bg-dark-bg">
-                {label}
-              </option>
-            ))}
-          </select>
-        </FieldWrap>
-        <ValidationError field="service" errors={state.errors} className="font-body text-sm text-red-400" />
-      </div>
-
-      {/* Message */}
-      <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-muted">
-          Message <span className="text-orange">*</span>
-        </label>
-        <FieldWrap>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows={5}
-            placeholder="Tell us about your story…"
-            className={`${fieldClass} resize-none`}
-          />
-        </FieldWrap>
-        <ValidationError field="message" errors={state.errors} className="font-body text-sm text-red-400" />
-      </div>
-
-      {/* Form-level errors */}
-      <ValidationError errors={state.errors} className="font-body text-sm text-red-400" />
-
-      {/* Submit */}
-      <button
-        type="submit"
-        data-cta
-        disabled={state.submitting}
-        className="self-start mt-2 px-10 py-4 bg-transparent border border-orange text-text-light font-body font-semibold
-                   uppercase tracking-widest text-sm rounded-sm transition-all duration-200
-                   hover:bg-orange hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {state.submitting ? 'Sending…' : 'Send'}
-      </button>
-    </form>
+            {state.submitting ? 'Sending…' : 'Send'}
+          </button>
+        </motion.form>
+      )}
+    </AnimatePresence>
   )
 }
