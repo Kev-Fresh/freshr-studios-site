@@ -125,15 +125,15 @@ export default function ServiceCard({ title, tagline, description, included, cta
               )}
             </div>
           </div>
-          <AnimatePresence mode="popLayout" initial={false}>
+          <AnimatePresence mode="crossfade" initial={false}>
             <motion.span
               key={open ? 'close' : 'open'}
               className="font-body text-2xl text-orange ml-4 shrink-0 inline-block"
               aria-hidden="true"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
             >
               {open ? '×' : '+'}
             </motion.span>
