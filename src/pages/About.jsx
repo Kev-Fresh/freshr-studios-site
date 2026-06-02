@@ -83,10 +83,10 @@ export default function About() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="font-display text-[clamp(2rem,5.5vw,5rem)] uppercase text-text-light leading-[0.92] max-w-5xl">
-            "Because Buffalo has stories worth seeing that nobody has pointed a cinema camera at yet."
+            "Buffalo has stories worth seeing that nobody has pointed a cinema camera at yet."
           </p>
           <footer className="mt-10 font-body text-sm uppercase tracking-widest text-muted">
-            — Kev, Founder, Freshr Studios
+            — Kevin Cole Jr., Founder, Freshr Studios
           </footer>
         </motion.blockquote>
       </section>
