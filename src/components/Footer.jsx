@@ -147,10 +147,10 @@ export default function Footer() {
               aria-hidden="true"
               className="h-5 w-auto"
               style={{ filter: isDark ? 'brightness(0) invert(1)' : 'brightness(0)' }}
-              initial={reduced ? false : { scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
+              initial={reduced ? false : { y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, amount: 0.8 }}
-              transition={{ type: 'spring', stiffness: 500, damping: 18, mass: 0.6, delay: 10 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 14, mass: 0.8, delay: 5 }}
             />
             Born in Buffalo
           </p>
