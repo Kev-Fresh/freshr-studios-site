@@ -44,7 +44,7 @@ export default function About() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <h2 className="font-display text-5xl md:text-6xl uppercase text-text-dark leading-none">
-                Some stories<br />don't get<br />told<span className="period-orange" aria-hidden="true" />
+                Some stories<br />don't get<br />told<span className="period-orange period-pulse" aria-hidden="true" />
               </h2>
               <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
                 Buffalo is a city full of rich culture. There are communities that form cultures
@@ -75,25 +75,31 @@ export default function About() {
       {/* ── Pull quote ───────────────────────────────────────── */}
       <section data-nav-theme="dark" className="section-dark py-24 md:py-36 border-t border-white/10">
         <blockquote className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <p className="font-display text-[clamp(2rem,5.5vw,5rem)] uppercase text-text-light leading-[0.92] max-w-5xl">
+          <div className="font-display text-[clamp(2rem,5.5vw,5rem)] uppercase text-text-light leading-[0.92] max-w-5xl">
             {[
-              '"Buffalo has stories',
+              '“Buffalo has stories',
               'worth seeing that',
               'nobody has pointed',
-              'a camera at yet."',
             ].map((line, i) => (
-              <motion.span
+              <motion.div
                 key={i}
-                className="block"
                 initial={reduced ? false : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
                 {line}
-              </motion.span>
+              </motion.div>
             ))}
-          </p>
+            <motion.div
+              initial={reduced ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              a camera at yet<span className="period-orange period-pulse" aria-hidden="true" />”
+            </motion.div>
+          </div>
           <motion.footer
             className="mt-10 font-body text-sm uppercase tracking-widest text-muted"
             initial={reduced ? false : { opacity: 0 }}
