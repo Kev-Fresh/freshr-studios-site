@@ -125,9 +125,19 @@ export default function ServiceCard({ title, tagline, description, included, cta
               )}
             </div>
           </div>
-          <span className="font-body text-2xl text-orange ml-4 shrink-0" aria-hidden="true">
-            {open ? '×' : '+'}
-          </span>
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.span
+              key={open ? 'close' : 'open'}
+              className="font-body text-2xl text-orange ml-4 shrink-0 inline-block"
+              aria-hidden="true"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+            >
+              {open ? '×' : '+'}
+            </motion.span>
+          </AnimatePresence>
         </button>
       </div>
 
