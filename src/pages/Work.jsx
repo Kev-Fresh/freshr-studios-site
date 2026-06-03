@@ -91,7 +91,7 @@ export default function Work() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
             >
-              <WorkItem title={item.title} category={item.category} comingSoon={item.comingSoon} />
+              <WorkItem title={item.title} category={item.category} thumbnail={item.thumbnail} comingSoon={item.comingSoon} />
             </motion.div>
           ))}
         </div>
@@ -104,6 +104,7 @@ export default function Work() {
                 key={item.title}
                 title={item.title}
                 category={item.category}
+                thumbnail={item.thumbnail}
                 comingSoon={item.comingSoon}
               />
             ))}

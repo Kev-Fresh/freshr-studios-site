@@ -247,6 +247,7 @@ export default function Home() {
                 key={item.title}
                 title={item.title}
                 category={item.category}
+                thumbnail={item.thumbnail}
                 comingSoon={item.comingSoon}
                 href="/archive"
               />
