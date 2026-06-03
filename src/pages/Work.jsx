@@ -3,11 +3,13 @@ import { motion, useReducedMotion } from 'motion/react'
 import usePageTitle from '../hooks/usePageTitle'
 import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
+import thumbShelly from '../assets/images/event-roller-skate.png'
+import thumbWater   from '../assets/images/Water.JPG'
 
 const WORK_ITEMS = [
-  { title: 'Shelly Skate Jam',  category: 'Event', comingSoon: true },
+  { title: 'Shelly Skate Jam',  category: 'Event', thumbnail: thumbShelly },
   { title: 'MuralFest',         category: 'Event', comingSoon: true },
-  { title: 'Waterfront',        category: 'Video', comingSoon: true },
+  { title: 'Waterfront',        category: 'Video', thumbnail: thumbWater  },
   { title: 'Birthday Party',    category: 'Event', comingSoon: true },
 ]
 
