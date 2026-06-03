@@ -7,7 +7,7 @@ import WorkItem from '../components/WorkItem'
 import DirectionalCTA from '../components/DirectionalCTA'
 import RevealText from '../components/RevealText'
 import UnderlineBar from '../components/UnderlineBar'
-import heroVideo from '../assets/Videos/Shelly.mp4'
+import heroVideo from '../assets/Videos/Hero.mp4'
 import { SERVICES } from '../data/services'
 
 const WORK_PREVIEW = [
