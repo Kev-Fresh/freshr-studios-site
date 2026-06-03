@@ -4,7 +4,7 @@ import usePageTitle from '../hooks/usePageTitle'
 import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
 import thumbShelly from '../assets/images/event-roller-skate.png'
-import thumbWater   from '../assets/images/Water.jpg'
+import thumbWater   from '../assets/images/water.jpg'
 
 const WORK_ITEMS = [
   { title: 'Shelly Skate Jam',  category: 'Event', thumbnail: thumbShelly },
