@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section data-nav-theme="dark" className="relative min-h-[100dvh] flex items-end pb-12 md:pb-28 grain-overlay overflow-hidden" style={{ backgroundColor: '#000' }}>
+      <section data-nav-theme="dark" className="relative min-h-[100dvh] flex items-end pb-6 md:pb-28 grain-overlay overflow-hidden" style={{ backgroundColor: '#000' }}>
         {/* Hero image slot — replace src with real photography */}
         <div className="absolute inset-0 bg-black" aria-hidden="true">
           <video
