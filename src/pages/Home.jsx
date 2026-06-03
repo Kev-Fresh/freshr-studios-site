@@ -10,7 +10,7 @@ import UnderlineBar from '../components/UnderlineBar'
 import heroVideo from '../assets/Videos/Hero.mp4'
 import { SERVICES } from '../data/services'
 import thumbShelly from '../assets/images/event-roller-skate.png'
-import thumbWater   from '../assets/images/Water.JPG'
+import thumbWater   from '../assets/images/Water.jpg'
 
 const WORK_PREVIEW = [
   { title: 'Shelly Skate Jam',  category: 'Event', thumbnail: thumbShelly },
