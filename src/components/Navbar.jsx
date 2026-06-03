@@ -181,7 +181,7 @@ export default function Navbar() {
               alt="Freshr Studios"
               width="110"
               height="85"
-              className="h-[75px] md:h-[95px] w-auto"
+              className="h-[52px] md:h-[95px] w-auto"
               style={{
                 transform:       scrolled ? 'scale(0.58)' : 'scale(1)',
                 transformOrigin: 'left center',
