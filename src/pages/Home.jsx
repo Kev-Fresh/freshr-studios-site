@@ -249,7 +249,6 @@ export default function Home() {
                 category={item.category}
                 thumbnail={item.thumbnail}
                 comingSoon={item.comingSoon}
-                href="/archive"
               />
             ))}
           </div>
