@@ -1,36 +1,45 @@
 import { useRef, useEffect } from 'react'
-import { useAnimate, stagger, useReducedMotion } from 'motion/react'
+import { useReducedMotion } from 'motion/react'
 
 export default function LogoAnimated({ onDark, className, style }) {
-  const reduced   = useReducedMotion()
-  const [scope, animate] = useAnimate()
-  const playing   = useRef(false)
-  const fill      = onDark ? '#ffffff' : '#0E0E0E'
+  const reduced = useReducedMotion()
+  const svgRef  = useRef(null)
+  const playing = useRef(false)
+  const fill    = onDark ? '#ffffff' : '#0E0E0E'
 
   async function playSequence() {
-    if (reduced || playing.current || !scope.current) return
+    const svg = svgRef.current
+    if (!svg || playing.current || reduced) return
     playing.current = true
-    try {
-      // Instantly reset
-      animate('.logo-ray',     { opacity: 0 }, { duration: 0 })
-      animate('.logo-studios', { opacity: 0.15 }, { duration: 0 })
-      // Rays fan in sequentially
-      await animate(
-        '.logo-ray',
-        { opacity: 1 },
-        { duration: 0.38, delay: stagger(0.09), ease: [0.16, 1, 0.3, 1] }
-      )
-      // Icon pop
-      await animate(
-        '.logo-icon',
-        { scale: [1, 1.08, 1] },
-        { duration: 0.45, ease: [0.16, 1, 0.3, 1] }
-      )
-      // Studios brightens
-      await animate('.logo-studios', { opacity: 1 }, { duration: 0.38, ease: 'easeOut' })
-    } finally {
-      playing.current = false
+
+    const rays    = [...svg.querySelectorAll('.logo-ray')]
+    const studios = svg.querySelector('.logo-studios')
+    if (!rays.length) { playing.current = false; return }
+
+    // Instantly hide rays + dim Studios
+    rays.forEach(el => { el.style.transition = 'none'; el.style.opacity = '0' })
+    if (studios) { studios.style.transition = 'none'; studios.style.opacity = '0.15' }
+
+    // Force layout flush so the browser registers opacity=0 before we transition
+    void svg.getBoundingClientRect()
+
+    // Stagger rays in via CSS transitions
+    rays.forEach((el, i) => {
+      el.style.transition = `opacity 0.38s cubic-bezier(0.16,1,0.3,1) ${i * 90}ms`
+      el.style.opacity = '1'
+    })
+
+    // Wait for all rays to finish, then brighten Studios
+    const raysDone = (rays.length - 1) * 90 + 380 + 80
+    await new Promise(r => setTimeout(r, raysDone))
+
+    if (studios) {
+      studios.style.transition = 'opacity 0.38s ease'
+      studios.style.opacity = '1'
     }
+
+    await new Promise(r => setTimeout(r, 420))
+    playing.current = false
   }
 
   useEffect(() => {
@@ -44,7 +53,7 @@ export default function LogoAnimated({ onDark, className, style }) {
 
   return (
     <svg
-      ref={scope}
+      ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="246 182 564 322"
       onMouseEnter={playSequence}
@@ -77,7 +86,7 @@ export default function LogoAnimated({ onDark, className, style }) {
 
       {/* ── Spotlight icon ── */}
       <g clipPath="url(#fl-icon-outer)">
-        <g className="logo-icon" transform="translate(629,190)" style={{ transformOrigin: '86px 90px' }}>
+        <g transform="translate(629,190)">
           <g clipPath="url(#fl-icon-inner)">
             {/* Body: always visible */}
             <path fill={fill} fillOpacity="1" fillRule="nonzero"
@@ -89,7 +98,7 @@ export default function LogoAnimated({ onDark, className, style }) {
                 d="M 171.71875 43.789062 C 172.300781 44.367188 172.625 45.152344 172.625 45.96875 C 172.625 46.789062 172.300781 47.574219 171.71875 48.152344 L 139.039062 80.867188 L 99.769531 41.597656 L 132.488281 8.914062 C 133.066406 8.332031 133.851562 8.007812 134.667969 8.007812 C 135.488281 8.007812 136.273438 8.332031 136.851562 8.914062 L 143.019531 15.078125 L 143.019531 43.789062 C 143.019531 45.488281 144.398438 46.871094 146.101562 46.871094 L 158.421875 46.871094 C 160.125 46.871094 161.507812 45.488281 161.507812 43.789062 L 161.507812 33.566406 Z" />
             </g>
 
-            {/* Rays: animated */}
+            {/* Rays: animated via CSS transitions */}
             <g clipPath="url(#fl-ray-up)">
               <path className="logo-ray" fill={fill} fillOpacity="1" fillRule="nonzero"
                 d="M 155.339844 40.703125 L 149.175781 40.703125 L 149.175781 0.625 L 155.339844 0.625 Z" />
@@ -124,7 +133,7 @@ export default function LogoAnimated({ onDark, className, style }) {
         </g>
       </g>
 
-      {/* ── Studios — brightens as the final animation beat ── */}
+      {/* ── Studios — brightens as final beat ── */}
       <g className="logo-studios" transform="translate(290,329)" clipPath="url(#fl-studios)">
         <g fill={fill} fillOpacity="1">
           <g transform="translate(1.854652,128.713277)"><path d="M 42.46875 1.25 C 37.40625 1.25 32.628906 0.644531 28.140625 -0.5625 C 23.660156 -1.78125 19.648438 -3.570312 16.109375 -5.9375 C 12.578125 -8.300781 9.675781 -11.242188 7.40625 -14.765625 C 5.144531 -18.285156 3.703125 -22.367188 3.078125 -27.015625 L 26.765625 -32.421875 C 28.066406 -27.222656 30.085938 -23.503906 32.828125 -21.265625 C 35.566406 -19.023438 38.90625 -17.90625 42.84375 -17.90625 C 46.195312 -17.90625 48.773438 -18.601562 50.578125 -20 C 52.378906 -21.40625 53.28125 -23.328125 53.28125 -25.765625 C 53.28125 -27.609375 52.765625 -29.1875 51.734375 -30.5 C 50.710938 -31.820312 49.320312 -32.960938 47.5625 -33.921875 C 45.800781 -34.890625 43.769531 -35.78125 41.46875 -36.59375 C 39.164062 -37.414062 36.710938 -38.265625 34.109375 -39.140625 C 31.515625 -40.023438 28.90625 -40.96875 26.28125 -41.96875 C 23.664062 -42.976562 21.175781 -44.160156 18.8125 -45.515625 C 16.445312 -46.878906 14.34375 -48.503906 12.5 -50.390625 C 10.65625 -52.273438 9.195312 -54.503906 8.125 -57.078125 C 7.0625 -59.648438 6.53125 -62.675781 6.53125 -66.15625 C 6.53125 -70.382812 7.359375 -74.195312 9.015625 -77.59375 C 10.671875 -80.988281 13.003906 -83.878906 16.015625 -86.265625 C 19.035156 -88.648438 22.609375 -90.476562 26.734375 -91.75 C 30.859375 -93.03125 35.414062 -93.671875 40.40625 -93.671875 C 44.46875 -93.671875 48.519531 -93.226562 52.5625 -92.34375 C 56.601562 -91.46875 60.378906 -90.046875 63.890625 -88.078125 C 67.410156 -86.109375 70.414062 -83.488281 72.90625 -80.21875 C 75.40625 -76.957031 77.132812 -72.941406 78.09375 -68.171875 L 56.609375 -62.890625 C 55.179688 -66.867188 53.316406 -69.800781 51.015625 -71.6875 C 48.710938 -73.570312 45.695312 -74.515625 41.96875 -74.515625 C 38.65625 -74.515625 35.953125 -73.875 33.859375 -72.59375 C 31.765625 -71.320312 30.71875 -69.507812 30.71875 -67.15625 C 30.71875 -65.65625 31.1875 -64.378906 32.125 -63.328125 C 33.070312 -62.285156 34.375 -61.375 36.03125 -60.59375 C 37.6875 -59.820312 39.582031 -59.085938 41.71875 -58.390625 C 43.851562 -57.703125 46.113281 -56.984375 48.5 -56.234375 C 51.1875 -55.347656 53.921875 -54.367188 56.703125 -53.296875 C 59.484375 -52.234375 62.148438 -50.96875 64.703125 -49.5 C 67.265625 -48.039062 69.550781 -46.285156 71.5625 -44.234375 C 73.570312 -42.179688 75.160156 -39.757812 76.328125 -36.96875 C 77.503906 -34.1875 78.09375 -30.910156 78.09375 -27.140625 C 78.09375 -22.785156 77.253906 -18.859375 75.578125 -15.359375 C 73.898438 -11.859375 71.488281 -8.875 68.34375 -6.40625 C 65.207031 -3.9375 61.453125 -2.039062 57.078125 -0.71875 C 52.703125 0.589844 47.832031 1.25 42.46875 1.25 Z" /></g>
