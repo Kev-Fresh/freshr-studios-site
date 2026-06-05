@@ -1,11 +1,13 @@
 import { useRef, useEffect } from 'react'
 import { useReducedMotion } from 'motion/react'
+import { useLocation } from 'react-router-dom'
 
 export default function LogoAnimated({ onDark, className, style }) {
-  const reduced = useReducedMotion()
-  const svgRef  = useRef(null)
-  const playing = useRef(false)
-  const fill    = onDark ? '#ffffff' : '#0E0E0E'
+  const reduced  = useReducedMotion()
+  const svgRef   = useRef(null)
+  const playing  = useRef(false)
+  const fill     = onDark ? '#ffffff' : '#0E0E0E'
+  const location = useLocation()
 
   async function playSequence() {
     const svg = svgRef.current
@@ -44,12 +46,9 @@ export default function LogoAnimated({ onDark, className, style }) {
 
   useEffect(() => {
     if (reduced) return
-    const KEY = 'freshr-logo-played'
-    if (sessionStorage.getItem(KEY)) return
-    sessionStorage.setItem(KEY, '1')
-    const id = setTimeout(playSequence, 700)
+    const id = setTimeout(playSequence, 400)
     return () => clearTimeout(id)
-  }, [])
+  }, [location.pathname])
 
   return (
     <svg
