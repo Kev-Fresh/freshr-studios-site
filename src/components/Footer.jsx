@@ -149,7 +149,7 @@ export default function Footer() {
               style={{ filter: isDark ? 'brightness(0) invert(1)' : 'brightness(0)' }}
               initial={reduced ? false : { y: 6, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.8 }}
+              viewport={{ once: false, amount: 0.8 }}
               transition={{ type: 'spring', stiffness: 400, damping: 14, mass: 0.8, delay: 0.8 }}
             />
             {['Born', 'in', 'Buffalo'].map((word, i) => (
@@ -157,7 +157,7 @@ export default function Footer() {
                 key={word}
                 initial={reduced ? false : { opacity: 0, y: 5 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.8 }}
+                viewport={{ once: false, amount: 0.8 }}
                 transition={{ duration: 0.3, delay: 1.1 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
               >
                 {word}
