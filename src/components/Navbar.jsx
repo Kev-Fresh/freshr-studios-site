@@ -1,30 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
-import logoWhite       from '../assets/logos/logo-white.svg'
-import logoBlack       from '../assets/logos/logo-black.svg'
-import logoWhiteOrange from '../assets/logos/logo-white-orange.svg'
-import logoWhiteGreen  from '../assets/logos/logo-white-green.svg'
-import logoWhiteRed    from '../assets/logos/logo-white-red.svg'
-import logoWhiteBlue   from '../assets/logos/logo-white-blue.svg'
-import logoWhiteViolet from '../assets/logos/logo-white-violet.svg'
-import logoBlackViolet from '../assets/logos/logo-black-violet.svg'
-import logoWhiteYellow from '../assets/logos/logo-white-yellow.svg'
-import logoBlackOrange from '../assets/logos/logo-black-orange.svg'
-import logoBlackGreen  from '../assets/logos/logo-black-green.svg'
-import logoBlackRed    from '../assets/logos/logo-black-red.svg'
-import logoBlackBlue   from '../assets/logos/logo-black-blue.svg'
-import logoBlackYellow from '../assets/logos/logo-black-yellow.svg'
-
-// [white-wordmark (on dark), black-wordmark (on light)]
-const LOGO_MAP = {
-  orange: [logoWhiteOrange, logoBlackOrange],
-  green:  [logoWhiteGreen,  logoBlackGreen ],
-  red:    [logoWhiteRed,    logoBlackRed   ],
-  cobalt: [logoWhiteBlue,   logoBlackBlue  ],
-  violet: [logoWhiteViolet, logoBlackViolet],
-  yellow: [logoWhiteYellow, logoBlackYellow],
-}
+import LogoAnimated from './LogoAnimated'
 
 const NAV_LINKS = [
   { to: '/',         label: 'Home',        end: true },
@@ -79,7 +56,6 @@ export default function Navbar() {
   const [footerVisible,  setFooterVisible]  = useState(false)
   const [scrollingUp,    setScrollingUp]    = useState(false)
   const lastScrollY = useRef(0)
-  const accentKey = document.documentElement.getAttribute('data-accent') || 'orange'
   const sentinelRef = useRef(null)
   const location = useLocation()
 
@@ -153,9 +129,6 @@ export default function Navbar() {
   const onDark    = menuOpen ? isDark : (scrolled ? navBg === 'dark' : atTopDark)
   const textColor = onDark ? 'text-white' : 'text-black'
   const barColor  = onDark ? 'bg-white'   : 'bg-black'
-  const [logoDarkVariant, logoLightVariant] = LOGO_MAP[accentKey] ?? [logoWhite, logoBlack]
-  const logo = onDark ? logoDarkVariant : logoLightVariant
-
   // Links visible at top, on scroll-up, or when menu is open
   const linksVisible = !scrolled || scrollingUp || menuOpen
 
@@ -176,11 +149,8 @@ export default function Navbar() {
 
           {/* Logo — always visible, shrinks on scroll */}
           <NavLink to="/" onClick={closeMenu} className="flex-shrink-0 relative z-10">
-            <img
-              src={logo}
-              alt="Freshr Studios"
-              width="110"
-              height="85"
+            <LogoAnimated
+              onDark={onDark}
               className="h-[52px] md:h-[95px] w-auto"
               style={{
                 transform:       scrolled ? 'scale(0.58)' : 'scale(1)',
