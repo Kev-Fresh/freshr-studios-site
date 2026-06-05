@@ -151,7 +151,7 @@ export default function Navbar() {
           <NavLink to="/" onClick={closeMenu} className="flex-shrink-0 relative z-10">
             <LogoAnimated
               onDark={onDark}
-              className="h-[52px] md:h-[95px] w-auto"
+              className="h-[52px] md:h-[72px] w-auto"
               style={{
                 transform:       scrolled ? 'scale(0.58)' : 'scale(1)',
                 transformOrigin: 'left center',
