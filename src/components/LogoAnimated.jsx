@@ -16,11 +16,13 @@ export default function LogoAnimated({ onDark, className, style }) {
 
     const rays    = [...svg.querySelectorAll('.logo-ray')]
     const studios = svg.querySelector('.logo-studios')
+    const period  = svg.querySelector('.logo-period')
     if (!rays.length) { playing.current = false; return }
 
-    // Instantly hide rays + dim Studios
+    // Instantly hide rays + dim Studios and period
     rays.forEach(el => { el.style.transition = 'none'; el.style.opacity = '0' })
     if (studios) { studios.style.transition = 'none'; studios.style.opacity = '0.15' }
+    if (period)  { period.style.transition  = 'none'; period.style.opacity  = '0.15' }
 
     // Force layout flush so the browser registers opacity=0 before we transition
     void svg.getBoundingClientRect()
@@ -38,6 +40,10 @@ export default function LogoAnimated({ onDark, className, style }) {
     if (studios) {
       studios.style.transition = 'opacity 0.38s ease'
       studios.style.opacity = '1'
+    }
+    if (period) {
+      period.style.transition = 'opacity 0.38s ease'
+      period.style.opacity = '1'
     }
 
     await new Promise(r => setTimeout(r, 420))
@@ -145,8 +151,8 @@ export default function LogoAnimated({ onDark, className, style }) {
         </g>
       </g>
 
-      {/* ── Period — accent color, no animation ── */}
-      <g transform="translate(714,323)" clipPath="url(#fl-period)">
+      {/* ── Period — illuminates with Studios ── */}
+      <g className="logo-period" transform="translate(714,323)" clipPath="url(#fl-period)">
         <g fill="rgb(var(--rgb-accent))" fillOpacity="1">
           <g transform="translate(3.519011,127.389276)">
             <path d="M 21.234375 1.28125 C 18.960938 1.28125 16.859375 0.699219 14.921875 -0.453125 C 12.992188 -1.609375 11.453125 -3.140625 10.296875 -5.046875 C 9.140625 -6.960938 8.5625 -9.054688 8.5625 -11.328125 C 8.5625 -13.679688 9.140625 -15.820312 10.296875 -17.75 C 11.453125 -19.6875 12.992188 -21.234375 14.921875 -22.390625 C 16.859375 -23.546875 18.960938 -24.125 21.234375 -24.125 C 23.546875 -24.125 25.664062 -23.546875 27.59375 -22.390625 C 29.53125 -21.234375 31.078125 -19.6875 32.234375 -17.75 C 33.390625 -15.820312 33.96875 -13.679688 33.96875 -11.328125 C 33.96875 -9.054688 33.390625 -6.960938 32.234375 -5.046875 C 31.078125 -3.140625 29.53125 -1.609375 27.59375 -0.453125 C 25.664062 0.699219 23.546875 1.28125 21.234375 1.28125 Z" />
