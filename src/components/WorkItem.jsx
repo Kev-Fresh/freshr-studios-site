@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 export default function WorkItem({ title, category, thumbnail, video, comingSoon }) {
   const reduced  = useReducedMotion()
   const videoRef = useRef(null)
+  const [playing,  setPlaying]  = useState(false)
   const [flashing, setFlashing] = useState(false)
   const timerRef = useRef(null)
 
@@ -14,33 +15,49 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
   }
 
   const handleEnter = () => {
-    if (videoRef.current) videoRef.current.play()
+    if (video && videoRef.current) {
+      videoRef.current.play()
+      setPlaying(true)
+    }
   }
+
   const handleLeave = () => {
-    if (!videoRef.current) return
+    if (!video || !videoRef.current) return
     videoRef.current.pause()
     videoRef.current.currentTime = 0
+    setPlaying(false)
   }
 
   const handleTap = () => {
-    if (flashing) return
-    setFlashing(true)
-    clearTimeout(timerRef.current)
-    timerRef.current = setTimeout(() => setFlashing(false), 1400)
+    if (video) {
+      if (playing) {
+        videoRef.current.pause()
+        setPlaying(false)
+      } else {
+        videoRef.current.play()
+        setPlaying(true)
+      }
+    } else {
+      if (flashing) return
+      setFlashing(true)
+      clearTimeout(timerRef.current)
+      timerRef.current = setTimeout(() => setFlashing(false), 1400)
+    }
   }
 
   return (
     <motion.div
       className="group relative flex-shrink-0 w-72 md:w-80 overflow-hidden cursor-pointer"
-      aria-label={`${title}, ${category}${comingSoon ? ' — Coming Soon' : ''}`}
+      aria-label={`${title}, ${category}${comingSoon && !video ? ' — Coming Soon' : ''}`}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={handleTap}
       whileHover={reduced ? {} : { y: -4 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
-      {/* Thumbnail / Video */}
+      {/* Card image area */}
       <div className="relative aspect-[4/5] bg-[#0E0E0E] overflow-hidden border border-white/10 group-hover:border-orange/40 transition-colors duration-300">
+
         {video ? (
           <video
             ref={videoRef}
@@ -67,8 +84,29 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
           </div>
         )}
 
-        {/* Permanent coming soon overlay */}
-        {comingSoon && (
+        {/* Play indicator — video cards only, visible when paused */}
+        {video && (
+          <AnimatePresence>
+            {!playing && (
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center">
+                  <svg width="14" height="16" viewBox="0 0 14 16" fill="white" className="ml-0.5" aria-hidden="true">
+                    <path d="M0 0L14 8L0 16V0Z" />
+                  </svg>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
+
+        {/* Permanent coming soon overlay — non-video placeholder cards only */}
+        {comingSoon && !video && (
           <>
             <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
             <div className="absolute top-3 left-3">
@@ -79,7 +117,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
           </>
         )}
 
-        {/* Tap flash overlay — all cards */}
+        {/* Tap flash — non-video cards only */}
         <AnimatePresence>
           {flashing && (
             <motion.div
@@ -102,7 +140,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
           )}
         </AnimatePresence>
 
-        {/* Category tag — always visible at bottom */}
+        {/* Category tag — always visible */}
         <div className="absolute bottom-3 left-3">
           <span
             className={`block font-body text-xs uppercase tracking-widest px-2 py-1 bg-black/80 backdrop-blur-sm
