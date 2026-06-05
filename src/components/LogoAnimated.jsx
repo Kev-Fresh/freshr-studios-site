@@ -99,7 +99,7 @@ export default function LogoAnimated({ onDark, className, style }) {
 
             {/* Rays: animated via CSS transitions */}
             <g clipPath="url(#fl-ray-up)">
-              <path className="logo-ray" fill={fill} fillOpacity="1" fillRule="nonzero"
+              <path fill={fill} fillOpacity="1" fillRule="nonzero"
                 d="M 155.339844 40.703125 L 149.175781 40.703125 L 149.175781 0.625 L 155.339844 0.625 Z" />
             </g>
             <path className="logo-ray" fill={fill} fillOpacity="1" fillRule="nonzero"
