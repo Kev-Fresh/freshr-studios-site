@@ -42,7 +42,7 @@ export default function LogoAnimated({ onDark, className, style }) {
       studios.style.opacity = '1'
     }
     if (period) {
-      period.style.transition = 'opacity 0.38s ease'
+      period.style.transition = 'opacity 0.38s ease 160ms'
       period.style.opacity = '1'
     }
 
