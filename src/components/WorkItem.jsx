@@ -37,7 +37,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
         videoRef.current.play()
         setPlaying(true)
       }
-    } else {
+    } else if (comingSoon) {
       if (flashing) return
       setFlashing(true)
       clearTimeout(timerRef.current)
