@@ -80,10 +80,10 @@ export default function Work() {
         </div>
       </section>
 
-      {/* ── Grid — desktop filmstrip, mobile 2-col ───────────── */}
+      {/* ── Grid — desktop filmstrip, mobile single col ─────── */}
       <section data-nav-theme="dark" className="section-dark py-16 md:py-20">
-        {/* Mobile: 2-col grid */}
-        <div className="md:hidden max-w-screen-xl mx-auto px-6 grid grid-cols-2 gap-4">
+        {/* Mobile: single col, full width */}
+        <div className="md:hidden flex flex-col gap-4 px-4">
           {filtered.map((item, i) => (
             <motion.div
               key={item.title}

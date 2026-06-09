@@ -47,7 +47,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
 
   return (
     <motion.div
-      className="group relative flex-shrink-0 w-72 md:w-80 overflow-hidden cursor-pointer"
+      className="group relative flex-shrink-0 w-full md:w-80 overflow-hidden cursor-pointer"
       aria-label={`${title}, ${category}${comingSoon && !video ? ' — Coming Soon' : ''}`}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
@@ -56,7 +56,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       {/* Card image area */}
-      <div className="relative aspect-[4/5] bg-[#0E0E0E] overflow-hidden border border-white/10 group-hover:border-orange/40 transition-colors duration-300">
+      <div className="relative aspect-[4/3] md:aspect-[4/5] bg-[#0E0E0E] overflow-hidden border border-white/10 group-hover:border-orange/40 transition-colors duration-300">
 
         {video ? (
           <video
