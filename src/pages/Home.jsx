@@ -1,13 +1,14 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import usePageTitle from '../hooks/usePageTitle'
-import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
+import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import ServiceCard from '../components/ServiceCard'
 import WorkItem from '../components/WorkItem'
 import DirectionalCTA from '../components/DirectionalCTA'
 import RevealText from '../components/RevealText'
 import UnderlineBar from '../components/UnderlineBar'
-import heroVideo from '../assets/Videos/Hero.mp4'
+import heroVideo    from '../assets/Videos/Hero.mp4'
+import montageVideo from '../assets/Videos/Montage.mp4'
 import { SERVICES } from '../data/services'
 import thumbShelly from '../assets/images/event-roller-skate.png'
 import thumbWater   from '../assets/images/water.jpg'
@@ -29,7 +30,15 @@ export default function Home() {
   const introRef  = useRef(null)
   const ctaRef    = useRef(null)
   const periodRef = useRef(null)
+  const reelRef   = useRef(null)
   const reduced   = useReducedMotion()
+  const [reelOpen, setReelOpen] = useState(false)
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setReelOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: introRef,
@@ -214,7 +223,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Work teaser ──────────────────────────────────────── */}
+      {/* ── Featured reel ────────────────────────────────────── */}
       <section data-nav-theme="dark" className="section-dark py-20 md:py-28 border-t border-white/10">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.div
@@ -238,31 +247,87 @@ export default function Home() {
               Full portfolio →
             </Link>
           </motion.div>
-        </div>
 
-        <div className="filmstrip-container pl-10 md:pl-16">
-          <div className="filmstrip pr-6 md:pr-10">
-            {WORK_PREVIEW.map((item) => (
-              <WorkItem
-                key={item.title}
-                title={item.title}
-                category={item.category}
-                thumbnail={item.thumbnail}
-                comingSoon={item.comingSoon}
-              />
-            ))}
-          </div>
-        </div>
+          {/* Featured video card */}
+          <motion.div
+            className="relative overflow-hidden rounded-xl cursor-pointer group aspect-video bg-black"
+            onClick={() => setReelOpen(true)}
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <video
+              src={montageVideo}
+              preload="metadata"
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500" />
 
-        <div className="max-w-screen-xl mx-auto px-6 md:px-10 mt-10">
+            {/* Play button */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 md:w-24 md:h-24 rounded-full border-2 border-white/70 flex items-center justify-center group-hover:scale-110 group-hover:border-white transition-all duration-300">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className="ml-1">
+                  <polygon points="5,3 19,12 5,21" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Label */}
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
+              <p className="font-body text-xs uppercase tracking-widest text-white/50 mb-1">2025 Highlight Reel</p>
+              <p className="font-display text-3xl md:text-5xl uppercase text-white leading-none">
+                The Reel<span className="period-orange" aria-hidden="true" />
+              </p>
+            </div>
+          </motion.div>
+
           <Link
             to="/archive"
-            className="inline-block md:hidden font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
+            className="mt-6 inline-block md:hidden font-body text-sm uppercase tracking-widest text-muted hover:text-orange transition-colors duration-150"
           >
             Full portfolio →
           </Link>
         </div>
       </section>
+
+      {/* ── Lightbox ─────────────────────────────────────────── */}
+      <AnimatePresence>
+        {reelOpen && (
+          <motion.div
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setReelOpen(false)}
+          >
+            <motion.video
+              ref={reelRef}
+              src={montageVideo}
+              autoPlay
+              playsInline
+              controls
+              className="max-w-[90vw] max-h-[85vh] w-full rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1,    opacity: 1 }}
+              exit={{    scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+            <button
+              className="absolute top-5 right-5 text-white/50 hover:text-white transition-colors duration-150 text-2xl leading-none"
+              onClick={() => setReelOpen(false)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section ref={ctaRef} data-nav-theme="light" className="section-light relative overflow-hidden py-24 md:py-32">
