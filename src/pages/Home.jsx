@@ -17,7 +17,7 @@ const WORK_PREVIEW = [
   { title: 'Shelly Skate Jam',  category: 'Event', thumbnail: thumbShelly },
   { title: 'MuralFest',         category: 'Event', comingSoon: true },
   { title: 'Waterfront',        category: 'Video', thumbnail: thumbWater  },
-  { title: 'Birthday Party',    category: 'Event', comingSoon: true },
+  { title: 'Fireworks in the Field', category: 'Event', comingSoon: true },
 ]
 
 const fadeUp = {
