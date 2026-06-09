@@ -3,6 +3,42 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import LogoAnimated from './LogoAnimated'
 
+function PillToggle({ isDark, onToggle }) {
+  return (
+    <button
+      onClick={onToggle}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="relative flex items-center rounded-full border border-current/30 hover:border-orange/60 transition-colors duration-150 p-[3px] w-[48px] h-[26px] shrink-0"
+    >
+      <motion.div
+        className="absolute w-[20px] h-[20px] rounded-full bg-current opacity-90"
+        animate={{ x: isDark ? 22 : 0 }}
+        transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+      />
+      {/* Sun */}
+      <span className={`relative z-10 flex-1 flex justify-center transition-opacity duration-200 ${isDark ? 'opacity-30' : 'opacity-0'}`}>
+        <svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round">
+          <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/>
+          <line x1="12" y1="2"  x2="12" y2="5"/>
+          <line x1="12" y1="19" x2="12" y2="22"/>
+          <line x1="2"  y1="12" x2="5"  y2="12"/>
+          <line x1="19" y1="12" x2="22" y2="12"/>
+          <line x1="4.93" y1="4.93"   x2="7.05" y2="7.05"/>
+          <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/>
+          <line x1="4.93" y1="19.07"  x2="7.05" y2="16.95"/>
+          <line x1="16.95" y1="7.05"  x2="19.07" y2="4.93"/>
+        </svg>
+      </span>
+      {/* Moon */}
+      <span className={`relative z-10 flex-1 flex justify-center transition-opacity duration-200 ${isDark ? 'opacity-0' : 'opacity-30'}`}>
+        <svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" fill="currentColor" strokeLinecap="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </span>
+    </button>
+  )
+}
+
 const NAV_LINKS = [
   { to: '/',         label: 'Home',        end: true },
   { to: '/archive',  label: 'The Archive'            },
@@ -160,46 +196,12 @@ export default function Navbar() {
               ))}
             </ul>
 
-            <button
-              onClick={toggleTheme}
-              className={`${textColor} hover:text-orange transition-colors duration-150 overflow-hidden relative h-[26px] w-[36px]`}
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              <AnimatePresence mode="popLayout" initial={false}>
-                <motion.span
-                  key={isDark ? 'dark' : 'light'}
-                  className="absolute inset-0 flex items-center justify-center font-body text-[10px] uppercase tracking-widest"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0,  opacity: 1 }}
-                  exit={{    y: -10, opacity: 0 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
-                >
-                  {isDark ? 'Dark' : 'Light'}
-                </motion.span>
-              </AnimatePresence>
-            </button>
+            <PillToggle isDark={isDark} onToggle={toggleTheme} />
           </div>
 
           {/* Mobile: theme toggle + hamburger — always visible */}
           <div className="md:hidden flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className={`${textColor} hover:text-orange transition-colors duration-150 overflow-hidden relative h-[26px] w-[36px]`}
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              <AnimatePresence mode="popLayout" initial={false}>
-                <motion.span
-                  key={isDark ? 'dark' : 'light'}
-                  className="absolute inset-0 flex items-center justify-center font-body text-[10px] uppercase tracking-widest"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0,  opacity: 1 }}
-                  exit={{    y: -10, opacity: 0 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
-                >
-                  {isDark ? 'Dark' : 'Light'}
-                </motion.span>
-              </AnimatePresence>
-            </button>
+            <PillToggle isDark={isDark} onToggle={toggleTheme} />
             <button
               className="flex flex-col gap-1.5 p-2 -mr-2"
               onClick={() => setMenuOpen((o) => !o)}
