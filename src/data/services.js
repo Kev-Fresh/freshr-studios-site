@@ -1,4 +1,3 @@
-import inTheMomentImg from '../assets/images/event-roller-skate.png'
 
 export const SERVICES = [
   {
@@ -38,7 +37,6 @@ export const SERVICES = [
     ],
     cta: 'Book In The Moment',
     ctaHref: '/contact?service=in-the-moment',
-    image: inTheMomentImg,
   },
   {
     title: 'The Sit Down',
