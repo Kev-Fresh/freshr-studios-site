@@ -5,7 +5,7 @@ import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
 import thumbShelly    from '../assets/images/event-roller-skate.png'
 import thumbWater     from '../assets/images/water.jpg'
-import thumbFireworks from '../assets/images/Fireworks.jpg'
+import thumbFireworks from '../assets/images/Fireworks.png'
 import thumbMuralfest from '../assets/images/Muralfest.jpg'
 
 const WORK_ITEMS = [
