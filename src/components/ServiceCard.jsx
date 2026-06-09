@@ -43,7 +43,7 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
       {/* Close button — fixed so it never scrolls away */}
       <button
         onClick={onClose}
-        className="fixed top-6 right-6 z-20 w-10 h-10 flex items-center justify-center text-orange hover:text-orange/70 transition-colors duration-150"
+        className="fixed top-24 right-8 z-20 w-10 h-10 flex items-center justify-center text-orange hover:text-orange/70 transition-colors duration-150"
         aria-label="Close"
       >
         <span className="font-body text-4xl leading-none">×</span>
