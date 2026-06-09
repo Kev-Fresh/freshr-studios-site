@@ -108,7 +108,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
 
         {/* Hover coming soon overlay — non-video placeholder cards only */}
         {comingSoon && !video && (
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/60 opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <span className="font-body text-xs uppercase tracking-widest text-white/70">
               Coming Soon
             </span>
