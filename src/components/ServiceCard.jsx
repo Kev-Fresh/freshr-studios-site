@@ -25,7 +25,7 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
     >
       {/* Media layer — fixed so it stays put while content scrolls */}
       <motion.div
-        className="fixed inset-0"
+        className="fixed inset-0 bg-[#0E0E0E]"
         initial={reduced ? false : { scale: 1.06 }}
         animate={{ scale: 1 }}
         exit={{ scale: 1.04 }}
