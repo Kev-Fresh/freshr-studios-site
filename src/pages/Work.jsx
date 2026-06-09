@@ -9,9 +9,9 @@ import thumbFireworks from '../assets/images/Fireworks.png'
 import thumbMuralfest from '../assets/images/Muralfest.jpg'
 
 const WORK_ITEMS = [
-  { title: 'Shelly Skate Jam',        category: 'Event', thumbnail: thumbShelly    },
+  { title: 'Shelly Skate Jam',        category: 'Event', thumbnail: thumbShelly,    comingSoon: true },
   { title: 'MuralFest',               category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
-  { title: 'Waterfront',              category: 'Video', thumbnail: thumbWater,     objectPosition: '100% center' },
+  { title: 'Waterfront',              category: 'Video', thumbnail: thumbWater,     objectPosition: '100% center', comingSoon: true },
   { title: 'Fireworks in the Field',  category: 'Event', thumbnail: thumbFireworks, comingSoon: true },
 ]
 
