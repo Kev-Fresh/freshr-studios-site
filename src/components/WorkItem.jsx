@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 
-export default function WorkItem({ title, category, thumbnail, video, comingSoon }) {
+export default function WorkItem({ title, category, thumbnail, video, comingSoon, objectPosition = 'center' }) {
   const reduced  = useReducedMotion()
   const videoRef = useRef(null)
   const [playing,  setPlaying]  = useState(false)
@@ -73,6 +73,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
             src={thumbnail}
             alt={title}
             className="w-full h-full object-cover"
+            style={{ objectPosition }}
             whileHover={reduced ? {} : { scale: 1.05 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           />
@@ -108,7 +109,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
         {/* Permanent coming soon overlay — non-video placeholder cards only */}
         {comingSoon && !video && (
           <>
-            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/50" />
             <div className="absolute top-3 left-3">
               <span className="font-body text-[10px] uppercase tracking-widest px-2 py-1 bg-black/70 text-white/50 backdrop-blur-sm">
                 Coming Soon

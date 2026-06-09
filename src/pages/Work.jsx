@@ -11,7 +11,7 @@ import thumbMuralfest from '../assets/images/Muralfest.jpg'
 const WORK_ITEMS = [
   { title: 'Shelly Skate Jam',        category: 'Event', thumbnail: thumbShelly    },
   { title: 'MuralFest',               category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
-  { title: 'Waterfront',              category: 'Video', thumbnail: thumbWater      },
+  { title: 'Waterfront',              category: 'Video', thumbnail: thumbWater,     objectPosition: 'left' },
   { title: 'Fireworks in the Field',  category: 'Event', thumbnail: thumbFireworks, comingSoon: true },
 ]
 
@@ -93,7 +93,7 @@ export default function Work() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
             >
-              <WorkItem title={item.title} category={item.category} thumbnail={item.thumbnail} comingSoon={item.comingSoon} />
+              <WorkItem title={item.title} category={item.category} thumbnail={item.thumbnail} comingSoon={item.comingSoon} objectPosition={item.objectPosition} />
             </motion.div>
           ))}
         </div>
@@ -108,6 +108,7 @@ export default function Work() {
                 category={item.category}
                 thumbnail={item.thumbnail}
                 comingSoon={item.comingSoon}
+                objectPosition={item.objectPosition}
               />
             ))}
           </div>
