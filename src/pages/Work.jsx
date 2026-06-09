@@ -3,14 +3,16 @@ import { motion, useReducedMotion } from 'motion/react'
 import usePageTitle from '../hooks/usePageTitle'
 import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
-import thumbShelly from '../assets/images/event-roller-skate.png'
-import thumbWater   from '../assets/images/water.jpg'
+import thumbShelly    from '../assets/images/event-roller-skate.png'
+import thumbWater     from '../assets/images/water.jpg'
+import thumbFireworks from '../assets/images/Fireworks.jpg'
+import thumbMuralfest from '../assets/images/Muralfest.jpg'
 
 const WORK_ITEMS = [
-  { title: 'Shelly Skate Jam',  category: 'Event', thumbnail: thumbShelly },
-  { title: 'MuralFest',         category: 'Event', comingSoon: true },
-  { title: 'Waterfront',        category: 'Video', thumbnail: thumbWater  },
-  { title: 'Birthday Party',    category: 'Event', comingSoon: true },
+  { title: 'Shelly Skate Jam',        category: 'Event', thumbnail: thumbShelly    },
+  { title: 'MuralFest',               category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
+  { title: 'Waterfront',              category: 'Video', thumbnail: thumbWater      },
+  { title: 'Fireworks in the Field',  category: 'Event', thumbnail: thumbFireworks, comingSoon: true },
 ]
 
 const CATEGORIES = ['All', 'Video', 'Photo', 'Event']
