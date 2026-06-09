@@ -11,7 +11,7 @@ import thumbMuralfest from '../assets/images/Muralfest.jpg'
 const WORK_ITEMS = [
   { title: 'Shelly Skate Jam',        category: 'Event', thumbnail: thumbShelly    },
   { title: 'MuralFest',               category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
-  { title: 'Waterfront',              category: 'Video', thumbnail: thumbWater,     objectPosition: '70% center' },
+  { title: 'Waterfront',              category: 'Video', thumbnail: thumbWater,     objectPosition: '80% center' },
   { title: 'Fireworks in the Field',  category: 'Event', thumbnail: thumbFireworks, comingSoon: true },
 ]
 
