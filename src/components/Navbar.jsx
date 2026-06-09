@@ -16,9 +16,9 @@ function PillToggle({ isDark, onToggle }) {
         transition={{ type: 'spring', stiffness: 500, damping: 35 }}
       />
       {/* Sun */}
-      <span className={`relative z-10 flex-1 flex justify-center transition-opacity duration-200 ${isDark ? 'opacity-30' : 'opacity-0'}`}>
-        <svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round">
-          <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/>
+      <span className={`relative z-10 flex-1 flex justify-center transition-opacity duration-200 ${isDark ? 'opacity-60' : 'opacity-0'}`}>
+        <svg width="11" height="11" viewBox="0 0 24 24" stroke="#FBBF24" strokeWidth="2.5" fill="none" strokeLinecap="round">
+          <circle cx="12" cy="12" r="4" fill="#FBBF24" stroke="none"/>
           <line x1="12" y1="2"  x2="12" y2="5"/>
           <line x1="12" y1="19" x2="12" y2="22"/>
           <line x1="2"  y1="12" x2="5"  y2="12"/>
@@ -30,8 +30,8 @@ function PillToggle({ isDark, onToggle }) {
         </svg>
       </span>
       {/* Moon */}
-      <span className={`relative z-10 flex-1 flex justify-center transition-opacity duration-200 ${isDark ? 'opacity-0' : 'opacity-30'}`}>
-        <svg width="11" height="11" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" fill="currentColor" strokeLinecap="round">
+      <span className={`relative z-10 flex-1 flex justify-center transition-opacity duration-200 ${isDark ? 'opacity-0' : 'opacity-60'}`}>
+        <svg width="11" height="11" viewBox="0 0 24 24" stroke="#93C5FD" strokeWidth="2.5" fill="#93C5FD" strokeLinecap="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </span>
