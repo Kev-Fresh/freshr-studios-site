@@ -153,7 +153,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
 
       {/* Title */}
       <div className="mt-3">
-        <p className="font-body font-medium text-white truncate">
+        <p className="font-body font-medium text-text-light truncate">
           {title}
         </p>
       </div>
