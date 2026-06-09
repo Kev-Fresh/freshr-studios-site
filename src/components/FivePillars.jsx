@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'motion/react'
+import { useState } from 'react'
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 
 const PILLARS = [
   {
@@ -88,17 +89,44 @@ function StackVariant({ reduced }) {
   )
 }
 
-// list — names only, on dark bg (Contact page)
+// list — accordion on dark bg (Contact page)
 function ListVariant() {
+  const [open, setOpen] = useState(null)
+
   return (
-    <div className="flex flex-col gap-4">
-      {PILLARS.map(({ name }, i) => (
-        <div key={name} className="flex items-center gap-4 py-3 border-b border-text-light/10">
-          <span className="font-body text-sm text-orange tabular-nums w-6 shrink-0">
-            {String(i + 1).padStart(2, '0')}
-          </span>
-          <span className="font-display text-2xl uppercase text-text-light">{name}</span>
-          <span className="text-orange ml-auto" aria-hidden="true">·</span>
+    <div className="flex flex-col">
+      {PILLARS.map(({ name, condensed }, i) => (
+        <div key={name} className="border-b border-text-light/10">
+          <button
+            className="w-full flex items-center gap-4 py-4 text-left group"
+            onClick={() => setOpen(open === i ? null : i)}
+            aria-expanded={open === i}
+          >
+            <span className="font-body text-sm text-orange tabular-nums w-6 shrink-0">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <span className="font-display text-2xl uppercase text-text-light group-hover:text-orange transition-colors duration-150 flex-1">
+              {name}
+            </span>
+            <span className="text-orange text-xl leading-none shrink-0 transition-transform duration-200" aria-hidden="true" style={{ transform: open === i ? 'rotate(45deg)' : 'none' }}>
+              +
+            </span>
+          </button>
+          <AnimatePresence>
+            {open === i && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="overflow-hidden"
+              >
+                <p className="font-body text-sm text-muted pb-4 pl-10 leading-relaxed">
+                  {condensed}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       ))}
     </div>

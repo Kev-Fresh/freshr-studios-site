@@ -35,7 +35,7 @@ export default function Contact() {
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Tell us your story. We'll tell you how we can help.
+            No pitches. No packages. Just an honest conversation about your story.
           </motion.p>
         </div>
       </section>

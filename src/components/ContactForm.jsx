@@ -112,6 +112,47 @@ export default function ContactForm() {
             <ValidationError field="name" errors={state.errors} className="font-body text-sm text-red-400" />
           </div>
 
+          {/* Service interest */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="service" className="font-body text-xs uppercase tracking-widest text-muted">
+              What are you looking for? <span className="text-orange">*</span>
+            </label>
+            <FieldWrap>
+              <select
+                id="service"
+                name="service"
+                required
+                defaultValue={defaultService}
+                className={`${fieldClass} appearance-none cursor-pointer`}
+              >
+                {SERVICES.map(({ value, label }) => (
+                  <option key={value} value={value} className="bg-dark-bg">
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </FieldWrap>
+            <ValidationError field="service" errors={state.errors} className="font-body text-sm text-red-400" />
+          </div>
+
+          {/* Message */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-muted">
+              Message <span className="text-orange">*</span>
+            </label>
+            <FieldWrap>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                placeholder="What's the story you want told?"
+                className={`${fieldClass} resize-none`}
+              />
+            </FieldWrap>
+            <ValidationError field="message" errors={state.errors} className="font-body text-sm text-red-400" />
+          </div>
+
           {/* Email */}
           <div className="flex flex-col gap-2">
             <label htmlFor="email" className="font-body text-xs uppercase tracking-widest text-muted">
@@ -146,47 +187,6 @@ export default function ContactForm() {
             </FieldWrap>
           </div>
 
-          {/* Service interest */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="service" className="font-body text-xs uppercase tracking-widest text-muted">
-              Service <span className="text-orange">*</span>
-            </label>
-            <FieldWrap>
-              <select
-                id="service"
-                name="service"
-                required
-                defaultValue={defaultService}
-                className={`${fieldClass} appearance-none cursor-pointer`}
-              >
-                {SERVICES.map(({ value, label }) => (
-                  <option key={value} value={value} className="bg-dark-bg">
-                    {label}
-                  </option>
-                ))}
-              </select>
-            </FieldWrap>
-            <ValidationError field="service" errors={state.errors} className="font-body text-sm text-red-400" />
-          </div>
-
-          {/* Message */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-muted">
-              Message <span className="text-orange">*</span>
-            </label>
-            <FieldWrap>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={5}
-                placeholder="Tell us about your story…"
-                className={`${fieldClass} resize-none`}
-              />
-            </FieldWrap>
-            <ValidationError field="message" errors={state.errors} className="font-body text-sm text-red-400" />
-          </div>
-
           {/* Form-level errors */}
           <ValidationError errors={state.errors} className="font-body text-sm text-red-400" />
 
@@ -199,7 +199,7 @@ export default function ContactForm() {
                        uppercase tracking-widest text-sm rounded-sm transition-all duration-200
                        hover:bg-orange hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {state.submitting ? 'Sending…' : 'Send'}
+            {state.submitting ? 'Sending…' : 'Start the Conversation'}
           </button>
         </motion.form>
       )}
