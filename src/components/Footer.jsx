@@ -135,11 +135,23 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-6 border-t border-text-light/10 flex flex-col gap-2 md:flex-row md:justify-between md:items-center">
-          <p className="font-body text-xs text-muted text-center md:text-left">
-            © {new Date().getFullYear()} Freshr Studios.{' '}
-            <span className="text-muted/70">A Beam Innovations LLC company.</span>
-          </p>
+        <div className="mt-16 pt-6 border-t border-text-light/10 flex flex-col gap-2 md:flex-row md:justify-between md:items-end">
+          <div className="flex flex-col gap-1 text-center md:text-left">
+            <p className="font-body text-xs text-muted">
+              © {new Date().getFullYear()} Freshr Studios.{' '}
+              <span className="text-muted/70">A Beam Innovations LLC company.</span>
+            </p>
+            <p className="font-body text-[11px] text-muted/50">
+              Music:{' '}
+              <a href="https://breakingcopyright.com/song/keys-of-moon-somewhere-in-the-clouds" target="_blank" rel="noopener noreferrer" className="hover:text-orange transition-colors duration-150">
+                Somewhere In The Clouds
+              </a>
+              {' '}by Keys Of Moon —{' '}
+              <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer" className="hover:text-orange transition-colors duration-150">
+                CC BY 3.0
+              </a>
+            </p>
+          </div>
           <p className="font-body text-xs text-muted uppercase tracking-widest text-center md:text-right flex items-center justify-center md:justify-end gap-2">
             <motion.img
               src={bisonSvg}
