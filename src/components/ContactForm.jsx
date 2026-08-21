@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'motion/react'
 
 const SERVICES = [
   { value: '',             label: 'Select a service…'              },
-  { value: 'the-reel',    label: 'The Reel — $600'                },
+  { value: 'the-reel',    label: 'The Reel — $500'                },
   { value: 'first-frame',  label: 'First Frame — Starting at $800' },
   { value: 'the-sit-down', label: 'The Sit Down — Starting at $3,000' },
   { value: 'the-deep-dive',label: 'The Deep Dive — Starting at $5,000' },

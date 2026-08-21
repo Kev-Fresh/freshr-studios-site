@@ -8,7 +8,7 @@ export const SERVICES = [
       'Ninety seconds or less. The whole night.',
       'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. The Reel is for the event that needs to be felt before the next one gets announced.',
     ],
-    price: '$600',
+    price: '$500',
     included: [
       'Full event coverage',
       '90 seconds or less edited film',
