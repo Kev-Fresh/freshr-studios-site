@@ -1,5 +1,26 @@
+import montageVideo from '../assets/Videos/Montage.mp4'
 
 export const SERVICES = [
+  {
+    title: 'The Reel',
+    tagline: 'One night. Ninety seconds. The whole room.',
+    description: [
+      'Ninety seconds or less. The whole night.',
+      'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. The Reel is for the event that needs to be felt before the next one gets announced.',
+    ],
+    price: '$600',
+    included: [
+      'Full event coverage',
+      '90 seconds or less edited film',
+      'Music and audio mix',
+      'Color grade',
+      'Social ready delivery',
+      '1 round of revisions',
+    ],
+    cta: 'Get Your Reel',
+    ctaHref: '/contact?service=the-reel',
+    video: montageVideo,
+  },
   {
     title: 'First Frame',
     tagline: 'One day. One business. Camera woven throughout.',

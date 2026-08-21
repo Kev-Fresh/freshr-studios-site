@@ -37,7 +37,7 @@ export default function Services() {
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Two ways to work. One standard of care.
+            Five offerings. One standard of care.
           </motion.p>
         </div>
       </section>
@@ -51,7 +51,7 @@ export default function Services() {
             <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">Track 1 — The Capture</p>
             <p className="font-body text-sm text-muted">For when you need the camera to move through the moment.</p>
           </div>
-          {SERVICES.slice(0, 2).map((s, i) => (
+          {SERVICES.slice(0, 3).map((s, i) => (
             <ServiceCard
               key={s.title}
               index={i + 1}
@@ -72,10 +72,10 @@ export default function Services() {
             <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">Track 2 — The Story</p>
             <p className="font-body text-sm text-muted">For when the moment needs a sit down.</p>
           </div>
-          {SERVICES.slice(2).map((s, i) => (
+          {SERVICES.slice(3).map((s, i) => (
             <ServiceCard
               key={s.title}
-              index={i + 3}
+              index={i + 4}
               title={s.title}
               tagline={s.tagline}
               description={s.description}
