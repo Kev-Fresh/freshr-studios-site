@@ -51,8 +51,7 @@
   --rgb-text-light: 14 14 14;
   /* Darker muted for 4.5:1 contrast on white (#666 = 5.74:1) */
   --rgb-muted:      102 102 102;
-  /* Accent stays acid green in both modes */
-  --rgb-accent:     196 146 42;
+  --rgb-accent:     252 158 79;
 }
 
 :root[data-theme="dark"] {
