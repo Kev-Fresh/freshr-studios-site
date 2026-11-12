@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
+import { Link } from 'react-router-dom'
 import usePageTitle from '../hooks/usePageTitle'
 import ServiceCard from '../components/ServiceCard'
 import DirectionalCTA from '../components/DirectionalCTA'
@@ -39,6 +40,17 @@ export default function Services() {
           >
             Five offerings. One standard of care.
           </motion.p>
+          <motion.p
+            className="font-body text-sm text-muted mt-3"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            animate="show"
+            transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Link to="/contact?service=first-frame" className="hover:text-orange transition-colors duration-150">
+              Taking 5 founding stories this winter →
+            </Link>
+          </motion.p>
         </div>
       </section>
 
@@ -46,10 +58,10 @@ export default function Services() {
       <section data-nav-theme="dark" className="section-dark pb-20 md:pb-32 border-t border-white/10">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
 
-          {/* Track 1 */}
+          {/* Lane 1 */}
           <div className="pt-12 pb-2">
-            <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">Track 1 — The Capture</p>
-            <p className="font-body text-sm text-muted">For when you need the camera to move through the moment.</p>
+            <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">For businesses &amp; people</p>
+            <p className="font-body text-sm text-muted">Your story, told on camera.</p>
           </div>
           {SERVICES.slice(0, 3).map((s, i) => (
             <ServiceCard
@@ -59,7 +71,7 @@ export default function Services() {
               tagline={s.tagline}
               description={s.description}
               included={s.included}
-              price={s.price}
+              bestFor={s.bestFor}
               cta={s.cta}
               ctaHref={s.ctaHref}
               image={s.image}
@@ -67,10 +79,10 @@ export default function Services() {
             />
           ))}
 
-          {/* Track 2 */}
+          {/* Lane 2 */}
           <div className="pt-14 pb-2">
-            <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">Track 2 — The Story</p>
-            <p className="font-body text-sm text-muted">For when the moment needs a sit down.</p>
+            <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">For events</p>
+            <p className="font-body text-sm text-muted">The room, the energy, the night.</p>
           </div>
           {SERVICES.slice(3).map((s, i) => (
             <ServiceCard
@@ -80,7 +92,7 @@ export default function Services() {
               tagline={s.tagline}
               description={s.description}
               included={s.included}
-              price={s.price}
+              bestFor={s.bestFor}
               cta={s.cta}
               ctaHref={s.ctaHref}
               image={s.image}

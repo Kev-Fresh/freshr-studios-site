@@ -3,13 +3,13 @@ import { useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 
 const SERVICES = [
-  { value: '',             label: 'Select a service…'              },
-  { value: 'the-reel',    label: 'The Reel — $500'                },
-  { value: 'first-frame',  label: 'First Frame — Starting at $800' },
-  { value: 'the-sit-down', label: 'The Sit Down — Starting at $3,000' },
-  { value: 'the-deep-dive',label: 'The Deep Dive — Starting at $5,000' },
-  { value: 'in-the-moment',label: 'In The Moment — Starting at $1,200' },
-  { value: 'not-sure',     label: "Not sure yet — let's talk"      },
+  { value: '',              label: 'Select a service…'      },
+  { value: 'first-frame',   label: 'First Frame'            },
+  { value: 'the-sit-down',  label: 'The Sit Down'           },
+  { value: 'the-deep-dive', label: 'The Deep Dive'          },
+  { value: 'the-reel',      label: 'The Reel'               },
+  { value: 'in-the-moment', label: 'In The Moment'          },
+  { value: 'not-sure',      label: "Not sure yet — let's talk" },
 ]
 
 const fieldClass = `w-full bg-transparent py-3 font-body text-text-light placeholder:text-muted/60 focus:outline-none`

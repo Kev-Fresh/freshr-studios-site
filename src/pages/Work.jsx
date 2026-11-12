@@ -1,18 +1,17 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'motion/react'
 import usePageTitle from '../hooks/usePageTitle'
 import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
 import thumbShelly    from '../assets/images/event-roller-skate.png'
-import thumbWater     from '../assets/images/water.jpg'
-import thumbFireworks from '../assets/images/Fireworks.png'
 import thumbMuralfest from '../assets/images/Muralfest.jpg'
+import montageVideo   from '../assets/Videos/Montage.mp4'
 
 const WORK_ITEMS = [
-  { title: 'Shelly Skate Jam',        category: 'Event', thumbnail: thumbShelly,    comingSoon: true },
-  { title: 'MuralFest',               category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
-  { title: 'Waterfront',              category: 'Video', thumbnail: thumbWater,     objectPosition: '100% center', comingSoon: true },
-  { title: 'Fireworks in the Field',  category: 'Event', thumbnail: thumbFireworks, comingSoon: true },
+  { title: '2025 Highlight Reel', category: 'Video', video: montageVideo },
+  { title: 'Shelly Skate Jam',   category: 'Event', thumbnail: thumbShelly,    comingSoon: true },
+  { title: 'MuralFest',          category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
 ]
 
 const CATEGORIES = ['All', 'Video', 'Photo', 'Event']
@@ -93,7 +92,7 @@ export default function Work() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
             >
-              <WorkItem title={item.title} category={item.category} thumbnail={item.thumbnail} comingSoon={item.comingSoon} objectPosition={item.objectPosition} />
+              <WorkItem title={item.title} category={item.category} thumbnail={item.thumbnail} video={item.video} comingSoon={item.comingSoon} objectPosition={item.objectPosition} />
             </motion.div>
           ))}
         </div>
@@ -107,6 +106,7 @@ export default function Work() {
                 title={item.title}
                 category={item.category}
                 thumbnail={item.thumbnail}
+                video={item.video}
                 comingSoon={item.comingSoon}
                 objectPosition={item.objectPosition}
               />
@@ -115,11 +115,14 @@ export default function Work() {
         </div>
       </section>
 
-      {/* ── Coming soon note ─────────────────────────────────── */}
+      {/* ── Bottom note ──────────────────────────────────────── */}
       <section data-nav-theme="dark" className="section-dark pb-24">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <p className="font-body text-xs text-muted uppercase tracking-widest">
-            Portfolio expanding. Check back soon.
+            Now booking founding stories for winter.{' '}
+            <Link to="/contact" className="hover:text-orange transition-colors duration-150">
+              Yours could be next.
+            </Link>
           </p>
         </div>
       </section>

@@ -191,6 +191,12 @@ export default function Home() {
                 The <span className="whitespace-nowrap">Services<span className="period-orange period-pulse" aria-hidden="true" /></span>
               </h2>
               <UnderlineBar />
+              <Link
+                to="/contact?service=first-frame"
+                className="inline-block font-body text-sm text-text-dark/50 hover:text-orange transition-colors duration-150 mt-2"
+              >
+                Taking 5 founding stories this winter →
+              </Link>
             </div>
             <Link
               to="/services"
@@ -208,6 +214,7 @@ export default function Home() {
                 tagline={s.tagline}
                 description={s.description}
                 included={s.included}
+                bestFor={s.bestFor}
                 cta={s.cta}
                 ctaHref={s.ctaHref}
                 image={s.image}

@@ -95,7 +95,7 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
   )
 }
 
-export default function ServiceCard({ title, tagline, description, included, cta = 'Book this', ctaHref = '/contact', price, index, onDark = true, image, video }) {
+export default function ServiceCard({ title, tagline, description, included, cta = 'Book this', ctaHref = '/contact', bestFor, index, onDark = true, image, video }) {
   const [open, setOpen] = useState(false)
   const reduced = useReducedMotion()
 
@@ -118,9 +118,9 @@ export default function ServiceCard({ title, tagline, description, included, cta
               <span className="font-display text-4xl md:text-5xl uppercase leading-none group-hover:text-orange transition-colors duration-200">
                 {title}
               </span>
-              {price && (
+              {bestFor && (
                 <span className="font-body text-sm text-muted">
-                  {price}
+                  {bestFor}
                 </span>
               )}
             </div>

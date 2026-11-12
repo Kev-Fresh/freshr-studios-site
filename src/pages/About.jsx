@@ -34,41 +34,27 @@ export default function About() {
       {/* ── Mission section ───────────────────────────────────── */}
       <section data-nav-theme="light" className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            <motion.div
-              className="flex flex-col gap-6"
-              variants={fadeUp}
-              initial={reduced ? false : 'hidden'}
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h2 className="font-display text-5xl md:text-6xl uppercase text-text-dark leading-none">
-                Some stories<br />don't get<br />told<span className="period-orange period-pulse" aria-hidden="true" />
-              </h2>
-              <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
-                Buffalo is a city full of rich culture. There are communities that form cultures
-                and subcultures within those cultures. It's what makes Buffalo what it is. With so
-                many things going on but not enough eyes on them, Freshr aims to tell the stories
-                of the people and places that are shaping Buffalo for the better.
-              </p>
-              <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
-                We show up and put what they do under a cinematic camera lens to connect Buffalo with itself.
-              </p>
-            </motion.div>
-
-            {/* Image slot */}
-            <motion.div
-              className="aspect-[4/5] bg-dark-bg flex items-center justify-center"
-              variants={fadeUp}
-              initial={reduced ? false : 'hidden'}
-              whileInView="show"
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className="font-body text-xs uppercase tracking-widest text-white/20">Photo coming soon</span>
-            </motion.div>
-          </div>
+          <motion.div
+            className="flex flex-col gap-6 max-w-2xl"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h2 className="font-display text-5xl md:text-6xl uppercase text-text-dark leading-none">
+              Some stories<br />don't get<br />told<span className="period-orange period-pulse" aria-hidden="true" />
+            </h2>
+            <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
+              Buffalo is a city full of rich culture. There are communities that form cultures
+              and subcultures within those cultures. It's what makes Buffalo what it is. With so
+              many things going on but not enough eyes on them, Freshr aims to tell the stories
+              of the people and places that are shaping Buffalo for the better.
+            </p>
+            <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
+              We show up and put what they do under a cinematic camera lens to connect Buffalo with itself.
+            </p>
+          </motion.div>
         </div>
       </section>
 

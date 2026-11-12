@@ -2,33 +2,13 @@ import montageVideo from '../assets/Videos/Montage.mp4'
 
 export const SERVICES = [
   {
-    title: 'The Reel',
-    tagline: 'One night. Ninety seconds. The whole room.',
-    description: [
-      'Ninety seconds or less. The whole night.',
-      'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. The Reel is for the event that needs to be felt before the next one gets announced.',
-    ],
-    price: '$500',
-    included: [
-      'Full event coverage',
-      '90 seconds or less edited film',
-      'Music and audio mix',
-      'Color grade',
-      'Social ready delivery',
-      '1 round of revisions',
-    ],
-    cta: 'Get Your Reel',
-    ctaHref: '/contact?service=the-reel',
-    video: montageVideo,
-  },
-  {
     title: 'First Frame',
     tagline: 'One day. One business. Camera woven throughout.',
+    bestFor: 'Best for a shop, studio, or small business',
     description: [
       'One day. One business. We show up, observe, and capture you doing what you actually do. Questions woven in naturally while you work. No staged moments. Just you being real on camera.',
       'One session. One story. Done right.',
     ],
-    price: 'Starting at $800',
     included: [
       '1 shoot day',
       'Organic interview woven into b-roll',
@@ -41,31 +21,12 @@ export const SERVICES = [
     ctaHref: '/contact?service=first-frame',
   },
   {
-    title: 'In The Moment',
-    tagline: 'One day. One event. Before, during, after.',
-    description: [
-      'One day. One event. We arrive before the doors open and stay until the last person leaves. Before, during, and after — the full arc of the day captured as it actually happens. Questions woven in naturally throughout. No formal interview setup. Just the real energy of what you built.',
-    ],
-    price: 'Starting at $1,200',
-    included: [
-      'Full event coverage — before, during, after',
-      'Behind-the-scenes access',
-      'Story-driven edit (not a highlight reel)',
-      '4–7 min event film',
-      'Music and color grade',
-      '1 round of revisions',
-      "Director's note on delivery",
-    ],
-    cta: 'Book In The Moment',
-    ctaHref: '/contact?service=in-the-moment',
-  },
-  {
     title: 'The Sit Down',
     tagline: 'Two days. One subject. The full interview portrait.',
+    bestFor: 'Best for a founder or person with a story to tell',
     description: [
       "Two days. One subject. Day one we capture your world — your space, the life of what you've built. Day two everything stops. Lights set up. Just you and the lens. We ask the questions nobody has ever asked you. The result is a portrait that feels documentary, not corporate.",
     ],
-    price: 'Starting at $3,000',
     included: [
       'Discovery call + Vision session',
       '2 shoot days',
@@ -82,10 +43,10 @@ export const SERVICES = [
   {
     title: 'The Deep Dive',
     tagline: 'Multiple days. Multiple subjects. Documentary scope.',
+    bestFor: 'Best for organizations and big community stories',
     description: [
       'Three or more days. Multiple subjects. Multiple locations. Multiple sit down interviews. For stories too big for one person or one day. The kind of film that has chapters and lives long after the project is done.',
     ],
-    price: 'Starting at $5,000',
     included: [
       'Full pre-production and story development',
       '3+ shoot days',
@@ -98,5 +59,44 @@ export const SERVICES = [
     ],
     cta: 'Book The Deep Dive',
     ctaHref: '/contact?service=the-deep-dive',
+  },
+  {
+    title: 'The Reel',
+    tagline: 'One night. Ninety seconds. The whole room.',
+    bestFor: 'Best for parties, launches, and nights out',
+    description: [
+      'Ninety seconds or less. The whole night.',
+      'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. The Reel is for the event that needs to be felt before the next one gets announced.',
+    ],
+    included: [
+      'Full event coverage',
+      '90 seconds or less edited film',
+      'Music and audio mix',
+      'Color grade',
+      'Social ready delivery',
+      '1 round of revisions',
+    ],
+    cta: 'Get Your Reel',
+    ctaHref: '/contact?service=the-reel',
+    video: montageVideo,
+  },
+  {
+    title: 'In The Moment',
+    tagline: 'One day. One event. Before, during, after.',
+    bestFor: 'Best for festivals, openings, and full-day events',
+    description: [
+      'One day. One event. We arrive before the doors open and stay until the last person leaves. Before, during, and after — the full arc of the day captured as it actually happens. Questions woven in naturally throughout. No formal interview setup. Just the real energy of what you built.',
+    ],
+    included: [
+      'Full event coverage — before, during, after',
+      'Behind-the-scenes access',
+      'Story-driven edit (not a highlight reel)',
+      '4–7 min event film',
+      'Music and color grade',
+      '1 round of revisions',
+      "Director's note on delivery",
+    ],
+    cta: 'Book In The Moment',
+    ctaHref: '/contact?service=in-the-moment',
   },
 ]
