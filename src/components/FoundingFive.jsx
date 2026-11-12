@@ -37,7 +37,7 @@ export default function FoundingFive() {
                 <span
                   key={i}
                   aria-hidden="true"
-                  className="inline-block w-2.5 h-2.5 rounded-full shrink-0"
+                  className="inline-block w-3.5 h-3.5 rounded-full shrink-0"
                   style={
                     i < FOUNDING_SPOTS_CLAIMED
                       ? { border: '1.5px solid rgb(var(--rgb-accent))', background: 'transparent' }
@@ -45,7 +45,7 @@ export default function FoundingFive() {
                   }
                 />
               ))}
-              <span className="font-body text-xs text-white/50 ml-1">
+              <span className="font-body text-sm text-white/50 ml-1">
                 {open} of {TOTAL} spots open
               </span>
             </div>

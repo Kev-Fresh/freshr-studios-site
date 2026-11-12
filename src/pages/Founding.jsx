@@ -61,7 +61,7 @@ export default function Founding() {
               <span
                 key={i}
                 aria-hidden="true"
-                className="inline-block w-3 h-3 rounded-full shrink-0"
+                className="inline-block w-4 h-4 rounded-full shrink-0"
                 style={
                   i < FOUNDING_SPOTS_CLAIMED
                     ? { border: '1.5px solid rgb(var(--rgb-accent))', background: 'transparent' }
@@ -69,7 +69,7 @@ export default function Founding() {
                 }
               />
             ))}
-            <span className="font-body text-sm text-muted ml-1">
+            <span className="font-body text-base text-muted ml-1">
               {full ? 'All spots claimed' : `${open} of ${TOTAL} spots open`}
             </span>
           </motion.div>
