@@ -6,6 +6,7 @@ import ServiceCard from '../components/ServiceCard'
 import DirectionalCTA from '../components/DirectionalCTA'
 import UnderlineBar from '../components/UnderlineBar'
 import FivePillars from '../components/FivePillars'
+import FoundingFive, { FIRST_FRAME_BADGE } from '../components/FoundingFive'
 import { SERVICES } from '../data/services'
 
 const fadeUp = {
@@ -32,7 +33,7 @@ export default function Services() {
   return (
     <>
       {/* ── Header ───────────────────────────────────────────── */}
-      <section data-nav-theme="dark" className="section-dark pt-32 pb-16 md:pt-40 md:pb-20">
+      <section data-nav-theme="dark" className="section-dark pt-32 pb-8 md:pt-40 md:pb-10">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.h1
             className="section-title text-text-light"
@@ -53,17 +54,15 @@ export default function Services() {
           >
             Five offerings. One standard of care.
           </motion.p>
-          <motion.p
-            className="font-body text-sm mt-3"
+          <motion.div
+            className="mt-4"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             animate="show"
             transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Link to="/contact?service=first-frame" className="text-orange hover:text-orange/70 transition-colors duration-150">
-              Taking 5 founding stories this winter →
-            </Link>
-          </motion.p>
+            <FoundingFive />
+          </motion.div>
         </div>
       </section>
 
@@ -73,7 +72,7 @@ export default function Services() {
 
           {/* Lane 1 */}
           <div className="pt-6 pb-2">
-            <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">For businesses &amp; people</p>
+            <span className="inline-block font-body text-xs uppercase tracking-widest bg-[#0E0E0E] text-white px-2 py-0.5 mb-2">For businesses &amp; people</span>
             <p className="font-body text-sm text-muted">Your story, told on camera.</p>
           </div>
           {SERVICES.slice(0, 3).map((s, i) => (
@@ -87,6 +86,8 @@ export default function Services() {
               description={s.description}
               included={s.included}
               bestFor={s.bestFor}
+              badge={s.title === 'First Frame' ? FIRST_FRAME_BADGE : undefined}
+              featured={s.title === 'First Frame'}
               cta={s.cta}
               ctaHref={s.ctaHref}
               image={s.image}
@@ -96,7 +97,7 @@ export default function Services() {
 
           {/* Lane 2 */}
           <div className="pt-14 pb-2">
-            <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">For events</p>
+            <span className="inline-block font-body text-xs uppercase tracking-widest bg-[#0E0E0E] text-white px-2 py-0.5 mb-2">For events</span>
             <p className="font-body text-sm text-muted">The room, the energy, the night.</p>
           </div>
           {SERVICES.slice(3).map((s, i) => (
@@ -110,6 +111,8 @@ export default function Services() {
               description={s.description}
               included={s.included}
               bestFor={s.bestFor}
+              badge={undefined}
+              featured={false}
               cta={s.cta}
               ctaHref={s.ctaHref}
               image={s.image}

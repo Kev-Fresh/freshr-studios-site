@@ -7,6 +7,7 @@ import WorkItem from '../components/WorkItem'
 import DirectionalCTA from '../components/DirectionalCTA'
 import RevealText from '../components/RevealText'
 import UnderlineBar from '../components/UnderlineBar'
+import FoundingFive, { FIRST_FRAME_BADGE } from '../components/FoundingFive'
 import heroVideo    from '../assets/Videos/Hero.mp4'
 import montageVideo from '../assets/Videos/Montage.mp4'
 import { SERVICES } from '../data/services'
@@ -179,7 +180,7 @@ export default function Home() {
       <section data-nav-theme="light" className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
           <motion.div
-            className="flex items-end justify-between mb-12"
+            className="flex items-end justify-between mb-6"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             whileInView="show"
@@ -191,12 +192,6 @@ export default function Home() {
                 The <span className="whitespace-nowrap">Services<span className="period-orange period-pulse" aria-hidden="true" /></span>
               </h2>
               <UnderlineBar />
-              <Link
-                to="/contact?service=first-frame"
-                className="inline-block font-body text-sm text-orange hover:text-orange/70 transition-colors duration-150 mt-2"
-              >
-                Taking 5 founding stories this winter →
-              </Link>
             </div>
             <Link
               to="/services"
@@ -204,6 +199,16 @@ export default function Home() {
             >
               View all →
             </Link>
+          </motion.div>
+          <motion.div
+            className="mb-8"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <FoundingFive />
           </motion.div>
           <div>
             {SERVICES.map((s, i) => (
@@ -215,6 +220,8 @@ export default function Home() {
                 description={s.description}
                 included={s.included}
                 bestFor={s.bestFor}
+                badge={s.title === 'First Frame' ? FIRST_FRAME_BADGE : undefined}
+                featured={s.title === 'First Frame'}
                 cta={s.cta}
                 ctaHref={s.ctaHref}
                 image={s.image}

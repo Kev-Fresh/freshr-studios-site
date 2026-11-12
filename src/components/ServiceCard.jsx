@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 import DirectionalCTA from './DirectionalCTA'
+
 function ServiceModal({ title, tagline, description, included, cta, ctaHref, image, video, reduced, onClose }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose() }
@@ -95,40 +97,84 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
   )
 }
 
-export default function ServiceCard({ title, tagline, description, included, cta = 'Book this', ctaHref = '/contact', bestFor, index, onDark = true, image, video, id, initialOpen = false }) {
+export default function ServiceCard({
+  title, tagline, description, included,
+  cta = 'Book this', ctaHref = '/contact',
+  bestFor, badge, featured = false,
+  index, onDark = true, image, video,
+  id, initialOpen = false,
+}) {
   const [open, setOpen] = useState(initialOpen)
   const reduced = useReducedMotion()
 
   const borderColor = onDark ? 'border-text-light/10' : 'border-text-dark/10'
+  const featuredBg  = featured
+    ? (onDark ? 'rgba(255,255,255,0.04)' : '#F7F7F7')
+    : undefined
+  const featuredBorder = featured
+    ? '3px solid rgb(var(--rgb-accent))'
+    : undefined
 
   return (
     <>
-      <div id={id} style={{ scrollMarginTop: '6rem' }} className={`border-b last:border-b-0 ${borderColor}`}>
-        <button
-          className="w-full flex items-center justify-between py-6 md:py-8 text-left group"
-          onClick={() => setOpen(o => !o)}
-          aria-label={open ? `Close ${title}` : `Open ${title}`}
-          aria-expanded={open}
-        >
-          <div className="flex items-start gap-6 flex-1 min-w-0">
+      <div
+        id={id}
+        style={{ scrollMarginTop: '6rem', backgroundColor: featuredBg, borderLeft: featuredBorder }}
+        className={`border-b last:border-b-0 ${borderColor}`}
+      >
+        <div className="flex items-center py-6 md:py-8">
+
+          {/* Left: accordion toggle */}
+          <button
+            className="flex items-start gap-6 flex-1 min-w-0 text-left group"
+            onClick={() => setOpen(o => !o)}
+            aria-expanded={open}
+            aria-label={open ? `Close ${title}` : `Open ${title}`}
+          >
             <span className="font-body text-xs text-muted tabular-nums w-6 shrink-0 mt-2">
               {String(index).padStart(2, '0')}
             </span>
             <div className="flex flex-col gap-1 min-w-0">
-              <span className="font-display text-4xl md:text-5xl uppercase leading-none group-hover:text-orange transition-colors duration-200">
-                {title}
-              </span>
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <span className="font-display text-4xl md:text-5xl uppercase leading-none group-hover:text-orange transition-colors duration-200">
+                  {title}
+                </span>
+                {badge && (
+                  <span
+                    className="font-body text-[10px] uppercase tracking-widest text-white px-1.5 py-[3px] leading-none shrink-0 self-center"
+                    style={{ backgroundColor: 'rgb(var(--rgb-accent))' }}
+                  >
+                    {badge}
+                  </span>
+                )}
+              </div>
               {bestFor && (
                 <span className="font-body text-sm text-muted">
                   {bestFor}
                 </span>
               )}
             </div>
+          </button>
+
+          {/* Right: Book link + toggle */}
+          <div className="flex items-center gap-4 ml-4 shrink-0">
+            <Link
+              to={ctaHref}
+              className="font-body text-xs uppercase tracking-widest text-orange hover:text-orange/70 transition-colors duration-150 hidden sm:inline"
+            >
+              Book →
+            </Link>
+            <button
+              onClick={() => setOpen(o => !o)}
+              className="font-body text-2xl text-orange leading-none"
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              {open ? '×' : '+'}
+            </button>
           </div>
-          <span className="font-body text-2xl text-orange ml-4 shrink-0" aria-hidden="true">
-            {open ? '×' : '+'}
-          </span>
-        </button>
+
+        </div>
       </div>
 
       {createPortal(
