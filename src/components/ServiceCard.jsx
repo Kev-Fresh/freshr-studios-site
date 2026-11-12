@@ -143,16 +143,12 @@ export default function ServiceCard({
                   <Link
                     to={badgeHref}
                     onClick={(e) => e.stopPropagation()}
-                    className="font-body text-[10px] uppercase tracking-widest text-white px-1.5 py-[3px] leading-none shrink-0 self-center hover:opacity-80 transition-opacity duration-150"
-                    style={{ backgroundColor: 'rgb(var(--rgb-accent))' }}
+                    className="font-body text-[10px] uppercase tracking-widest bg-[#0E0E0E] text-white px-1.5 py-[3px] leading-none shrink-0 self-center hover:opacity-70 transition-opacity duration-150"
                   >
                     {badge}
                   </Link>
                 ) : (
-                  <span
-                    className="font-body text-[10px] uppercase tracking-widest text-white px-1.5 py-[3px] leading-none shrink-0 self-center"
-                    style={{ backgroundColor: 'rgb(var(--rgb-accent))' }}
-                  >
+                  <span className="font-body text-[10px] uppercase tracking-widest bg-[#0E0E0E] text-white px-1.5 py-[3px] leading-none shrink-0 self-center">
                     {badge}
                   </span>
                 ))}
