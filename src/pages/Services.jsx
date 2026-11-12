@@ -87,6 +87,7 @@ export default function Services() {
               included={s.included}
               bestFor={s.bestFor}
               badge={s.title === 'First Frame' ? FIRST_FRAME_BADGE : undefined}
+              badgeHref={s.title === 'First Frame' ? '/founding' : undefined}
               featured={s.title === 'First Frame'}
               cta={s.cta}
               ctaHref={s.ctaHref}

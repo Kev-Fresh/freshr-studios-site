@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
+import { Link, useSearchParams } from 'react-router-dom'
 import usePageTitle from '../hooks/usePageTitle'
 import ContactForm from '../components/ContactForm'
 import UnderlineBar from '../components/UnderlineBar'
@@ -12,12 +13,22 @@ const fadeUp = {
 export default function Contact() {
   usePageTitle('The Conversation')
   const reduced = useReducedMotion()
+  const [searchParams] = useSearchParams()
+  const showFoundingBanner = searchParams.get('offer') === 'founding'
 
   return (
     <>
       {/* ── Header ───────────────────────────────────────────── */}
       <section data-nav-theme="dark" className="section-dark pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
+          {showFoundingBanner && (
+            <div className="mb-8 flex items-center gap-3 font-body text-xs uppercase tracking-widest text-muted">
+              <span>Looking for the Founding Five?</span>
+              <Link to="/founding" className="text-orange hover:text-orange/70 transition-colors duration-150">
+                → See the offer
+              </Link>
+            </div>
+          )}
           <motion.h1
             className="section-title text-text-light"
             variants={fadeUp}

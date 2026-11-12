@@ -10,6 +10,7 @@ import Services from './pages/Services'
 import Work from './pages/Work'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Founding from './pages/Founding'
 
 function AppInner() {
   const location = useLocation()
@@ -32,6 +33,7 @@ function AppInner() {
             <Route path="/archive"  element={<PageTransition><Work /></PageTransition>} />
             <Route path="/about"    element={<PageTransition><About /></PageTransition>} />
             <Route path="/contact"  element={<PageTransition><Contact /></PageTransition>} />
+            <Route path="/founding" element={<PageTransition><Founding /></PageTransition>} />
           </Routes>
         </AnimatePresence>
       </main>

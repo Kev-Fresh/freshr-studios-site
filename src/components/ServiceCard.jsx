@@ -100,7 +100,7 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
 export default function ServiceCard({
   title, tagline, description, included,
   cta = 'Book this', ctaHref = '/contact',
-  bestFor, badge, featured = false,
+  bestFor, badge, badgeHref, featured = false,
   index, onDark = true, image, video,
   id, initialOpen = false,
 }) {
@@ -139,14 +139,23 @@ export default function ServiceCard({
                 <span className="font-display text-4xl md:text-5xl uppercase leading-none group-hover:text-orange transition-colors duration-200">
                   {title}
                 </span>
-                {badge && (
+                {badge && (badgeHref ? (
+                  <Link
+                    to={badgeHref}
+                    onClick={(e) => e.stopPropagation()}
+                    className="font-body text-[10px] uppercase tracking-widest text-white px-1.5 py-[3px] leading-none shrink-0 self-center hover:opacity-80 transition-opacity duration-150"
+                    style={{ backgroundColor: 'rgb(var(--rgb-accent))' }}
+                  >
+                    {badge}
+                  </Link>
+                ) : (
                   <span
                     className="font-body text-[10px] uppercase tracking-widest text-white px-1.5 py-[3px] leading-none shrink-0 self-center"
                     style={{ backgroundColor: 'rgb(var(--rgb-accent))' }}
                   >
                     {badge}
                   </span>
-                )}
+                ))}
               </div>
               {bestFor && (
                 <span className="font-body text-sm text-muted">

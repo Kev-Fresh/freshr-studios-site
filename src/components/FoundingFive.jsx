@@ -54,7 +54,7 @@ export default function FoundingFive() {
             </p>
           </div>
           <Link
-            to="/contact?service=first-frame"
+            to="/founding"
             className="font-body text-xs uppercase tracking-widest border border-white/30 hover:border-white/70 text-white px-4 py-2 transition-colors duration-150 shrink-0"
           >
             Claim a spot →
