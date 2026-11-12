@@ -95,15 +95,15 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
   )
 }
 
-export default function ServiceCard({ title, tagline, description, included, cta = 'Book this', ctaHref = '/contact', bestFor, index, onDark = true, image, video }) {
-  const [open, setOpen] = useState(false)
+export default function ServiceCard({ title, tagline, description, included, cta = 'Book this', ctaHref = '/contact', bestFor, index, onDark = true, image, video, id, initialOpen = false }) {
+  const [open, setOpen] = useState(initialOpen)
   const reduced = useReducedMotion()
 
   const borderColor = onDark ? 'border-text-light/10' : 'border-text-dark/10'
 
   return (
     <>
-      <div className={`border-b last:border-b-0 ${borderColor}`}>
+      <div id={id} style={{ scrollMarginTop: '6rem' }} className={`border-b last:border-b-0 ${borderColor}`}>
         <button
           className="w-full flex items-center justify-between py-6 md:py-8 text-left group"
           onClick={() => setOpen(o => !o)}

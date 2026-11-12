@@ -1,5 +1,6 @@
+import { useEffect } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import usePageTitle from '../hooks/usePageTitle'
 import ServiceCard from '../components/ServiceCard'
 import DirectionalCTA from '../components/DirectionalCTA'
@@ -12,9 +13,21 @@ const fadeUp = {
   show:   { opacity: 1, y: 0  },
 }
 
+const getServiceId = (s) => s.ctaHref.replace('/contact?service=', '')
+
 export default function Services() {
   usePageTitle('The Services')
-  const reduced = useReducedMotion()
+  const reduced  = useReducedMotion()
+  const { hash } = useLocation()
+  const targetId = hash.slice(1)
+
+  useEffect(() => {
+    if (!targetId) return
+    const el = document.getElementById(targetId)
+    if (!el) return
+    const y = el.getBoundingClientRect().top + window.scrollY - 96
+    setTimeout(() => window.scrollTo({ top: y, behavior: 'smooth' }), 120)
+  }, [targetId])
 
   return (
     <>
@@ -41,13 +54,13 @@ export default function Services() {
             Five offerings. One standard of care.
           </motion.p>
           <motion.p
-            className="font-body text-sm text-muted mt-3"
+            className="font-body text-sm mt-3"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             animate="show"
             transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Link to="/contact?service=first-frame" className="hover:text-orange transition-colors duration-150">
+            <Link to="/contact?service=first-frame" className="text-orange hover:text-orange/70 transition-colors duration-150">
               Taking 5 founding stories this winter →
             </Link>
           </motion.p>
@@ -59,13 +72,15 @@ export default function Services() {
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
 
           {/* Lane 1 */}
-          <div className="pt-12 pb-2">
+          <div className="pt-6 pb-2">
             <p className="font-body text-xs uppercase tracking-widest text-orange mb-1">For businesses &amp; people</p>
             <p className="font-body text-sm text-muted">Your story, told on camera.</p>
           </div>
           {SERVICES.slice(0, 3).map((s, i) => (
             <ServiceCard
               key={s.title}
+              id={getServiceId(s)}
+              initialOpen={getServiceId(s) === targetId}
               index={i + 1}
               title={s.title}
               tagline={s.tagline}
@@ -87,6 +102,8 @@ export default function Services() {
           {SERVICES.slice(3).map((s, i) => (
             <ServiceCard
               key={s.title}
+              id={getServiceId(s)}
+              initialOpen={getServiceId(s) === targetId}
               index={i + 4}
               title={s.title}
               tagline={s.tagline}
@@ -99,6 +116,13 @@ export default function Services() {
               video={s.video}
             />
           ))}
+
+          <p className="font-body text-sm text-muted mt-10">
+            Not sure which one fits?{' '}
+            <Link to="/contact" className="text-orange hover:text-orange/70 transition-colors duration-150">
+              Let's talk →
+            </Link>
+          </p>
 
         </div>
       </section>

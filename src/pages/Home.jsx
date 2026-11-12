@@ -193,7 +193,7 @@ export default function Home() {
               <UnderlineBar />
               <Link
                 to="/contact?service=first-frame"
-                className="inline-block font-body text-sm text-text-dark/50 hover:text-orange transition-colors duration-150 mt-2"
+                className="inline-block font-body text-sm text-orange hover:text-orange/70 transition-colors duration-150 mt-2"
               >
                 Taking 5 founding stories this winter →
               </Link>
