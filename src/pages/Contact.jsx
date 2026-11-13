@@ -4,7 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import usePageTitle from '../hooks/usePageTitle'
 import ContactForm from '../components/ContactForm'
 import UnderlineBar from '../components/UnderlineBar'
-import KevSignature from '../components/KevSignature'
+
 import { FOUNDING_SPOTS_CLAIMED } from '../components/FoundingFive'
 
 const FOUNDING_TOTAL = 5
@@ -128,8 +128,8 @@ export default function Contact() {
                 Every Freshr film starts with a conversation. Tell me a little about you and what you've built. I read every message myself.
               </p>
               <div>
-                <KevSignature />
-                <p className="font-body text-xs text-muted mt-2">Founder, Freshr Studios</p>
+                <p className="font-body text-text-light">Kevin Cole Jr.</p>
+                <p className="font-body text-xs text-muted mt-1">Founder, Freshr Studios</p>
               </div>
             </motion.div>
 

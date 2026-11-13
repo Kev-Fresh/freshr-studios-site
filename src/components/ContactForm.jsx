@@ -1,7 +1,6 @@
 import { useForm, ValidationError } from '@formspree/react'
 import { useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
-import KevSignature from './KevSignature'
 
 const SERVICES = [
   { value: '',            label: 'Select a service…'         },
@@ -50,7 +49,7 @@ function SuccessState() {
         I'll hit you back within 24 hours.
       </p>
       <div>
-        <KevSignature />
+        <p className="font-body text-text-light">Kevin Cole Jr.</p>
         <p className="font-body text-xs text-muted mt-1">Founder, Freshr Studios</p>
       </div>
     </motion.div>
