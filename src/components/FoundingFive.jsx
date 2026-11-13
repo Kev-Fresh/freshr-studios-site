@@ -30,7 +30,7 @@ export default function FoundingFive() {
         <div className="flex items-center justify-between gap-6 flex-wrap">
           <div className="flex flex-col gap-2">
             <span className="font-body text-xs uppercase tracking-widest text-white/40">
-              Founding Five — Winter 2026
+              Founding Five — Booking Through March 2027
             </span>
             <div className="flex items-center gap-2">
               {Array.from({ length: TOTAL }).map((_, i) => (

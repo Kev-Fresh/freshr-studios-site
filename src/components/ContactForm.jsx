@@ -3,14 +3,18 @@ import { useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 
 const SERVICES = [
-  { value: '',              label: 'Select a service…'      },
-  { value: 'first-frame',   label: 'First Frame'            },
-  { value: 'the-sit-down',  label: 'The Sit Down'           },
-  { value: 'the-deep-dive', label: 'The Deep Dive'          },
-  { value: 'the-reel',      label: 'The Reel'               },
-  { value: 'in-the-moment', label: 'In The Moment'          },
-  { value: 'not-sure',      label: "Not sure yet — let's talk" },
+  { value: '',            label: 'Select a service…'         },
+  { value: 'first-frame', label: 'First Frame'               },
+  { value: 'the-sit-down',label: 'The Sit Down'              },
+  { value: 'the-reel',    label: 'The Reel'                  },
+  { value: 'custom',      label: 'Something custom'          },
+  { value: 'not-sure',    label: "Not sure yet — let's talk" },
 ]
+
+const SERVICE_REDIRECTS = {
+  'the-deep-dive': { service: 'custom' },
+  'in-the-moment': { service: 'the-reel', message: 'Interested in the full-day upgrade.' },
+}
 
 const fieldClass = `w-full bg-transparent py-3 font-body text-text-light placeholder:text-muted/60 focus:outline-none`
 
@@ -81,7 +85,10 @@ function SuccessState() {
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('xwvzdprg')
   const [searchParams] = useSearchParams()
-  const defaultService = searchParams.get('service') || ''
+  const rawService = searchParams.get('service') || ''
+  const redirect = SERVICE_REDIRECTS[rawService]
+  const defaultService = redirect ? redirect.service : rawService
+  const defaultMessage = redirect?.message ?? ''
 
   return (
     <AnimatePresence mode="wait">
@@ -147,6 +154,7 @@ export default function ContactForm() {
                 name="message"
                 required
                 rows={5}
+                defaultValue={defaultMessage}
                 placeholder="What's the story you want told?"
                 className={`${fieldClass} resize-none`}
               />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 import DirectionalCTA from './DirectionalCTA'
 
-function ServiceModal({ title, tagline, description, included, cta, ctaHref, image, video, reduced, onClose }) {
+function ServiceModal({ title, tagline, description, included, upgradeLine, cta, ctaHref, image, video, reduced, onClose }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', onKey)
@@ -88,6 +88,9 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
                 </li>
               ))}
             </ul>
+            {upgradeLine && (
+              <p className="font-body text-sm text-orange mt-4">{upgradeLine}</p>
+            )}
           </div>
         )}
 
@@ -98,7 +101,7 @@ function ServiceModal({ title, tagline, description, included, cta, ctaHref, ima
 }
 
 export default function ServiceCard({
-  title, tagline, description, included,
+  title, tagline, description, included, upgradeLine,
   cta = 'Book this', ctaHref = '/contact',
   bestFor, badge, badgeHref, featured = false,
   index, onDark = true, image, video,
@@ -184,6 +187,7 @@ export default function ServiceCard({
               tagline={tagline}
               description={description}
               included={included}
+              upgradeLine={upgradeLine}
               cta={cta}
               ctaHref={ctaHref}
               image={image}

@@ -219,6 +219,7 @@ export default function Home() {
                 tagline={s.tagline}
                 description={s.description}
                 included={s.included}
+                upgradeLine={s.upgradeLine}
                 bestFor={s.bestFor}
                 badge={s.title === 'First Frame' ? FIRST_FRAME_BADGE : undefined}
                 badgeHref={s.title === 'First Frame' ? '/founding' : undefined}

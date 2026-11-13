@@ -91,7 +91,7 @@ export default function Founding() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <p className="font-body text-lg text-text-dark/80 leading-relaxed max-w-[52ch]">
-                I'm building Freshr's archive with five Buffalo businesses this winter. You get a full First Frame film at a founding rate. I get to show the city what we made together.
+                I'm building Freshr's archive with five Buffalo businesses this season. You get a full First Frame film at a founding rate. I get to show the city what we made together.
               </p>
             </motion.div>
 
@@ -113,6 +113,7 @@ export default function Founding() {
                     '3 vertical clips for IG / TikTok',
                     'Music + color grade',
                     '1 round of revisions',
+                    'Films are scheduled one at a time so every story gets full attention.',
                   ].map((item) => (
                     <li key={item} className="font-body text-text-dark/80 flex items-start gap-2">
                       <span className="text-orange shrink-0 mt-0.5">—</span>
@@ -336,7 +337,7 @@ export default function Founding() {
                 transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               >
                 <p className="font-body text-xs uppercase tracking-widest text-muted">
-                  Winter 2026
+                  Booking Through March 2027
                 </p>
                 <p className="font-body text-muted leading-relaxed max-w-[42ch]">
                   No pitch deck. No agency middleman. Just you, your story, and a camera. I'll follow up within 24 hours to set up a quick call.

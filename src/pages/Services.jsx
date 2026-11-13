@@ -52,7 +52,7 @@ export default function Services() {
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Five offerings. One standard of care.
+            Three ways in. One standard of care.
           </motion.p>
           <motion.div
             className="mt-4"
@@ -75,7 +75,7 @@ export default function Services() {
             <span className="inline-block font-body text-xs uppercase tracking-widest bg-[#0E0E0E] text-white px-2 py-0.5 mb-2">For businesses &amp; people</span>
             <p className="font-body text-sm text-muted">Your story, told on camera.</p>
           </div>
-          {SERVICES.slice(0, 3).map((s, i) => (
+          {SERVICES.slice(0, 2).map((s, i) => (
             <ServiceCard
               key={s.title}
               id={getServiceId(s)}
@@ -85,6 +85,7 @@ export default function Services() {
               tagline={s.tagline}
               description={s.description}
               included={s.included}
+              upgradeLine={s.upgradeLine}
               bestFor={s.bestFor}
               badge={s.title === 'First Frame' ? FIRST_FRAME_BADGE : undefined}
               badgeHref={s.title === 'First Frame' ? '/founding' : undefined}
@@ -96,21 +97,29 @@ export default function Services() {
             />
           ))}
 
+          <p className="font-body text-sm text-muted mt-6 mb-2">
+            Something bigger? Multi-day docs and custom projects.{' '}
+            <Link to="/contact?service=custom" className="text-orange hover:text-orange/70 transition-colors duration-150">
+              Let's talk →
+            </Link>
+          </p>
+
           {/* Lane 2 */}
           <div className="pt-14 pb-2">
             <span className="inline-block font-body text-xs uppercase tracking-widest bg-[#0E0E0E] text-white px-2 py-0.5 mb-2">For events</span>
             <p className="font-body text-sm text-muted">The room, the energy, the night.</p>
           </div>
-          {SERVICES.slice(3).map((s, i) => (
+          {SERVICES.slice(2).map((s, i) => (
             <ServiceCard
               key={s.title}
               id={getServiceId(s)}
               initialOpen={getServiceId(s) === targetId}
-              index={i + 4}
+              index={i + 3}
               title={s.title}
               tagline={s.tagline}
               description={s.description}
               included={s.included}
+              upgradeLine={s.upgradeLine}
               bestFor={s.bestFor}
               badge={undefined}
               featured={false}
