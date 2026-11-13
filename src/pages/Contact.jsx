@@ -123,7 +123,7 @@ export default function Contact() {
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               <KevPhoto />
-              <p className="font-body text-xs uppercase tracking-widest text-muted">From Kev</p>
+              <p className="font-body text-xs uppercase tracking-widest text-muted">From the Founder</p>
               <p className="font-body text-text-light/80 leading-relaxed max-w-[42ch]">
                 Every Freshr film starts with a conversation. Tell me a little about you and what you've built. I read every message myself.
               </p>
