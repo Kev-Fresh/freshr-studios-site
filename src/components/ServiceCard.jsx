@@ -108,18 +108,12 @@ export default function ServiceCard({
   const reduced = useReducedMotion()
 
   const borderColor = onDark ? 'border-text-light/10' : 'border-text-dark/10'
-  const featuredBg  = featured
-    ? (onDark ? 'rgba(255,255,255,0.04)' : '#F7F7F7')
-    : undefined
-  const featuredBorder = featured
-    ? '3px solid rgb(var(--rgb-accent))'
-    : undefined
 
   return (
     <>
       <div
         id={id}
-        style={{ scrollMarginTop: '6rem', backgroundColor: featuredBg, borderLeft: featuredBorder }}
+        style={{ scrollMarginTop: '6rem', borderLeft: featured ? '3px solid rgb(var(--rgb-accent))' : undefined }}
         className={`border-b last:border-b-0 ${borderColor}`}
       >
         <div className="flex items-center py-6 md:py-8">
