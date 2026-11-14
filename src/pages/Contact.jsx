@@ -1,10 +1,10 @@
-import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Link, useSearchParams } from 'react-router-dom'
 import usePageTitle from '../hooks/usePageTitle'
 import ContactForm from '../components/ContactForm'
 import UnderlineBar from '../components/UnderlineBar'
 import FilmGrain from '../components/FilmGrain'
+import PageHero from '../components/PageHero'
 import { FOUNDING_SPOTS_CLAIMED } from '../components/FoundingFive'
 
 const FOUNDING_TOTAL = 5
@@ -67,87 +67,48 @@ export default function Contact() {
   const full = FOUNDING_SPOTS_CLAIMED >= FOUNDING_TOTAL
   const showFoundingStrip = !full && (!serviceParam || serviceParam === 'first-frame')
 
-  const [heroState, setHeroState] = useState('pending')
-  const hasHero = heroState === 'loaded'
-
   return (
     <>
       <FilmGrain opacity={0.045} />
 
       {/* ── Header ───────────────────────────────────────────── */}
-      <section
-        data-nav-theme="dark"
-        className="relative overflow-hidden section-dark pt-32 pb-12 md:pt-40 md:pb-16"
-      >
-        {/* Hero image — fades in when loaded */}
-        <img
-          src="/media/contact-hero.jpg"
-          alt=""
-          aria-hidden="true"
-          onLoad={() => setHeroState('loaded')}
-          onError={() => setHeroState('failed')}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            opacity: hasHero ? 1 : 0,
-            transition: 'opacity 0.8s ease',
-          }}
-        />
-
-        {/* Gradient overlay — dark at top for text, fades to section bg before founding strip */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 z-[1]"
-          style={{
-            background: `linear-gradient(
-              to bottom,
-              rgba(0,0,0,0.65) 0%,
-              rgba(0,0,0,0.55) 35%,
-              rgba(0,0,0,0.28) 58%,
-              rgb(var(--rgb-dark-bg)) 84%
-            )`,
-            opacity: hasHero ? 1 : 0,
-            transition: 'opacity 0.8s ease',
-          }}
-        />
-
-        {/* Content */}
-        <div
-          className="relative z-[2] max-w-screen-xl mx-auto px-6 md:px-10"
-          style={{ transition: 'color 0.6s ease' }}
-        >
-          <motion.h1
-            className="section-title"
-            style={{ color: hasHero ? '#ffffff' : 'rgb(var(--rgb-text-light))' }}
-            variants={fadeUp}
-            initial={reduced ? false : 'hidden'}
-            animate="show"
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            The <span className="whitespace-nowrap">Conversation<span className="period-orange" aria-hidden="true" /></span>
-          </motion.h1>
-          <UnderlineBar />
-          <motion.p
-            className="font-body text-lg mt-4 max-w-lg"
-            style={{ color: hasHero ? 'rgba(255,255,255,0.75)' : 'rgb(var(--rgb-muted))' }}
-            variants={fadeUp}
-            initial={reduced ? false : 'hidden'}
-            animate="show"
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            No pitch. No pressure. Just a conversation about your story.
-          </motion.p>
-          {showFoundingStrip && (
-            <motion.div
+      <PageHero src="/media/contact-hero.jpg" className="pt-32 pb-12 md:pt-40 md:pb-16">
+        {({ hasHero }) => (
+          <>
+            <motion.h1
+              className="section-title"
+              style={{ color: hasHero ? '#ffffff' : 'rgb(var(--rgb-text-light))' }}
               variants={fadeUp}
               initial={reduced ? false : 'hidden'}
               animate="show"
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              <FoundingStrip onImage={hasHero} />
-            </motion.div>
-          )}
-        </div>
-      </section>
+              The <span className="whitespace-nowrap">Conversation<span className="period-orange" aria-hidden="true" /></span>
+            </motion.h1>
+            <UnderlineBar />
+            <motion.p
+              className="font-body text-lg mt-4 max-w-lg"
+              style={{ color: hasHero ? 'rgba(255,255,255,0.75)' : 'rgb(var(--rgb-muted))' }}
+              variants={fadeUp}
+              initial={reduced ? false : 'hidden'}
+              animate="show"
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              No pitch. No pressure. Just a conversation about your story.
+            </motion.p>
+            {showFoundingStrip && (
+              <motion.div
+                variants={fadeUp}
+                initial={reduced ? false : 'hidden'}
+                animate="show"
+                transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <FoundingStrip onImage={hasHero} />
+              </motion.div>
+            )}
+          </>
+        )}
+      </PageHero>
 
       {/* ── Personal note + Form ─────────────────────────────── */}
       <section data-nav-theme="dark" className="section-dark py-16 md:py-24 border-t border-white/10">

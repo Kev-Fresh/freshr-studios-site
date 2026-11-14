@@ -7,6 +7,7 @@ import DirectionalCTA from '../components/DirectionalCTA'
 import UnderlineBar from '../components/UnderlineBar'
 import FivePillars from '../components/FivePillars'
 import FoundingFive, { FIRST_FRAME_BADGE } from '../components/FoundingFive'
+import PageHero from '../components/PageHero'
 import { SERVICES } from '../data/services'
 
 const fadeUp = {
@@ -33,38 +34,42 @@ export default function Services() {
   return (
     <>
       {/* ── Header ───────────────────────────────────────────── */}
-      <section data-nav-theme="dark" className="section-dark pt-32 pb-8 md:pt-40 md:pb-10">
-        <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <motion.h1
-            className="section-title text-text-light"
-            variants={fadeUp}
-            initial={reduced ? false : 'hidden'}
-            animate="show"
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            The <span className="whitespace-nowrap">Services<span className="period-orange period-pulse" aria-hidden="true" /></span>
-          </motion.h1>
-          <UnderlineBar />
-          <motion.p
-            className="font-body text-lg text-muted mt-6 max-w-xl"
-            variants={fadeUp}
-            initial={reduced ? false : 'hidden'}
-            animate="show"
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Three ways in. One standard of care.
-          </motion.p>
-          <motion.div
-            className="mt-4"
-            variants={fadeUp}
-            initial={reduced ? false : 'hidden'}
-            animate="show"
-            transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <FoundingFive />
-          </motion.div>
-        </div>
-      </section>
+      <PageHero src="/media/services-hero.png" className="pt-32 pb-8 md:pt-40 md:pb-10">
+        {({ hasHero }) => (
+          <>
+            <motion.h1
+              className="section-title"
+              style={{ color: hasHero ? '#ffffff' : 'rgb(var(--rgb-text-light))' }}
+              variants={fadeUp}
+              initial={reduced ? false : 'hidden'}
+              animate="show"
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            >
+              The <span className="whitespace-nowrap">Services<span className="period-orange period-pulse" aria-hidden="true" /></span>
+            </motion.h1>
+            <UnderlineBar />
+            <motion.p
+              className="font-body text-lg mt-6 max-w-xl"
+              style={{ color: hasHero ? 'rgba(255,255,255,0.75)' : 'rgb(var(--rgb-muted))' }}
+              variants={fadeUp}
+              initial={reduced ? false : 'hidden'}
+              animate="show"
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Three ways in. One standard of care.
+            </motion.p>
+            <motion.div
+              className="mt-4"
+              variants={fadeUp}
+              initial={reduced ? false : 'hidden'}
+              animate="show"
+              transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <FoundingFive />
+            </motion.div>
+          </>
+        )}
+      </PageHero>
 
       {/* ── Service accordion ────────────────────────────────── */}
       <section data-nav-theme="dark" className="section-dark pb-20 md:pb-32 border-t border-white/10">
