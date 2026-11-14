@@ -6,7 +6,7 @@ const SERVICES = [
   { value: '',            label: 'Select a service…'         },
   { value: 'first-frame', label: 'First Frame'               },
   { value: 'the-sit-down',label: 'Sit Down'                  },
-  { value: 'the-reel',    label: 'Reel'                      },
+  { value: 'the-reel',    label: 'The Reel'                  },
   { value: 'custom',      label: 'Something custom'          },
   { value: 'not-sure',    label: "Not sure yet — let's talk" },
 ]

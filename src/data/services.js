@@ -41,12 +41,12 @@ export const SERVICES = [
     ctaHref: '/contact?service=the-sit-down',
   },
   {
-    title: 'Reel',
+    title: 'The Reel',
     tagline: 'One night. Ninety seconds. The whole room.',
     bestFor: 'Best for parties, launches, and nights out',
     description: [
       'Ninety seconds or less. The whole night.',
-      'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. Reel is for the event that needs to be felt before the next one gets announced.',
+      'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. The Reel is for the event that needs to be felt before the next one gets announced.',
     ],
     included: [
       'Full event coverage',

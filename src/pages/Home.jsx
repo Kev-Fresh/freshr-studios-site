@@ -298,7 +298,7 @@ export default function Home() {
             <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
               <p className="font-body text-xs uppercase tracking-widest text-white/50 mb-1">2025 Highlight Reel</p>
               <p className="font-display text-3xl md:text-5xl uppercase text-white leading-none">
-                Reel<span className="period-orange" aria-hidden="true" />
+                The Reel<span className="period-orange" aria-hidden="true" />
               </p>
             </div>
           </motion.div>
