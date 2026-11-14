@@ -10,7 +10,7 @@ const FOUNDING_TOTAL = 5
 
 const STEPS = [
   { num: '01', text: 'You send this. Takes two minutes.' },
-  { num: '02', text: 'I hit you back within 24 hours.' },
+  { num: '02', text: 'I contact you within 24 hours.' },
   { num: '03', text: 'We hop on a quick call. No pressure, no hard sell.' },
 ]
 

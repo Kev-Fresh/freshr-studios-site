@@ -46,7 +46,7 @@ function SuccessState() {
         Got it<span className="period-orange" aria-hidden="true" />
       </p>
       <p className="font-body text-muted leading-relaxed">
-        I'll hit you back within 24 hours.
+        I'll contact you within 24 hours.
       </p>
       <div>
         <p className="font-body text-text-light">Kevin Cole Jr.</p>

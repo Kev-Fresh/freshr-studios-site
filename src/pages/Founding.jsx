@@ -192,7 +192,7 @@ export default function Founding() {
                         Got it<span className="period-orange" aria-hidden="true" />
                       </p>
                       <p className="font-body text-muted max-w-sm leading-relaxed">
-                        I'll hit you back within 24 hours to set up a quick call. — Kevin Cole Jr.
+                        I'll contact you within 24 hours to set up a quick call. — Kevin Cole Jr.
                       </p>
                     </motion.div>
                   ) : (
