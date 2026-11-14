@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Link, useSearchParams } from 'react-router-dom'
 import usePageTitle from '../hooks/usePageTitle'
@@ -23,7 +22,7 @@ const fadeUp = {
 function FoundingStrip() {
   const open = FOUNDING_TOTAL - FOUNDING_SPOTS_CLAIMED
   return (
-    <div className="inline-flex flex-wrap items-center gap-x-4 gap-y-2 border border-white/20 px-4 py-2.5 mt-6">
+    <div className="inline-flex flex-wrap items-center gap-x-4 gap-y-2 border border-text-light/20 px-4 py-2.5 mt-6">
       <div className="flex items-center gap-1.5 shrink-0">
         {Array.from({ length: FOUNDING_TOTAL }).map((_, i) => (
           <span
@@ -51,18 +50,6 @@ function FoundingStrip() {
   )
 }
 
-function KevPhoto() {
-  const [hidden, setHidden] = useState(false)
-  if (hidden) return null
-  return (
-    <img
-      src="/media/kev.jpg"
-      alt="Kevin Cole Jr."
-      onError={() => setHidden(true)}
-      className="w-24 h-24 md:w-28 md:h-28 object-cover object-top grayscale"
-    />
-  )
-}
 
 export default function Contact() {
   usePageTitle('The Conversation')
@@ -122,7 +109,6 @@ export default function Contact() {
               animate="show"
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <KevPhoto />
               <p className="font-body text-xs uppercase tracking-widest text-muted">From the Founder</p>
               <p className="font-body text-text-light/80 leading-relaxed max-w-[42ch]">
                 Every Freshr film starts with a conversation. Tell me a little about you and what you've built. I read every message myself.
