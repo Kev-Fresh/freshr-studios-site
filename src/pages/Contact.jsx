@@ -113,8 +113,8 @@ export default function Contact() {
               <p className="font-body text-text-light/80 leading-relaxed max-w-[42ch]">
                 Every Freshr film starts with a conversation. Tell me a little about you and what you've built. I read every message myself.
               </p>
-              <div>
-                <p className="font-body text-text-light">Kevin Cole Jr.</p>
+              <div className="mt-3">
+                <p className="font-body text-[18px] font-semibold text-text-light">Kevin Cole Jr.</p>
                 <p className="font-body text-xs text-muted mt-1">Founder, Freshr Studios</p>
               </div>
             </motion.div>
