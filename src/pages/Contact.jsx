@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { Link, useSearchParams } from 'react-router-dom'
 import usePageTitle from '../hooks/usePageTitle'
 import ContactForm from '../components/ContactForm'
 import UnderlineBar from '../components/UnderlineBar'
-
+import FilmGrain from '../components/FilmGrain'
 import { FOUNDING_SPOTS_CLAIMED } from '../components/FoundingFive'
 
 const FOUNDING_TOTAL = 5
@@ -19,10 +20,15 @@ const fadeUp = {
   show:   { opacity: 1, y: 0  },
 }
 
-function FoundingStrip() {
+function FoundingStrip({ onImage }) {
   const open = FOUNDING_TOTAL - FOUNDING_SPOTS_CLAIMED
   return (
-    <div className="inline-flex flex-wrap items-center gap-x-4 gap-y-2 border border-text-light/20 px-4 py-2.5 mt-6">
+    <div
+      className="inline-flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2.5 mt-6"
+      style={{
+        border: `1px solid ${onImage ? 'rgba(255,255,255,0.3)' : 'rgb(var(--rgb-text-light) / 0.2)'}`,
+      }}
+    >
       <div className="flex items-center gap-1.5 shrink-0">
         {Array.from({ length: FOUNDING_TOTAL }).map((_, i) => (
           <span
@@ -37,7 +43,10 @@ function FoundingStrip() {
           />
         ))}
       </div>
-      <span className="font-body text-xs text-muted">
+      <span
+        className="font-body text-xs"
+        style={{ color: onImage ? 'rgba(255,255,255,0.6)' : 'rgb(var(--rgb-muted))' }}
+      >
         Founding Five: {open} of {FOUNDING_TOTAL} spots open
       </span>
       <Link
@@ -50,7 +59,6 @@ function FoundingStrip() {
   )
 }
 
-
 export default function Contact() {
   usePageTitle('The Conversation')
   const reduced = useReducedMotion()
@@ -59,13 +67,57 @@ export default function Contact() {
   const full = FOUNDING_SPOTS_CLAIMED >= FOUNDING_TOTAL
   const showFoundingStrip = !full && (!serviceParam || serviceParam === 'first-frame')
 
+  const [heroState, setHeroState] = useState('pending')
+  const hasHero = heroState === 'loaded'
+
   return (
     <>
+      <FilmGrain opacity={0.045} />
+
       {/* ── Header ───────────────────────────────────────────── */}
-      <section data-nav-theme="dark" className="section-dark pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="max-w-screen-xl mx-auto px-6 md:px-10">
+      <section
+        data-nav-theme="dark"
+        className="relative overflow-hidden section-dark pt-32 pb-12 md:pt-40 md:pb-16"
+      >
+        {/* Hero image — fades in when loaded */}
+        <img
+          src="/media/contact-hero.jpg"
+          alt=""
+          aria-hidden="true"
+          onLoad={() => setHeroState('loaded')}
+          onError={() => setHeroState('failed')}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            opacity: hasHero ? 1 : 0,
+            transition: 'opacity 0.8s ease',
+          }}
+        />
+
+        {/* Gradient overlay — dark at top for text, fades to section bg before founding strip */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 z-[1]"
+          style={{
+            background: `linear-gradient(
+              to bottom,
+              rgba(0,0,0,0.65) 0%,
+              rgba(0,0,0,0.55) 35%,
+              rgba(0,0,0,0.28) 58%,
+              rgb(var(--rgb-dark-bg)) 84%
+            )`,
+            opacity: hasHero ? 1 : 0,
+            transition: 'opacity 0.8s ease',
+          }}
+        />
+
+        {/* Content */}
+        <div
+          className="relative z-[2] max-w-screen-xl mx-auto px-6 md:px-10"
+          style={{ transition: 'color 0.6s ease' }}
+        >
           <motion.h1
-            className="section-title text-text-light"
+            className="section-title"
+            style={{ color: hasHero ? '#ffffff' : 'rgb(var(--rgb-text-light))' }}
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             animate="show"
@@ -75,7 +127,8 @@ export default function Contact() {
           </motion.h1>
           <UnderlineBar />
           <motion.p
-            className="font-body text-lg text-muted mt-4 max-w-lg"
+            className="font-body text-lg mt-4 max-w-lg"
+            style={{ color: hasHero ? 'rgba(255,255,255,0.75)' : 'rgb(var(--rgb-muted))' }}
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             animate="show"
@@ -90,7 +143,7 @@ export default function Contact() {
               animate="show"
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <FoundingStrip />
+              <FoundingStrip onImage={hasHero} />
             </motion.div>
           )}
         </div>
