@@ -129,7 +129,7 @@ export default function Navbar() {
 
   // At the top: home hero is always dark; all other pages flip with the theme.
   // Once scrolled: use scroll-detected navBg (which tracks section transitions).
-  const atTopDark = location.pathname === '/' ? true : isDark
+  const atTopDark = ['/', '/contact'].includes(location.pathname) ? true : isDark
   const onDark    = menuOpen ? isDark : (scrolled ? navBg === 'dark' : atTopDark)
   const textColor = onDark ? 'text-white' : 'text-black'
   const barColor  = onDark ? 'bg-white'   : 'bg-black'
