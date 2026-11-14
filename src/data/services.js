@@ -21,7 +21,7 @@ export const SERVICES = [
     ctaHref: '/contact?service=first-frame',
   },
   {
-    title: 'The Sit Down',
+    title: 'Sit Down',
     tagline: 'Two days. One subject. The full interview portrait.',
     bestFor: 'Best for a founder or person with a story to tell',
     description: [
@@ -37,16 +37,16 @@ export const SERVICES = [
       '2 rounds of revisions',
       "Director's note on delivery",
     ],
-    cta: 'Book The Sit Down',
+    cta: 'Book Sit Down',
     ctaHref: '/contact?service=the-sit-down',
   },
   {
-    title: 'The Reel',
+    title: 'Reel',
     tagline: 'One night. Ninety seconds. The whole room.',
     bestFor: 'Best for parties, launches, and nights out',
     description: [
       'Ninety seconds or less. The whole night.',
-      'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. The Reel is for the event that needs to be felt before the next one gets announced.',
+      'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. Reel is for the event that needs to be felt before the next one gets announced.',
     ],
     included: [
       'Full event coverage',
