@@ -5,7 +5,7 @@ import usePageTitle from '../hooks/usePageTitle'
 import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
 import thumbShelly    from '../assets/images/event-roller-skate.png'
-import thumbMuralfest from '../assets/images/Muralfest.jpg'
+import thumbJess     from '../assets/images/Jess.png'
 import montageVideo  from '../assets/Videos/Montage.mp4'
 import shellyVideo   from '../assets/Videos/Shellys_Skate_Jam.mov'
 import jessVideo     from '../assets/Videos/Jess_Final_compressed.mp4'
@@ -13,7 +13,7 @@ import jessVideo     from '../assets/Videos/Jess_Final_compressed.mp4'
 const WORK_ITEMS = [
   { title: '2025 Highlight Reel', category: 'Video', video: montageVideo },
   { title: "Shelly's Skate Jam", category: 'Event', thumbnail: thumbShelly, playVideo: shellyVideo },
-  { title: 'MuralFest',          category: 'Event', thumbnail: thumbMuralfest, playVideo: jessVideo },
+  { title: 'Poet Book Signing',  category: 'Event', thumbnail: thumbJess,      playVideo: jessVideo },
 ]
 
 const CATEGORIES = ['All', 'Video', 'Event']

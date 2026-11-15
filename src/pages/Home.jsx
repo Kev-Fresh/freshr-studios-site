@@ -14,11 +14,11 @@ import { SERVICES } from '../data/services'
 import thumbShelly    from '../assets/images/event-roller-skate.png'
 import thumbWater     from '../assets/images/water.jpg'
 import thumbFireworks from '../assets/images/Fireworks.png'
-import thumbMuralfest from '../assets/images/Muralfest.jpg'
+import thumbJess      from '../assets/images/Jess.png'
 
 const WORK_PREVIEW = [
   { title: "Shelly's Skate Jam", category: 'Event', thumbnail: thumbShelly },
-  { title: 'MuralFest',         category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
+  { title: 'Poet Book Signing', category: 'Event', thumbnail: thumbJess,      comingSoon: true },
   { title: 'Waterfront',        category: 'Video', thumbnail: thumbWater,  objectPosition: '100% center' },
   { title: 'Fireworks in the Field', category: 'Event', thumbnail: thumbFireworks, comingSoon: true },
 ]
