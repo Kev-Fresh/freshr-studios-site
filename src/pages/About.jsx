@@ -3,6 +3,7 @@ import usePageTitle from '../hooks/usePageTitle'
 import DirectionalCTA from '../components/DirectionalCTA'
 import UnderlineBar from '../components/UnderlineBar'
 import FivePillars from '../components/FivePillars'
+import picOfMe from '../assets/images/pic_of_me.jpg'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -96,6 +97,35 @@ export default function About() {
             — Kevin Cole Jr., Founder, Freshr Studios
           </motion.footer>
         </blockquote>
+      </section>
+
+      {/* ── Founder ──────────────────────────────────────────── */}
+      <section data-nav-theme="light" className="section-light py-20 md:py-28 border-t border-text-dark/10">
+        <div className="max-w-screen-xl mx-auto px-6 md:px-10">
+          <motion.div
+            className="flex flex-col md:flex-row items-start gap-10 md:gap-16"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <img
+              src={picOfMe}
+              alt="Kevin Cole Jr., Founder of Freshr Studios"
+              className="w-40 h-40 md:w-56 md:h-56 object-cover object-top rounded-sm shrink-0"
+            />
+            <div className="flex flex-col gap-3 justify-center">
+              <p className="font-body text-text-dark/80 leading-relaxed max-w-[52ch]">
+                Kevin Cole Jr. is the founder and director of Freshr Studios. Born and raised in Buffalo, he started Freshr to put a camera on the people and places the city doesn't see enough of.
+              </p>
+              <div>
+                <p className="font-body font-semibold text-text-dark">Kevin Cole Jr.</p>
+                <p className="font-body text-xs text-muted uppercase tracking-widest mt-0.5">Founder, Freshr Studios</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── Five Pillars ─────────────────────────────────────── */}
