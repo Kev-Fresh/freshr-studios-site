@@ -15,7 +15,7 @@ const WORK_ITEMS = [
   { title: 'MuralFest',          category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
 ]
 
-const CATEGORIES = ['All', 'Video', 'Photo', 'Event']
+const CATEGORIES = ['All', 'Video', 'Event']
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -54,7 +54,7 @@ export default function Work() {
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Video. Photo. Events. Buffalo.
+            Video. Events. Buffalo.
           </motion.p>
         </div>
       </section>
