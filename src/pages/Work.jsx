@@ -8,11 +8,12 @@ import thumbShelly    from '../assets/images/event-roller-skate.png'
 import thumbMuralfest from '../assets/images/Muralfest.jpg'
 import montageVideo  from '../assets/Videos/Montage.mp4'
 import shellyVideo   from '../assets/Videos/Shellys_Skate_Jam.mov'
+import jessVideo     from '../assets/Videos/Jess_Final_compressed.mp4'
 
 const WORK_ITEMS = [
   { title: '2025 Highlight Reel', category: 'Video', video: montageVideo },
   { title: "Shelly's Skate Jam", category: 'Event', thumbnail: thumbShelly, playVideo: shellyVideo },
-  { title: 'MuralFest',          category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
+  { title: 'MuralFest',          category: 'Event', thumbnail: thumbMuralfest, playVideo: jessVideo },
 ]
 
 const CATEGORIES = ['All', 'Video', 'Event']
