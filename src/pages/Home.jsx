@@ -189,7 +189,7 @@ export default function Home() {
           >
             <div>
               <h2 className="section-title text-text-dark">
-                The <span className="whitespace-nowrap">Services<span className="period-orange period-pulse" aria-hidden="true" /></span>
+                <span className="whitespace-nowrap">Services<span className="period-orange period-pulse" aria-hidden="true" /></span>
               </h2>
               <UnderlineBar />
             </div>
@@ -254,7 +254,7 @@ export default function Home() {
           >
             <div>
               <h2 className="section-title text-text-light">
-                The <span className="whitespace-nowrap">Archive<span className="period-orange period-pulse" aria-hidden="true" /></span>
+                <span className="whitespace-nowrap">Archive<span className="period-orange period-pulse" aria-hidden="true" /></span>
               </h2>
               <UnderlineBar />
             </div>

@@ -41,7 +41,7 @@ function PillToggle({ isDark, onToggle }) {
 
 const NAV_LINKS = [
   { to: '/',         label: 'Home',        end: true },
-  { to: '/archive',  label: 'The Archive'            },
+  { to: '/archive',  label: 'Archive'                 },
   { to: '/services', label: 'Services'               },
   { to: '/about',    label: 'About'                  },
   { to: '/contact',  label: 'Contact'                },

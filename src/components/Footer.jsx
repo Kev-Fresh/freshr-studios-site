@@ -27,7 +27,7 @@ const LOGO_MAP = {
 }
 
 const NAV_LINKS = [
-  { to: '/archive',  label: 'The Archive' },
+  { to: '/archive',  label: 'Archive'     },
   { to: '/services', label: 'Services'    },
   { to: '/about',    label: 'About'       },
   { to: '/contact',  label: 'Contact'     },

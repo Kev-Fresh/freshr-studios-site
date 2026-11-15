@@ -22,7 +22,7 @@ const fadeUp = {
 }
 
 export default function Work() {
-  usePageTitle('The Archive')
+  usePageTitle('Archive')
   const [activeFilter, setActiveFilter] = useState('All')
   const reduced = useReducedMotion()
 
@@ -43,7 +43,7 @@ export default function Work() {
             animate="show"
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            The <span className="whitespace-nowrap">Archive<span className="period-orange period-pulse" aria-hidden="true" /></span>
+            <span className="whitespace-nowrap">Archive<span className="period-orange period-pulse" aria-hidden="true" /></span>
           </motion.h1>
           <UnderlineBar />
           <motion.p
