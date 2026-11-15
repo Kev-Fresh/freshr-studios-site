@@ -18,7 +18,7 @@ import thumbJess      from '../assets/images/Jess.png'
 
 const WORK_PREVIEW = [
   { title: "Shelly's Skate Jam", category: 'Event', thumbnail: thumbShelly },
-  { title: 'Poet Book Signing', category: 'Event', thumbnail: thumbJess,      comingSoon: true },
+  { title: 'Poetry Book Signing', category: 'Event', thumbnail: thumbJess,      comingSoon: true },
   { title: 'Waterfront',        category: 'Video', thumbnail: thumbWater,  objectPosition: '100% center' },
   { title: 'Fireworks in the Field', category: 'Event', thumbnail: thumbFireworks, comingSoon: true },
 ]

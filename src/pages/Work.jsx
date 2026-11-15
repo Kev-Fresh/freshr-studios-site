@@ -13,7 +13,7 @@ import jessVideo     from '../assets/Videos/Jess_Final_compressed.mp4'
 const WORK_ITEMS = [
   { title: '2025 Highlight Reel', category: 'Video', video: montageVideo },
   { title: "Shelly's Skate Jam", category: 'Event', thumbnail: thumbShelly, playVideo: shellyVideo },
-  { title: 'Poet Book Signing',  category: 'Event', thumbnail: thumbJess,      playVideo: jessVideo },
+  { title: 'Poetry Book Signing',  category: 'Event', thumbnail: thumbJess,      playVideo: jessVideo },
 ]
 
 const CATEGORIES = ['All', 'Video', 'Event']
