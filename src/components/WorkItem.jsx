@@ -1,12 +1,22 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 
-export default function WorkItem({ title, category, thumbnail, video, comingSoon, objectPosition = 'center' }) {
-  const reduced  = useReducedMotion()
-  const videoRef = useRef(null)
-  const [playing,  setPlaying]  = useState(false)
-  const [flashing, setFlashing] = useState(false)
+export default function WorkItem({ title, category, thumbnail, video, playVideo, comingSoon, objectPosition = 'center' }) {
+  const reduced    = useReducedMotion()
+  const videoRef   = useRef(null)
+  const lightboxRef = useRef(null)
+  const [playing,   setPlaying]   = useState(false)
+  const [flashing,  setFlashing]  = useState(false)
+  const [lightbox,  setLightbox]  = useState(false)
   const timerRef = useRef(null)
+
+  useEffect(() => {
+    if (!lightbox) return
+    const onKey = (e) => { if (e.key === 'Escape') setLightbox(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lightbox])
 
   const CATEGORY_COLORS = {
     Video: 'text-orange',
@@ -29,7 +39,9 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
   }
 
   const handleTap = () => {
-    if (video) {
+    if (playVideo) {
+      setLightbox(true)
+    } else if (video) {
       if (playing) {
         videoRef.current.pause()
         setPlaying(false)
@@ -46,9 +58,10 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
   }
 
   return (
+    <>
     <motion.div
       className="group relative flex-shrink-0 w-full md:w-80 overflow-hidden cursor-pointer"
-      aria-label={`${title}, ${category}${comingSoon && !video ? ' — Coming Soon' : ''}`}
+      aria-label={`${title}, ${category}${comingSoon && !video && !playVideo ? ' — Coming Soon' : ''}`}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={handleTap}
@@ -106,8 +119,19 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
           </AnimatePresence>
         )}
 
+        {/* Play button overlay — thumbnail + lightbox cards */}
+        {playVideo && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+              <svg width="14" height="16" viewBox="0 0 14 16" fill="white" className="ml-0.5" aria-hidden="true">
+                <path d="M0 0L14 8L0 16V0Z" />
+              </svg>
+            </div>
+          </div>
+        )}
+
         {/* Hover coming soon overlay — non-video placeholder cards only */}
-        {comingSoon && !video && (
+        {comingSoon && !video && !playVideo && (
           <div className="absolute inset-0 bg-black/60 opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <span className="font-body text-xs uppercase tracking-widest text-white/70">
               Coming Soon
@@ -115,7 +139,7 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
           </div>
         )}
 
-        {/* Tap flash — non-video cards only */}
+        {/* Tap flash — coming soon cards only */}
         <AnimatePresence>
           {flashing && (
             <motion.div
@@ -156,5 +180,44 @@ export default function WorkItem({ title, category, thumbnail, video, comingSoon
         </p>
       </div>
     </motion.div>
+
+    {/* Lightbox */}
+    {playVideo && createPortal(
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setLightbox(false)}
+          >
+            <motion.video
+              ref={lightboxRef}
+              src={playVideo}
+              autoPlay
+              playsInline
+              controls
+              className="max-w-[90vw] max-h-[85vh] w-full rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1,    opacity: 1 }}
+              exit={{    scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+            <button
+              className="absolute top-5 right-5 text-white/50 hover:text-white transition-colors duration-150 text-2xl leading-none"
+              onClick={() => setLightbox(false)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>,
+      document.body
+    )}
+    </>
   )
 }

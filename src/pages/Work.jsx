@@ -6,11 +6,12 @@ import WorkItem from '../components/WorkItem'
 import UnderlineBar from '../components/UnderlineBar'
 import thumbShelly    from '../assets/images/event-roller-skate.png'
 import thumbMuralfest from '../assets/images/Muralfest.jpg'
-import montageVideo   from '../assets/Videos/Montage.mp4'
+import montageVideo  from '../assets/Videos/Montage.mp4'
+import shellyVideo   from '../assets/Videos/Shellys_Skate_Jam.mov'
 
 const WORK_ITEMS = [
   { title: '2025 Highlight Reel', category: 'Video', video: montageVideo },
-  { title: 'Shelly Skate Jam',   category: 'Event', thumbnail: thumbShelly,    comingSoon: true },
+  { title: 'Shelly Skate Jam',   category: 'Event', thumbnail: thumbShelly, playVideo: shellyVideo },
   { title: 'MuralFest',          category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
 ]
 
@@ -92,7 +93,7 @@ export default function Work() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
             >
-              <WorkItem title={item.title} category={item.category} thumbnail={item.thumbnail} video={item.video} comingSoon={item.comingSoon} objectPosition={item.objectPosition} />
+              <WorkItem title={item.title} category={item.category} thumbnail={item.thumbnail} video={item.video} playVideo={item.playVideo} comingSoon={item.comingSoon} objectPosition={item.objectPosition} />
             </motion.div>
           ))}
         </div>
@@ -107,6 +108,7 @@ export default function Work() {
                 category={item.category}
                 thumbnail={item.thumbnail}
                 video={item.video}
+                playVideo={item.playVideo}
                 comingSoon={item.comingSoon}
                 objectPosition={item.objectPosition}
               />
