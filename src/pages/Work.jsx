@@ -11,7 +11,7 @@ import shellyVideo   from '../assets/Videos/Shellys_Skate_Jam.mov'
 
 const WORK_ITEMS = [
   { title: '2025 Highlight Reel', category: 'Video', video: montageVideo },
-  { title: 'Shelly Skate Jam',   category: 'Event', thumbnail: thumbShelly, playVideo: shellyVideo },
+  { title: "Shelly's Skate Jam", category: 'Event', thumbnail: thumbShelly, playVideo: shellyVideo },
   { title: 'MuralFest',          category: 'Event', thumbnail: thumbMuralfest, comingSoon: true },
 ]
 
