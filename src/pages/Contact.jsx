@@ -60,7 +60,7 @@ function FoundingStrip({ onImage }) {
 }
 
 export default function Contact() {
-  usePageTitle('The Conversation')
+  usePageTitle('Your Story Starts Here')
   const reduced = useReducedMotion()
   const [searchParams] = useSearchParams()
   const serviceParam = searchParams.get('service')
@@ -83,7 +83,7 @@ export default function Contact() {
               animate="show"
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              The <span className="whitespace-nowrap">Conversation<span className="period-orange" aria-hidden="true" /></span>
+              Your Story <span className="whitespace-nowrap">Starts Here<span className="period-orange" aria-hidden="true" /></span>
             </motion.h1>
             <UnderlineBar />
             <motion.p
@@ -94,7 +94,7 @@ export default function Contact() {
               animate="show"
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              No pitch. No pressure. Just a conversation about your story.
+              No pitch. No pressure. Tell me what you've built.
             </motion.p>
             {showFoundingStrip && (
               <motion.div
