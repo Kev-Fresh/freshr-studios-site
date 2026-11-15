@@ -52,7 +52,7 @@ export default function About() {
               of the people and places that are shaping Buffalo for the better.
             </p>
             <p className="font-body text-text-dark/70 leading-relaxed max-w-[65ch]">
-              We show up and put what they do under a cinematic camera lens to connect Buffalo with itself.
+              We show up, put what they do on camera, up close, and connect Buffalo with itself.
             </p>
           </motion.div>
         </div>

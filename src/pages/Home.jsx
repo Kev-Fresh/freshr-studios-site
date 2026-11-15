@@ -100,15 +100,20 @@ export default function Home() {
             Buffalo's Story Studio<span className="period-orange" aria-hidden="true" />
           </motion.h1>
 
-          <motion.p
-            className="font-body text-lg md:text-xl text-white/70 mt-6 max-w-md"
+          <motion.div
+            className="mt-6 max-w-md"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             animate="show"
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Cinematic storytelling for the people and places shaping Buffalo.
-          </motion.p>
+            <p className="font-body text-lg md:text-xl text-white/70">
+              Short docs about the people and places shaping Buffalo.
+            </p>
+            <p className="font-body text-sm text-white/45 mt-1">
+              Real stories. Shot like they matter.
+            </p>
+          </motion.div>
 
           <motion.div
             className="mt-8 flex flex-col gap-3 md:flex-row md:gap-4 text-white"
@@ -141,14 +146,15 @@ export default function Home() {
             The Problem
           </motion.p>
           <motion.h2
-            className="font-display text-[clamp(2.25rem,5vw,4.5rem)] uppercase text-text-dark leading-none max-w-3xl mb-8"
+            className="font-display text-[clamp(2.25rem,5vw,4.5rem)] uppercase text-text-dark leading-tight max-w-3xl mb-8"
             variants={fadeUp}
             initial={reduced ? false : 'hidden'}
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            Your business has a story<span className="period-orange" aria-hidden="true" /> Nobody's seen it<span className="period-orange" aria-hidden="true" />
+            Your business has a story<span className="period-orange" aria-hidden="true" /><br />
+            Nobody's seen it<span className="period-orange" aria-hidden="true" />
           </motion.h2>
           <motion.p
             className="font-body text-lg text-text-dark/70 max-w-[60ch] leading-relaxed mb-6"
@@ -253,7 +259,7 @@ export default function Home() {
           >
             Most of what makes Buffalo worth living in never makes it on camera.
             Freshr Studios documents the people, places, and events shaping this city — the ones
-            residents might not even know about. Cinematically.
+            residents might not even know about.
           </motion.p>
         </div>
       </section>

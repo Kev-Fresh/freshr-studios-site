@@ -76,25 +76,6 @@ export default function Founding() {
         </div>
       </section>
 
-      {/* ── Why it works ─────────────────────────────────────── */}
-      <section data-nav-theme="light" className="section-light pt-20 md:pt-28 pb-0">
-        <div className="max-w-screen-xl mx-auto px-6 md:px-10">
-          <motion.div
-            className="max-w-2xl"
-            variants={fadeUp}
-            initial={reduced ? false : 'hidden'}
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="font-body text-xs uppercase tracking-widest text-muted mb-4">Why It Works</p>
-            <p className="font-body text-lg text-text-dark/80 leading-relaxed">
-              People buy from people they feel like they know. Your film gives your regulars and the people who've never walked in a real look at who you are, in a form they'll actually watch and share. The clips keep you showing up in their feeds. The film turns "never heard of them" into "I gotta check them out."
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── Intro + details ──────────────────────────────────── */}
       <section data-nav-theme="light" className="section-light py-20 md:py-28">
         <div className="max-w-screen-xl mx-auto px-6 md:px-10">
@@ -112,6 +93,12 @@ export default function Founding() {
               <p className="font-body text-lg text-text-dark/80 leading-relaxed max-w-[52ch]">
                 I'm building Freshr's archive with five Buffalo businesses this season. You get a full First Frame film at a founding rate. I get to show the city what we made together.
               </p>
+              <div>
+                <p className="font-body text-xs uppercase tracking-widest text-muted mb-3">Why It Works</p>
+                <p className="font-body text-text-dark/70 leading-relaxed max-w-[52ch]">
+                  People buy from people they feel like they know. Your film gives your regulars and the people who've never walked in a real look at who you are, in a form they'll actually watch and share. The clips keep you showing up in their feeds. The film turns "never heard of them" into "I gotta check them out."
+                </p>
+              </div>
             </motion.div>
 
             {/* What you get / What I ask */}
