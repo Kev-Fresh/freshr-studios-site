@@ -127,6 +127,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── The Problem ──────────────────────────────────────── */}
+      <section data-nav-theme="light" className="section-light py-20 md:py-28">
+        <div className="max-w-screen-xl mx-auto px-6 md:px-10">
+          <motion.p
+            className="font-body text-xs uppercase tracking-widest text-muted mb-6"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            The Problem
+          </motion.p>
+          <motion.h2
+            className="font-display text-[clamp(2.25rem,5vw,4.5rem)] uppercase text-text-dark leading-none max-w-3xl mb-8"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Your business has a story<span className="period-orange" aria-hidden="true" /> Nobody's seen it<span className="period-orange" aria-hidden="true" />
+          </motion.h2>
+          <motion.p
+            className="font-body text-lg text-text-dark/70 max-w-[60ch] leading-relaxed mb-6"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Most small businesses post the same promos as everyone else, and people scroll right past. Nobody sees the hands, the history, or the reason you opened the doors. A Freshr film does. It shows people who you are, so new customers feel like they know you before they ever walk in, and regulars have a reason to keep coming back.
+          </motion.p>
+          <motion.p
+            className="font-body text-sm text-muted italic"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Ads tell people to buy. A film shows them who you are.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ── How it brings people in ──────────────────────────── */}
+      <section data-nav-theme="light" className="section-light py-16 md:py-20 border-t border-text-dark/10">
+        <div className="max-w-screen-xl mx-auto px-6 md:px-10">
+          <motion.p
+            className="font-body text-xs uppercase tracking-widest text-muted mb-10"
+            variants={fadeUp}
+            initial={reduced ? false : 'hidden'}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            How It Brings People In
+          </motion.p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+            {[
+              { n: '01', body: 'Your film lives where people look you up: your website, your Google profile, your link in bio.' },
+              { n: '02', body: 'The vertical clips go where people scroll: Instagram, TikTok, Stories.' },
+              { n: '03', body: "New customers walk in already feeling like they know you. That's the difference." },
+            ].map(({ n, body }, i) => (
+              <motion.div
+                key={n}
+                className="flex flex-col gap-3"
+                variants={fadeUp}
+                initial={reduced ? false : 'hidden'}
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="font-display text-5xl leading-none" style={{ color: 'rgb(var(--rgb-accent))' }}>{n}</span>
+                <p className="font-body text-base text-text-dark/70 leading-relaxed">{body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Intro statement ──────────────────────────────────── */}
       <section ref={introRef} data-nav-theme="dark" className="relative section-dark py-28 md:py-40 overflow-hidden">
 
@@ -221,6 +303,7 @@ export default function Home() {
                 included={s.included}
                 upgradeLine={s.upgradeLine}
                 bestFor={s.bestFor}
+                whatFor={s.whatFor}
                 badge={s.title === 'First Frame' ? FIRST_FRAME_BADGE : undefined}
                 badgeHref={s.title === 'First Frame' ? '/founding' : undefined}
                 featured={s.title === 'First Frame'}

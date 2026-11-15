@@ -103,7 +103,7 @@ function ServiceModal({ title, tagline, description, included, upgradeLine, cta,
 export default function ServiceCard({
   title, tagline, description, included, upgradeLine,
   cta = 'Book this', ctaHref = '/contact',
-  bestFor, badge, badgeHref, featured = false,
+  bestFor, whatFor, badge, badgeHref, featured = false,
   index, onDark = true, image, video,
   id, initialOpen = false,
 }) {
@@ -153,6 +153,11 @@ export default function ServiceCard({
               {bestFor && (
                 <span className="font-body text-sm text-muted">
                   {bestFor}
+                </span>
+              )}
+              {whatFor && (
+                <span className="font-body text-sm text-muted/60 italic">
+                  {whatFor}
                 </span>
               )}
             </div>

@@ -78,7 +78,7 @@ export default function Services() {
           {/* Lane 1 */}
           <div className="pt-6 pb-2">
             <span className="inline-block font-body text-xs uppercase tracking-widest bg-[#0E0E0E] text-white px-2 py-0.5 mb-2">For businesses &amp; people</span>
-            <p className="font-body text-sm text-muted">Your story, told on camera.</p>
+            <p className="font-body text-sm text-muted">Ads tell people to buy. A film shows them who you are.</p>
           </div>
           {SERVICES.slice(0, 2).map((s, i) => (
             <ServiceCard
@@ -92,6 +92,7 @@ export default function Services() {
               included={s.included}
               upgradeLine={s.upgradeLine}
               bestFor={s.bestFor}
+              whatFor={s.whatFor}
               badge={s.title === 'First Frame' ? FIRST_FRAME_BADGE : undefined}
               badgeHref={s.title === 'First Frame' ? '/founding' : undefined}
               featured={s.title === 'First Frame'}
@@ -126,6 +127,7 @@ export default function Services() {
               included={s.included}
               upgradeLine={s.upgradeLine}
               bestFor={s.bestFor}
+              whatFor={s.whatFor}
               badge={undefined}
               featured={false}
               cta={s.cta}

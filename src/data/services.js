@@ -5,6 +5,7 @@ export const SERVICES = [
     title: 'First Frame',
     tagline: 'One day. One business. Camera woven throughout.',
     bestFor: 'Best for a shop, studio, or small business',
+    whatFor: 'Gives new customers a real reason to choose you over the place down the street.',
     description: [
       'One day. One business. We show up, observe, and capture you doing what you actually do. Questions woven in naturally while you work. No staged moments. Just you being real on camera.',
       'One session. One story. Done right.',
@@ -24,6 +25,7 @@ export const SERVICES = [
     title: 'Sit Down',
     tagline: 'Two days. One subject. The full interview portrait.',
     bestFor: 'Best for a founder or person with a story to tell',
+    whatFor: 'Puts a face and a voice to the person behind the business, the person people come back for.',
     description: [
       "Two days. One subject. Day one we capture your world — your space, the life of what you've built. Day two everything stops. Lights set up. Just you and the lens. We ask the questions nobody has ever asked you. The result is a portrait that feels documentary, not corporate.",
     ],
@@ -44,6 +46,7 @@ export const SERVICES = [
     title: 'The Reel',
     tagline: 'One night. Ninety seconds. The whole room.',
     bestFor: 'Best for parties, launches, and nights out',
+    whatFor: "Makes people who missed it wish they'd been there, so they show up next time.",
     description: [
       'Ninety seconds or less. The whole night.',
       'No interview. No narration. Just the energy of the room cut tight enough that you feel like you were there. The Reel is for the event that needs to be felt before the next one gets announced.',
