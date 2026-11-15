@@ -10,7 +10,7 @@ const fadeUp = {
 }
 
 export default function About() {
-  usePageTitle('The Story')
+  usePageTitle('Story')
   const reduced = useReducedMotion()
 
   return (
@@ -25,7 +25,7 @@ export default function About() {
             animate="show"
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            The <span className="whitespace-nowrap">Story<span className="period-orange" aria-hidden="true" style={{ marginLeft: '-0.02em' }} /></span>
+            <span className="whitespace-nowrap">Story<span className="period-orange" aria-hidden="true" style={{ marginLeft: '-0.02em' }} /></span>
           </motion.h1>
           <UnderlineBar />
         </div>
