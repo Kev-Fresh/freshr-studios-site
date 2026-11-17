@@ -1,3 +1,8 @@
+[[redirects]]
+  from = "/card"
+  to = "/founding?src=card"
+  status = 302
+
 [build]
   command = "npm run build"
   publish = "dist"

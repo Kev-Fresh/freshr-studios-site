@@ -1,3 +1,6 @@
 {
+  "redirects": [
+    { "source": "/card", "destination": "/founding?src=card", "permanent": false }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

@@ -1,6 +1,6 @@
 import { useForm, ValidationError } from '@formspree/react'
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import usePageTitle from '../hooks/usePageTitle'
 import UnderlineBar from '../components/UnderlineBar'
 import { FOUNDING_SPOTS_CLAIMED } from '../components/FoundingFive'
@@ -29,6 +29,8 @@ export default function Founding() {
   usePageTitle('Founding Five')
   const reduced = useReducedMotion()
   const [state, handleSubmit] = useForm('xwvzdprg')
+  const [searchParams] = useSearchParams()
+  const src = searchParams.get('src') || ''
 
   const open = TOTAL - FOUNDING_SPOTS_CLAIMED
   const full = open === 0
@@ -212,6 +214,7 @@ export default function Founding() {
                     >
                       <input type="hidden" name="offer" value="founding-five" />
                       <input type="hidden" name="_subject" value="[FOUNDING FIVE] New Founding Application" />
+                      {src && <input type="hidden" name="source" value={src} />}
 
                       {/* Name */}
                       <div className="flex flex-col gap-2">
